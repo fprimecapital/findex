@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="814" height="618" viewBox="0 0 814 618">
+  <defs>
+    <path id="prime-mark-black-bg-a" d="M887.222762,192 C881.240966,200.893864 506,810 506,810 L927.833484,810 C1057.51881,605.564661 1186.90505,401.808715 1320,192 L887.222762,192 Z"/>
+  </defs>
+  <use fill-rule="evenodd" transform="translate(-506 -192)" xlink:href="#prime-mark-black-bg-a"/>
+</svg>
