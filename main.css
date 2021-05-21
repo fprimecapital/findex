@@ -12,6 +12,10 @@
     margin-right: auto;
     width: 30%;
   }
+
+.nav-link{
+  color: black !important;
+  }
 /*change the size of the blurb based on the size of the webpage*/
 .blurb{
   display: block;
