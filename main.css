@@ -11,7 +11,7 @@
     margin-right: auto;
     width: 30%;
   }
-
+/*change the size of the blurb based on the size of the webpage*/
 .blurb{
   display: block;
   margin-left: auto;
