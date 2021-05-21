@@ -1,3 +1,4 @@
+/*CSS elements should be responsive to changes in the browsers size and window size (i.e. it should be mobile responsive)*/
 .center {
     display: block;
     margin-left: auto;
