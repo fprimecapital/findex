@@ -4,3 +4,22 @@
     margin-right: auto;
     width: 90%;
   }
+
+.blurb{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 90%;
+  color: white;
+  background-color: black;
+  text-align: center;
+  padding: 45px;
+  border-radius: 35px;
+}
+
+.overview{
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+  text-align: center;
+}
