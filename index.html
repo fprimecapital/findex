@@ -598,24 +598,6 @@ Table -->
 
 <img src='Screen Shot 2021-05-20 at 11.17.15 PM.png' width='1500px'/>
 
-<script type="text/javascript"charset="utf-8">
-    d3.text("Indexes.csv", function(data) {
-        var parsedCSV = d3.csv.parseRows(data);
-
-        var container = d3.select("body")
-            .append("table")
-
-            .selectAll("tr")
-                .data(parsedCSV).enter()
-                .append("tr")
-
-            .selectAll("td")
-                .data(function(d) { return d; }).enter()
-                .append("td")
-                .text(function(d) { return d; });
-    });
-</script>
-  
 </div>
 <br /><br /><br /><br /><br /><br /><br /><br /><br />
 
