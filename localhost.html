@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<!-- saved from url=(0022)http://localhost:8888/ -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<style> /* set the CSS */
+ 
+body { font: 12px Arial;}
+ 
+path { 
+  stroke: steelblue;
+  stroke-width: 2;
+  fill: none;
+}
+ 
+.axis path,
+.axis line {
+	fill: none;
+	stroke: grey;
+	stroke-width: 1;
+	shape-rendering: crispEdges;
+}
+ 
+</style>
+<link href="./localhost_files/css2" rel="stylesheet"></head><span id="warning-container"><i data-reactroot=""></i></span><body>
+ 
+<!-- load the d3.js library -->	
+<script src="./localhost_files/d3.min.js"></script>
+ 
+<script>
+ 
+// Set the dimensions of the canvas / graph
+var	margin = {top: 30, right: 20, bottom: 30, left: 50},
+	width = 600 - margin.left - margin.right,
+	height = 270 - margin.top - margin.bottom;
+ 
+// Parse the date / time
+var	parseDate = d3.time.format("%B %y").parse;
+ 
+// Set the ranges
+var	x = d3.time.scale().range([0, width]);
+var	y = d3.scale.linear().range([height, 0]);
+ 
+// Define the axes
+var	xAxis = d3.svg.axis().scale(x)
+	.orient("bottom").ticks(5);
+ 
+var	yAxis = d3.svg.axis().scale(y)
+	.orient("left").ticks(5);
+ 
+// Define the line
+var	valueline = d3.svg.line()
+	.x(function(d) { return x(d.Date); })
+	.y(function(d) { return y(d.NASDAQ); });
+    
+// Adds the svg canvas
+var	svg = d3.select("body")
+	.append("svg")
+		.attr("width", width + margin.left + margin.right)
+		.attr("height", height + margin.top + margin.bottom)
+	.append("g")
+		.attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+ 
+// Get the data
+d3.csv("FinTech.csv", function(error, data) {
+	data.forEach(function(d) {
+        d.Date = parseDate(d.Date);
+        d.NASDAQ = +d.NASDAQ;
+	});
+ 
+	// Scale the range of the data
+	x.domain(d3.extent(data, function(d) { return d.Date; }));
+	y.domain([0, d3.max(data, function(d) { return d.NASDAQ; })]);
+ 
+	// Add the valueline path.
+	svg.append("path")	
+		.attr("class", "line")
+		.attr("d", valueline(data));
+ 
+	// Add the X Axis
+	svg.append("g")		
+		.attr("class", "x axis")
+		.attr("transform", "translate(0," + height + ")")
+		.call(xAxis);
+ 
+	// Add the Y Axis
+	svg.append("g")		
+		.attr("class", "y axis")
+		.call(yAxis);
+ 
+});
+ 
+</script><svg width="600" height="270"><g transform="translate(50,30)"><path class="line" d="MNaN,132.22222222222223LNaN,132.22222222222223LNaN,132.22222222222223LNaN,140.00000000000003LNaN,132.22222222222223LNaN,132.22222222222223LNaN,132.22222222222223LNaN,124.44444444444444LNaN,124.44444444444444LNaN,116.66666666666667LNaN,108.8888888888889LNaN,108.8888888888889LNaN,101.11111111111111LNaN,101.11111111111111LNaN,93.33333333333336LNaN,85.55555555555556LNaN,101.11111111111111LNaN,85.55555555555556LNaN,77.7777777777778LNaN,85.55555555555556LNaN,70.00000000000001LNaN,85.55555555555556LNaN,46.666666666666664LNaN,31.111111111111132LNaN,7.777777777777789LNaN,0"></path><g class="x axis" transform="translate(0,210)"><path class="domain" d="M0,6V0H530V6"></path></g><g class="y axis"><g class="tick" transform="translate(0,210)" style="opacity: 1;"><line x2="-6" y2="0"></line><text dy=".32em" x="-9" y="0" style="text-anchor: end;">0.0</text></g><g class="tick" transform="translate(0,171.11111111111111)" style="opacity: 1;"><line x2="-6" y2="0"></line><text dy=".32em" x="-9" y="0" style="text-anchor: end;">0.5</text></g><g class="tick" transform="translate(0,132.22222222222223)" style="opacity: 1;"><line x2="-6" y2="0"></line><text dy=".32em" x="-9" y="0" style="text-anchor: end;">1.0</text></g><g class="tick" transform="translate(0,93.33333333333336)" style="opacity: 1;"><line x2="-6" y2="0"></line><text dy=".32em" x="-9" y="0" style="text-anchor: end;">1.5</text></g><g class="tick" transform="translate(0,54.44444444444445)" style="opacity: 1;"><line x2="-6" y2="0"></line><text dy=".32em" x="-9" y="0" style="text-anchor: end;">2.0</text></g><g class="tick" transform="translate(0,15.555555555555578)" style="opacity: 1;"><line x2="-6" y2="0"></line><text dy=".32em" x="-9" y="0" style="text-anchor: end;">2.5</text></g><path class="domain" d="M-6,0H0V210H-6"></path></g></g></svg>
+
+<div id="wot-new-assistant-container"><div data-reactroot=""></div></div></body></html>

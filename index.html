@@ -2,6 +2,8 @@
 <html lang="en">
 <head>
 <title>FinTech Index</title>
+<script src="https://d3js.org/d3.v4.js"></script>
+
 <meta charset="UTF-8">
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
 <link rel="stylesheet" href="main.css">
@@ -10,6 +12,8 @@
 background-repeat: no-repeat;
 background-size: cover;
 ">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.17/d3.min.js"></script>
+
 
 <div class='header'>
   <nav class="navbar navbar-light bg-light">
@@ -29,42 +33,147 @@ background-size: cover;
           <a class="nav-link" href="#">Company Performance</a>
         </li>
       </ul>
-    </div>
+    </div> 
     <br />
     <br />
   </nav>
 </div>
-<div style="background-image: url('prime-mark-black-bg.png')"
 
-<br />
-<br />
-<br />
-<div class='center'>
-<h2 class='market-performance-title'> <span class="badge bg-dark">The F-Prime FinTech Index Performance</h2>
+<div style="background-image: url('prime-mark-black-bg.png')">
+
+  <br /><br /><br />
+
+  <div class='center'>
+    <h2 class='market-performance-title'> <span class="badge bg-dark">The F-Prime FinTech Index Performance</h2>
+    </div> 
+
+    <br /><br /><br />
+
+  <script>
+ 
+    // Set the dimensions of the canvas / graph
+    var	margin = {top: 30, right: 50, bottom: 30, left: 50},
+      width = 1250 - margin.left - margin.right,
+      height = 600 - margin.top - margin.bottom;
+     
+    // Parse the date / time
+    var	parseDate = d3.time.format("%B %Y").parse;
+     
+    // Set the ranges
+    var	x = d3.time.scale().range([0, width]);
+    var	y = d3.scale.linear().range([height, 0]);
+     
+    // Define the axes
+    var	xAxis = d3.svg.axis().scale(x)
+      .orient("bottom").ticks(5);
+     
+    var	yAxis = d3.svg.axis().scale(y)
+      .orient("left").ticks(5);
+     
+    // Define the line
+    var	valueline = d3.svg.line()
+      .x(function(d) { return x(d.Date); })
+      .y(function(d) { return y(d.NASDAQ); });
+    
+    var	valueline2 = d3.svg.line()
+      .x(function(d) { return x(d.Date); })
+      .y(function(d) { return y(d.EMCLOUD); });
+    
+    var	valueline3 = d3.svg.line()
+      .x(function(d) { return x(d.Date); })
+      .y(function(d) { return y(d.SNP500); });
+    
+    var	valueline4 = d3.svg.line()
+      .x(function(d) { return x(d.Date); })
+      .y(function(d) { return y(d.Fintech); });
+    
+    var	valueline5 = d3.svg.line()
+      .x(function(d) { return x(d.Date); })
+      .y(function(d) { return y(d.FAANG); });
+    
+        
+    // Adds the svg canvas
+    var	svg = d3.select("body")
+      .append("svg")
+        .attr("width", width + margin.left + margin.right)
+        .attr("height", height + margin.top + margin.bottom)
+      .append("g")
+        .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+    
+     
+    // Get the data
+    d3.csv("FinTech.csv", function(error, data) {
+      data.forEach(function(d) {
+            d.Date = parseDate(d.Date);
+            d.NASDAQ = +d.NASDAQ;
+            d.EMCLOUD = +d.EMCLOUD;
+            d.SNP500 = +d.SNP500;
+            d.Fintech = +d.Fintech;
+            d.FAANG = +d.FAANG;
+    
+      });
+     
+      // Scale the range of the data
+      x.domain(d3.extent(data, function(d) { return d.Date; }));
+      y.domain([0, d3.max(data, function(d) { return Math.max(d.NASDAQ, d.EMCLOUD, d.FAANG, d.Fintech, d.SNP500); })]);
+     
+      // Add the valueline path.
+      svg.append("path")	
+        .attr("class", "line")
+        .attr("d", valueline(data));
+        
+        svg.append("path")	
+        .attr("class", "line")
+            .style("stroke", "gray")
+        .attr("d", valueline2(data));
+    
+        svg.append("path")	
+        .attr("class", "line")
+            .style("stroke", "purple")
+        .attr("d", valueline3(data));
+    
+        svg.append("path")	
+        .attr("class", "line")
+            .style("stroke", "green")
+        .attr("d", valueline4(data));
+    
+        svg.append("path")	
+        .attr("class", "line")
+            .style("stroke", "red")
+        .attr("d", valueline5(data));
+     
+      // Add the X Axis
+      svg.append("g")		
+        .attr("class", "x axis")
+        .attr("transform", "translate(0," + height + ")")
+        .call(xAxis);
+     
+      // Add the Y Axis
+      svg.append("g")		
+        .attr("class", "y axis")
+        .call(yAxis);
+        
+        svg.append("text")
+        .attr("transform", "translate(" + (width+2) + "," + y(data[0].NASDAQ) + ")")
+        .attr("dy", ".35em")
+        .attr("text-anchor", "NASDAQ")
+        .style("fill", "red")
+        .text("NASDAQ");
+    
+      svg.append("text")
+        .attr("transform", "translate(" + (width+2) + "," + y(data[0].EMCLOUD) + ")")
+        .attr("dy", ".35em")
+        .attr("text-anchor", "EMCLOUD")
+        .style("fill", "steelblue")
+        .text("EMCLOUD");
+     
+    });
+     
+    </script>
 </div>
-  
-  <br />
-  <br />
-  <br />
 
+<br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
 
-  <img src='Group 1.png' class="center" width="1500px"/>
-
-
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
 
 <table class="table table-dark table-bordered border-white">
   <thead>
