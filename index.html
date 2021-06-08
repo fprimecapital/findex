@@ -92,10 +92,10 @@ background-size: cover;
      
     // Define the axes
     var	xAxis = d3.svg.axis().scale(x)
-      .orient("bottom").ticks(10);
+      .orient("bottom").ticks(5);
      
     var	yAxis = d3.svg.axis().scale(y)
-      .orient("left").ticks(10);
+      .orient("left").ticks(5);
      
     // Define the line
     var	valueline = d3.svg.line()
@@ -181,18 +181,32 @@ background-size: cover;
         .call(yAxis);
         
         svg.append("text")
-        .attr("transform", "translate(" + (width+2) + "," + y(data[0].NASDAQ) + ")")
+        .attr("transform", "translate(" + (height+300) + "," + y(data[0].NASDAQ) + ")")
         .attr("dy", ".35em")
         .attr("text-anchor", "NASDAQ")
-        .style("fill", "red")
+        .style("fill", "blue")
         .text("NASDAQ");
+
+        svg.append("text")
+        .attr("transform", "translate(" + (height+500) + "," + y(data[0].Fintech) + ")")
+        .attr("dy", ".35em")
+        .attr("text-anchor", "FinTech")
+        .style("fill", "green")
+        .text("FinTech");
+
+        svg.append("text")
+        .attr("transform", "translate(" + (height+200) + "," + y(data[0].SNP500) + ")")
+        .attr("dy", ".35em")
+        .attr("text-anchor", "S&P 500")
+        .style("fill", "purple")
+        .text("S&P 500");
     
       svg.append("text")
-        .attr("transform", "translate(" + (width+2) + "," + y(data[0].EMCLOUD) + ")")
+        .attr("transform", "translate(" + (height+400) + "," + y(data[0].FAANG) + ")")
         .attr("dy", ".35em")
-        .attr("text-anchor", "EMCLOUD")
-        .style("fill", "steelblue")
-        .text("EMCLOUD");
+        .attr("text-anchor", "FAANG")
+        .style("fill", "red")
+        .text("FAANG");
      
     });
 
@@ -221,12 +235,7 @@ var svg = d3.select("body").transition();
 
 // Make the changess
 
-svg.select(".x.axis") // change the x axis
-        .duration(750)
-        .call(xAxis);
-    svg.select(".y.axis") // change the y axis
-        .duration(750)
-        .call(yAxis);
+
 
     svg.select(".line1")   // change the line
         .duration(750)
@@ -253,6 +262,13 @@ svg.select(".x.axis") // change the x axis
         .attr("class", "line3")
         .style("stroke", "red")
         .attr("d", valueline5(data));
+
+        svg.select(".x.axis") // change the x axis
+        .duration(750)
+        .call(xAxis);
+    svg.select(".y.axis") // change the y axis
+        .duration(750)
+        .call(yAxis);
 
 
 
@@ -274,7 +290,7 @@ function updateDataMonth() {
 
  // Scale the range of the data
  x.domain(d3.extent(data, function(d) { return d.Date; }));
- y.domain([0, d3.max(data, function(d) { return Math.max(d.NASDAQ, d.FAANG, d.Fintech, d.SNP500); })]);
+ y.domain([0, d3.max(data, function(d) { return Math.max(d.NASDAQ,d.FAANG, d.SNP500); })]);
 
      
 
@@ -282,13 +298,6 @@ function updateDataMonth() {
 var svg = d3.select("body").transition();
 
 // Make the changess
-
-svg.select(".x.axis") // change the x axis
-        .duration(750)
-        .call(xAxis);
-    svg.select(".y.axis") // change the y axis
-        .duration(750)
-        .call(yAxis);
 
     svg.select(".line1")   // change the line
         .duration(750)
@@ -316,10 +325,18 @@ svg.select(".x.axis") // change the x axis
         .style("stroke", "red")
         .attr("d", valueline5(data));
 
+        svg.select(".x.axis") // change the x axis
+        .duration(750)
+        .call(xAxis);
+    svg.select(".y.axis") // change the y axis
+        .duration(750)
+        .call(yAxis);
+
 
 
 });
 }
+
      
     </script>
 </div>
