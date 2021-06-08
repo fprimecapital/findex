@@ -53,24 +53,25 @@ background-size: cover;
     <br /><br /><br />
 
 <ul>
-    <div id="option">
+    <a id="option">
       <input name="updateButton" 
              type="button" 
-             value="Yearly"  />
-  </div>
+             value="Yearly"
+             onclick="updateYear()"  />
+    </a>
 
-    <div id="option">
+    <a id="option">
       <input name="updateButton" 
              type="button" 
              value="Weekly" 
              onclick="updateData()" />
-  </div>
-  <div id="option">
+    </a>
+  <a id="option">
     <input name="updateButton" 
            type="button" 
            value="Monthly" 
            onclick="updateDataMonth()" />
-</div>
+  </a>
 </ul>
 
   <script>
@@ -210,7 +211,68 @@ background-size: cover;
      
     });
 
+function updateYear(){
+  d3.csv("FinTech.csv", function(error, data) {
+      data.forEach(function(d) {
+          d.Date = parseDate(d.Date);
+          d.Fintech = +d.Fintech;
+          d.FAANG = +d.FAANG;
+          d.NASDAQ = +d.NASDAQ;
+          d.SNP500 = +d.SNP500;
+    
+      });
 
+
+ // Scale the range of the data
+ x.domain(d3.extent(data, function(d) { return d.Date; }));
+ y.domain([0, d3.max(data, function(d) { return Math.max(d.NASDAQ, d.FAANG, d.Fintech, d.SNP500); })]);
+
+     
+
+// Select the section we want to apply our changes to
+var svg = d3.select("body").transition();
+
+// Make the changess
+
+
+
+    svg.select(".line1")   // change the line
+        .duration(750)
+        .attr("class", "line1")
+        .style("stroke", "blue")
+        .attr("d", valueline(data));
+
+
+        svg.select(".line2")   // change the line
+        .duration(750)
+        .attr("class", "line2")
+        .style("stroke", "purple")
+        .attr("d", valueline3(data));
+
+        svg.select(".line3")   // change the line
+        .duration(750)
+        .attr("class", "line3")
+        .style("stroke", "green")
+        .attr("d", valueline4(data));
+
+
+        svg.select(".line4")   // change the line
+        .duration(750)
+        .attr("class", "line4")
+        .style("stroke", "red")
+        .attr("d", valueline5(data));
+
+        svg.select(".x.axis") // change the x axis
+        .duration(750)
+        .call(xAxis);
+    svg.select(".y.axis") // change the y axis
+        .duration(750)
+        .call(yAxis);
+
+
+
+});
+}
 // ** Update data section (Called from the onclick)
 function updateData() {
   d3.csv("Indexes.csv", function(error, data) {
@@ -259,7 +321,7 @@ var svg = d3.select("body").transition();
 
         svg.select(".line4")   // change the line
         .duration(750)
-        .attr("class", "line3")
+        .attr("class", "line4")
         .style("stroke", "red")
         .attr("d", valueline5(data));
 
@@ -321,7 +383,7 @@ var svg = d3.select("body").transition();
 
         svg.select(".line4")   // change the line
         .duration(750)
-        .attr("class", "line3")
+        .attr("class", "line4")
         .style("stroke", "red")
         .attr("d", valueline5(data));
 
