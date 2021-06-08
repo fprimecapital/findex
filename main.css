@@ -1,3 +1,4 @@
+/*CSS elements should be responsive to changes in the browsers size and window size (i.e. it should be mobile responsive)*/
 .center {
     display: block;
     margin-left: auto;
@@ -10,6 +11,10 @@
     margin-left: auto;
     margin-right: auto;
     width: 30%;
+  }
+
+.nav-link{
+  color: black !important;
   }
 /*change the size of the blurb based on the size of the webpage*/
 .blurb{
