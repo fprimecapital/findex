@@ -7,6 +7,31 @@
 <meta charset="UTF-8">
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
 <link rel="stylesheet" href="main.css">
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.17/d3.min.js"></script>
+<link href="css/bootstrap.min.css" rel="stylesheet">
+<script type="text/javascript" language="javascript" src="https://code.jquery.com/jquery-3.3.1.js"></script>
+<script type="text/javascript" language="javascript" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+<script type="text/javascript"charset="utf-8">
+  d3.text("FinTech_key_data_output.csv", function(data) {
+      var parsedCSV = d3.csv.parseRows(data);
+
+      var container = d3.select("body")
+          .append("table")
+
+          .selectAll("tr")
+              .data(parsedCSV).enter()
+              .append("tr")
+
+          .selectAll("td")
+              .data(function(d) { return d; }).enter()
+              .append("td")
+              .text(function(d) { return d; });
+
+        
+  });
+</script>
+
 </head>
 <body style="background-image: url('background.svg');
 background-repeat: no-repeat;
@@ -41,6 +66,19 @@ background-size: cover;
     <br />
   </nav>
 </div>
+
+  
+
+
+<div id="container">
+
+</div>
+
+
+
+
+
+
 
 <div style="background-image: url('prime-mark-black-bg.png')">
 
@@ -478,206 +516,18 @@ var svg = d3.select("body").transition();
 <br />
 <br />
 
+
+
+
 <div class="center"> 
 <div class='companies-performance'>
   <h2 class='market-performance-title'> <span class="badge bg-dark">All Companies</h2>
   </div>
   <br />
 <br />
-<!-- This table was commented out, currently using an image of the table from the mock-up as the placeholder, will see if we can use D3 to build an interactive table that we can embed>
-<!-- <table class="table table-striped w-primary">
-
-  <thead class="table-dark">
-    <tr>
-      <th>Company</th>
-      <th>Price</th>
-      <th>Market Cap</th>
-      <th>Revenue Growth Rate</th>
-      <th>Gross Margin</th>
-      <th>EV/Annualized Revenue</th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <tr class="table-primary">
-      <th scope="row">1</th>
-      <td>PayPal</td>
-      <td>Moss</td>
-      <td>USA</td>
-      <td>New York City</td>
-      <td>Web Designer</td>
-      <td>23</td>
-
-    </tr>
-    <tr class="table-light">
-      <th scope="row">2</th>
-      <td>Square</td>
-      <td>Wintour</td>
-      <td>United Kingdom</td>
-      <td>London</td>
-      <td>Frontend Developer</td>
-      <td>36</td>
-    </tr>
-    <tr class="table-primary">
-      <th scope="row">3</th>
-      <td>Shopify</td>
-      <td>Bond</td>
-      <td>Spain</td>
-      <td>Madrid</td>
-      <td>Photographer</td>
-      <td>25</td>
-    </tr>
-    <tr class="table-light">
-      <th scope="row">4</th>
-      <td>LendingClub</td>
-      <td>Horwitz</td>
-      <td>Italy</td>
-      <td>Bari</td>
-      <td>Editor-in-chief</td>
-      <td>41</td>
-    </tr>
-    <tr class="table-primary">
-      <th scope="row">5</th>
-      <td>Janis</td>
-      <td>Joplin</td>
-      <td>Poland</td>
-      <td>Warsaw</td>
-      <td>Video Maker</td>
-      <td>39</td>
-    </tr>
-    <tr class="table-light">
-      <th scope="row">6</th>
-      <td>Gary</td>
-      <td>Winogrand</td>
-      <td>Germany</td>
-      <td>Berlin</td>
-      <td>Photographer</td>
-      <td>37</td>
-    </tr>
-    <tr class="table-primary">
-      <th scope="row">7</th>
-      <td>Angie</td>
-      <td>Smith</td>
-      <td>USA</td>
-      <td>San Francisco</td>
-      <td>Teacher</td>
-      <td>52</td>
-    </tr>
-    <tr class="table-light">
-      <th scope="row">8</th>
-      <td>John</td>
-      <td>Mattis</td>
-      <td>France</td>
-      <td>Paris</td>
-      <td>Actor</td>
-      <td>28</td>
-    </tr>
-    <tr class="table-primary">
-      <th scope="row">9</th>
-      <td>Otto</td>
-      <td>Morris</td>
-      <td>Germany</td>
-      <td>Munich</td>
-      <td>Singer</td>
-      <td>35</td>
-    </tr>
-    <tr class="table-light">
-      <th scope="row">9</th>
-      <td>Otto</td>
-      <td>Morris</td>
-      <td>Germany</td>
-      <td>Munich</td>
-      <td>Singer</td>
-      <td>35</td>
-    </tr>
-    <tr class="table-primary">
-      <th scope="row">9</th>
-      <td>Otto</td>
-      <td>Morris</td>
-      <td>Germany</td>
-      <td>Munich</td>
-      <td>Singer</td>
-      <td>35</td>
-    </tr>
-    <tr class="table-light">
-      <th scope="row">9</th>
-      <td>Otto</td>
-      <td>Morris</td>
-      <td>Germany</td>
-      <td>Munich</td>
-      <td>Singer</td>
-      <td>35</td>
-    </tr>
-    <tr class="table-primary">
-      <th scope="row">9</th>
-      <td>Otto</td>
-      <td>Morris</td>
-      <td>Germany</td>
-      <td>Munich</td>
-      <td>Singer</td>
-      <td>35</td>
-    </tr>
-    <tr class="table-light">
-      <th scope="row">9</th>
-      <td>Otto</td>
-      <td>Morris</td>
-      <td>Germany</td>
-      <td>Munich</td>
-      <td>Singer</td>
-      <td>35</td>
-    </tr>
-    <tr class="table-primary">
-      <th scope="row">9</th>
-      <td>Otto</td>
-      <td>Morris</td>
-      <td>Germany</td>
-      <td>Munich</td>
-      <td>Singer</td>
-      <td>35</td>
-    </tr>
-    <tr class="table-light">
-      <th scope="row">9</th>
-      <td>Otto</td>
-      <td>Morris</td>
-      <td>Germany</td>
-      <td>Munich</td>
-      <td>Singer</td>
-      <td>35</td>
-    </tr>
-    <tr class="table-primary">
-      <th scope="row">9</th>
-      <td>Otto</td>
-      <td>Morris</td>
-      <td>Germany</td>
-      <td>Munich</td>
-      <td>Singer</td>
-      <td>35</td>
-    </tr>
-    <tr class="table-light">
-      <th scope="row">9</th>
-      <td>Otto</td>
-      <td>Morris</td>
-      <td>Germany</td>
-      <td>Munich</td>
-      <td>Singer</td>
-      <td>35</td>
-    </tr>
-    <tr class="table-primary">
-      <th scope="row">9</th>
-      <td>Otto</td>
-      <td>Morris</td>
-      <td>Germany</td>
-      <td>Munich</td>
-      <td>Singer</td>
-      <td>35</td>
-    </tr>
-  </tbody>
+</div>
 
 
-</table>
-Table -->
-
-<img src='Screen Shot 2021-05-20 at 11.17.15 PM.png' width='1500px'/>
 
 </div>
 <br /><br /><br /><br /><br /><br /><br /><br /><br />
