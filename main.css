@@ -1,5 +1,22 @@
-/*CSS elements should be responsive to changes in the browsers size and window size (i.e. it should be mobile responsive)*/
-.center {
+path { 
+    stroke: steelblue;
+    stroke-width: 2;
+    fill: none;
+  }
+   
+  .axis path,
+  .axis line {
+      fill: none;
+      stroke: grey;
+      stroke-width: 1;
+      shape-rendering: crispEdges;
+  }
+
+  h2{
+      width:80%
+  }
+
+  .center {
     display: block;
     margin-left: auto;
     margin-right: auto;
@@ -12,68 +29,9 @@
     margin-right: auto;
     width: 30%;
   }
+.all_options{
+    align-self: flex-end;
+    margin-left: 70%;
 
-.nav-link{
-  color: black !important;
-  }
-/*change the size of the blurb based on the size of the webpage*/
-.blurb{
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  width: 90%;
-  color: white;
-  background-color: black;
-  text-align: center;
-  padding: 45px;
-  border-radius: 35px;
+    
 }
-
-.overview{
-  margin-left: auto;
-  margin-right: auto;
-  width: 50%;
-  text-align: center;
-}
-
-body { 
-  font-family: 'MessinaSansWeb';
-}
-
-h1{
-  font-size: 90px;
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-path { 
-  stroke: steelblue;
-  stroke-width: 2;
-  fill: none;
-}
- 
-.axis path,
-.axis line {
-	fill: none;
-	stroke: grey;
-	stroke-width: 1;
-	shape-rendering: crispEdges;
-}
-
-@font-face {
-  font-family: 'MessinaSansWeb';
-  src:  url('MessinaSansWeb-Bold.woff2') format('woff2');
-        /* url('MessinaSansWeb-Book.woff2') format('woff2'),
-        url('MessinaSansWeb-Regular.woff2') format('woff2')
-        url('MessinaSansWeb-SemiBold.woff2') format('woff2')
-        url('NantesWeb-Light.woff2') format('woff2'),
-        url('NantesWeb-Regular.woff2') format('woff2'); */
-}
-
-
-
-
-
-
- 

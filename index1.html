@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>FinTech Index</title>
+<script src="https://d3js.org/d3.v4.js"></script>
+
+<meta charset="UTF-8">
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+<link rel="stylesheet" href="main.css">
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.17/d3.min.js"></script>
+<link href="css/bootstrap.min.css" rel="stylesheet">
+<script type="text/javascript" language="javascript" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+</head>
+<body style="background-image: url('background.svg');
+background-repeat: no-repeat;
+background-size: cover;
+">
+
+
+
+</div>
+
+
+<div class='header'>
+  <nav class="navbar navbar-light bg-light">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">
+        <br /> <img src="F-PrimeSig1A.png" alt="" width="200" height="30" >
+          <h3> FinTech Index </h3>
+      </a>
+      <ul class="nav justify-content-end">
+        <li class="nav-item">
+          <a class="nav-link" aria-current="page" href="#">Index</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#mark_perf">Market Performance</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#about">About</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#comp_perf">Company Performance</a>
+        </li>
+      </ul>
+    </div> 
+    <br />
+    <br />
+  </nav>
+</div>
+
+
+<script type="text/javascript"charset="utf-8">
+  d3.text("FinTech_key_data_output.csv", function(data) {
+      var parsedCSV = d3.csv.parseRows(data);
+
+      var finalTable = d3.select("body")
+          .append("table")
+
+          .selectAll("tr")
+              .data(parsedCSV).enter()
+              .append("tr")
+
+          .selectAll("td")
+              .data(function(d) { return d; }).enter()
+              .append("td")
+              .text(function(d) { return d; });
+
+        
+  });
+</script>
+
+
+
+<div style="background-image: url('prime-mark-black-bg.png')">
+
+  <br /><br /><br />
+
+  <div class='center'>
+    <h2 class='market-performance-title'> <span class="badge bg-dark">The F-Prime FinTech Index Performance</h2>
+    </div> 
+
+    <br /><br /><br />
+
+<ul>
+    <a id="option">
+      <input name="updateButton" 
+             type="button" 
+             value="Yearly"
+             onclick="updateYear()"  />
+    </a>
+
+    <a id="option">
+      <input name="updateButton" 
+             type="button" 
+             value="Weekly" 
+             onclick="updateData()" />
+    </a>
+  <a id="option">
+    <input name="updateButton" 
+           type="button" 
+           value="Monthly" 
+           onclick="updateDataMonth()" />
+  </a>
+</ul>
+
+  <script>
+ 
+    // Set the dimensions of the canvas / graph
+    var	margin = {top: 30, right: 50, bottom: 30, left: 50},
+      width = 1250 - margin.left - margin.right,
+      height = 600 - margin.top - margin.bottom;
+     
+    // Parse the date / time
+    var	parseDate = d3.time.format("%B %Y").parse;
+
+    var	parseDate2 = d3.time.format("%Y-%m-%d").parse;
+
+     
+    // Set the ranges
+    var	x = d3.time.scale().range([0, width]);
+    var	y = d3.scale.linear().range([height, 0]);
+     
+    // Define the axes
+    var	xAxis = d3.svg.axis().scale(x)
+      .orient("bottom").ticks(5);
+     
+    var	yAxis = d3.svg.axis().scale(y)
+      .orient("left").ticks(5);
+     
+    // Define the line
+    var	valueline = d3.svg.line()
+      .x(function(d) { return x(d.Date); })
+      .y(function(d) { return y(d.NASDAQ); });
+    
+    var	valueline2 = d3.svg.line()
+      .x(function(d) { return x(d.Date); })
+      .y(function(d) { return y(d.EMCLOUD); });
+    
+    var	valueline3 = d3.svg.line()
+      .x(function(d) { return x(d.Date); })
+      .y(function(d) { return y(d.SNP500); });
+    
+    var	valueline4 = d3.svg.line()
+      .x(function(d) { return x(d.Date); })
+      .y(function(d) { return y(d.Fintech); });
+    
+    var	valueline5 = d3.svg.line()
+      .x(function(d) { return x(d.Date); })
+      .y(function(d) { return y(d.FAANG); });
+    
+        
+    // Adds the svg canvas
+    var	svg = d3.select("body")
+      .append("svg")
+        .attr("width", width + margin.left + margin.right)
+        .attr("height", height + margin.top + margin.bottom)
+      .append("g")
+        .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+    
+     
+    // Get the data
+    d3.csv("FinTech.csv", function(error, data) {
+      data.forEach(function(d) {
+            d.Date = parseDate(d.Date);
+            d.NASDAQ = +d.NASDAQ;
+            // d.EMCLOUD = +d.EMCLOUD;
+            d.SNP500 = +d.SNP500;
+            d.Fintech = +d.Fintech;
+            d.FAANG = +d.FAANG;
+    
+      });
+     
+      // Scale the range of the data
+      x.domain(d3.extent(data, function(d) { return d.Date; }));
+      y.domain([0, d3.max(data, function(d) { return Math.max(d.NASDAQ, d.EMCLOUD, d.FAANG, d.Fintech, d.SNP500); })]);
+     
+      // Add the valueline path.
+      svg.append("path")	
+        .attr("class", "line1")
+        .attr("d", valueline(data));
+        
+        // svg.append("path")	
+        // .attr("class", "line")
+        //     .style("stroke", "gray")
+        // .attr("d", valueline2(data));
+    
+        svg.append("path")	
+        .attr("class", "line2")
+            .style("stroke", "purple")
+        .attr("d", valueline3(data));
+    
+        svg.append("path")	
+        .attr("class", "line3")
+            .style("stroke", "green")
+        .attr("d", valueline4(data));
+    
+        svg.append("path")	
+        .attr("class", "line4")
+            .style("stroke", "red")
+        .attr("d", valueline5(data));
+     
+      // Add the X Axis
+      svg.append("g")		
+        .attr("class", "x axis")
+        .attr("transform", "translate(0," + height + ")")
+        .call(xAxis);
+     
+      // Add the Y Axis
+      svg.append("g")		
+        .attr("class", "y axis")
+        .call(yAxis);
+        
+        svg.append("text")
+        .attr("transform", "translate(" + (height+300) + "," + y(data[0].NASDAQ) + ")")
+        .attr("dy", ".35em")
+        .attr("text-anchor", "NASDAQ")
+        .style("fill", "blue")
+        .text("NASDAQ");
+
+        svg.append("text")
+        .attr("transform", "translate(" + (height+500) + "," + y(data[0].Fintech) + ")")
+        .attr("dy", ".35em")
+        .attr("text-anchor", "FinTech")
+        .style("fill", "green")
+        .text("FinTech");
+
+        svg.append("text")
+        .attr("transform", "translate(" + (height+200) + "," + y(data[0].SNP500) + ")")
+        .attr("dy", ".35em")
+        .attr("text-anchor", "S&P 500")
+        .style("fill", "purple")
+        .text("S&P 500");
+    
+      svg.append("text")
+        .attr("transform", "translate(" + (height+400) + "," + y(data[0].FAANG) + ")")
+        .attr("dy", ".35em")
+        .attr("text-anchor", "FAANG")
+        .style("fill", "red")
+        .text("FAANG");
+     
+    });
+
+function updateYear(){
+  d3.csv("FinTech.csv", function(error, data) {
+      data.forEach(function(d) {
+          d.Date = parseDate(d.Date);
+          d.Fintech = +d.Fintech;
+          d.FAANG = +d.FAANG;
+          d.NASDAQ = +d.NASDAQ;
+          d.SNP500 = +d.SNP500;
+    
+      });
+
+
+ // Scale the range of the data
+ x.domain(d3.extent(data, function(d) { return d.Date; }));
+ y.domain([0, d3.max(data, function(d) { return Math.max(d.NASDAQ, d.FAANG, d.Fintech, d.SNP500); })]);
+
+     
+
+// Select the section we want to apply our changes to
+var svg = d3.select("body").transition();
+
+// Make the changess
+
+
+
+    svg.select(".line1")   // change the line
+        .duration(750)
+        .attr("class", "line1")
+        .style("stroke", "blue")
+        .attr("d", valueline(data));
+
+
+        svg.select(".line2")   // change the line
+        .duration(750)
+        .attr("class", "line2")
+        .style("stroke", "purple")
+        .attr("d", valueline3(data));
+
+        svg.select(".line3")   // change the line
+        .duration(750)
+        .attr("class", "line3")
+        .style("stroke", "green")
+        .attr("d", valueline4(data));
+
+
+        svg.select(".line4")   // change the line
+        .duration(750)
+        .attr("class", "line4")
+        .style("stroke", "red")
+        .attr("d", valueline5(data));
+
+        svg.select(".x.axis") // change the x axis
+        .duration(750)
+        .call(xAxis);
+    svg.select(".y.axis") // change the y axis
+        .duration(750)
+        .call(yAxis);
+
+
+
+});
+}
+// ** Update data section (Called from the onclick)
+function updateData() {
+  d3.csv("Indexes.csv", function(error, data) {
+      data.forEach(function(d) {
+          d.Date = parseDate2(d.Date);
+          d.Fintech = +d.Fintech;
+          d.FAANG = +d.FAANG;
+          d.NASDAQ = +d.NASDAQ;
+          d.SNP500 = +d.SNP500;
+    
+      });
+
+
+ // Scale the range of the data
+ x.domain(d3.extent(data, function(d) { return d.Date; }));
+ y.domain([0, d3.max(data, function(d) { return Math.max(d.NASDAQ, d.FAANG, d.Fintech, d.SNP500); })]);
+
+     
+
+// Select the section we want to apply our changes to
+var svg = d3.select("body").transition();
+
+// Make the changess
+
+
+
+    svg.select(".line1")   // change the line
+        .duration(750)
+        .attr("class", "line1")
+        .style("stroke", "blue")
+        .attr("d", valueline(data));
+
+
+        svg.select(".line2")   // change the line
+        .duration(750)
+        .attr("class", "line2")
+        .style("stroke", "purple")
+        .attr("d", valueline3(data));
+
+        svg.select(".line3")   // change the line
+        .duration(750)
+        .attr("class", "line3")
+        .style("stroke", "green")
+        .attr("d", valueline4(data));
+
+
+        svg.select(".line4")   // change the line
+        .duration(750)
+        .attr("class", "line4")
+        .style("stroke", "red")
+        .attr("d", valueline5(data));
+
+        svg.select(".x.axis") // change the x axis
+        .duration(750)
+        .call(xAxis);
+    svg.select(".y.axis") // change the y axis
+        .duration(750)
+        .call(yAxis);
+
+
+
+});
+}
+
+
+function updateDataMonth() {
+  d3.csv("IndexesMonth.csv", function(error, data) {
+      data.forEach(function(d) {
+          d.Date = parseDate2(d.Date);
+          d.Fintech = +d.Fintech;
+          d.FAANG = +d.FAANG;
+          d.NASDAQ = +d.NASDAQ;
+          d.SNP500 = +d.SNP500;
+    
+      });
+
+
+ // Scale the range of the data
+ x.domain(d3.extent(data, function(d) { return d.Date; }));
+ y.domain([0, d3.max(data, function(d) { return Math.max(d.NASDAQ,d.FAANG, d.SNP500); })]);
+
+     
+
+// Select the section we want to apply our changes to
+var svg = d3.select("body").transition();
+
+// Make the changess
+
+    svg.select(".line1")   // change the line
+        .duration(750)
+        .attr("class", "line1")
+        .style("stroke", "blue")
+        .attr("d", valueline(data));
+
+
+        svg.select(".line2")   // change the line
+        .duration(750)
+        .attr("class", "line2")
+        .style("stroke", "purple")
+        .attr("d", valueline3(data));
+
+        svg.select(".line3")   // change the line
+        .duration(750)
+        .attr("class", "line3")
+        .style("stroke", "green")
+        .attr("d", valueline4(data));
+
+
+        svg.select(".line4")   // change the line
+        .duration(750)
+        .attr("class", "line4")
+        .style("stroke", "red")
+        .attr("d", valueline5(data));
+
+        svg.select(".x.axis") // change the x axis
+        .duration(750)
+        .call(xAxis);
+    svg.select(".y.axis") // change the y axis
+        .duration(750)
+        .call(yAxis);
+
+
+
+});
+}
+
+     
+    </script>
+</div>
+
+<br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+
+<div class='statistics'>
+<table class="table table-dark table-bordered border-white">
+  <thead>
+    <tr>
+      <td class="table-dark table-bordered border-white"> <br /> <br /><br /> <br /> <br /> <br /> 
+        <div class='overview'> TOTAL MARKET CAP <h1> 740B</h1> </div>
+        <br /> <br /> <br /> <br /> <br /> </td>
+      <td class="table-dark table-bordered border-white"> <br /> <br /><br /> <br /> <br /> <br /> 
+        <div class='overview'> AVERAGE MARKET CAP <h1>13B</h1> </div>
+        <br /> <br /> <br /> <br /> <br /></td>
+      <td class="table-dark table-bordered border-white"> <br /> <br /><br /> <br /> <br /> <br /> 
+        <div class='overview'> AVERAGE REVENUE MULTIPLE <h1> 21.4x</h1> </div>
+        <br /> <br /> <br /> <br /> <br /></td>
+      <td class="table-dark table-bordered border-white"> <br /> <br /><br /> <br /> <br /> <br /> 
+        <div class='overview'> AVERAGE REVENUE GROWTH RATE <h1> 41.6%</h1>  </div>
+        <br /> <br /> <br /> <br /> <br /></td>
+    </tr>
+  </thead>
+</table>
+<p>The F-Prime Fintech Index (“Findex”) is designed to track the performance of emerging, publicly traded financial technology companies. </p>
+
+</div>
+</div>
+</div>
+
+
+
+<div class='market-performance'>
+  <div class='market-performance-title'> </div>
+  <div class='market-performance-charte'></div>
+</div>
+
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<div id='about'>
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<h2 class='market-performance-title'> <span class="badge bg-dark">Future IPO's</h2>
+  <br />
+  <br />
+<h2 class='blurb'>The F-Prime FinTech Index is designed to track the performance of emerging, publicly traded financial technology companies.
+
+ <br />
+ <br />
+
+  F-Prime Capital and our global sister funds, Eight Roads Ventures, have one of the largest FinTech portfolios in venture capital. We have been at the investing in financial technology companies over the past five decades.</h2>
+
+
+  
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+</div>
+
+<p id="finalTable"></p>
+
+<br />
+<br />
+<br />
+
+<div id="comp_perf"> 
+<br />
+<br />
+<br />
+
+
+
+
+
+<div class="center"> 
+<div class='companies-performance'>
+  <h2 class='market-performance-title'> <span class="badge bg-dark">All Companies</h2>
+  </div>
+  <br />
+<br />
+</div>
+
+
+
+</div>
+<div class="footer__row">
+  <div class="footer__legal">
+    <ul class="footer__list footer__list--inline">
+      <li class="footer__list-item">© 2021</li>
+                  <li class="footer__list-item">
+          <a class="footer__legal-link" href="https://fprimecapital.com/terms-use" target="_self">Terms of Use</a>
+        </li>
+                  <li class="footer__list-item">
+          <a class="footer__legal-link" href="https://fprimecapital.com/privacy-policy" target="_self">Privacy Policy</a>
+        </li>
+                  <li class="footer__list-item">
+          <a class="footer__legal-link" href="http://eepurl.com/gbQlsL" target="_blank">Stay in Touch</a>
+        </li>
+              </ul>
+    <p class="footer__advisory">The information on these pages is intended solely for the benefit of entrepreneurs seeking venture capital investments. F-Prime is not offering investment advisory services nor is it offering to sell securities. F‑Prime provides advisory services as Impresa Management LLC. The list of portfolio companies includes investments made by Fidelity Ventures and Eight Roads. FBRI is an affiliate of F‑Prime and a subsidiary of FMR LLC.</p>
+  </div>
+</div>
+
+</div>
+</div>
+
+
+
+</body>
+</html>
