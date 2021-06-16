@@ -2,12 +2,13 @@
 <html lang="en">
   <head>
     <!-- Global site tag (gtag.js) - Google Analytics -->
+    <!-- CSS only -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.17/d3.min.js"></script>
-<link href="scss/bootstrap.min.css" rel="stylesheet">
-<link rel="stylesheet" href="main.css">
-<script type="text/javascript" language="javascript" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+<!-- <link href="scss/bootstrap.min.css" rel="stylesheet"> -->
+<!-- <script type="text/javascript" language="javascript" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script> -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-75271964-1"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
@@ -35,8 +36,92 @@ img.emoji {
 	margin: 0 .07em !important;
 	vertical-align: -0.1em !important;
 	background: none !important;
-	padding: 0 !important;
+  padding: 0 !important;
 }
+
+
+
+#keywords {
+  margin: 0 auto;
+  font-size: 1.2em;
+  margin-bottom: 15px;
+}
+
+
+#keywords thead {
+  cursor: pointer;
+  background: #c9dff0;
+}
+#keywords thead tr th { 
+  font-weight: bold;
+  padding: 12px 30px;
+  padding-left: 42px;
+}
+#keywords thead tr th span { 
+  padding-right: 20px;
+  background-repeat: no-repeat;
+  background-position: 100% 100%;
+}
+
+#keywords thead tr th.headerSortUp, #keywords thead tr th.headerSortDown {
+  background: #007cba;
+}
+
+#keywords thead tr th.headerSortUp span {
+  background-image: url('https://i.imgur.com/SP99ZPJ.png');
+}
+#keywords thead tr th.headerSortDown span {
+  background-image: url('https://i.imgur.com/RkA9MBo.png');
+}
+
+
+#keywords tbody tr { 
+  color: #555;
+}
+#keywords tbody tr td {
+  text-align: center;
+  padding: 15px 10px;
+}
+#keywords tbody tr td.lalign {
+  text-align: left;
+}
+
+path { 
+    stroke-width: 2;
+    fill: none;
+  }
+   
+  .axis path,
+  .axis line {
+      fill: none;
+      stroke-width: 1;
+      shape-rendering: crispEdges;
+  }
+
+  h2{
+      width:80%
+  }
+
+  .center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 90%;
+  }
+
+.centerlogo {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 30%;
+  }
+.all_options{
+    align-self: flex-end;
+    margin-left: 70%;
+
+    
+}
+
 </style>
 	<link rel="stylesheet" id="wp-block-library-css" href="../wp-includes/css/dist/block-library/style.min_ver%3D5.6.css" type="text/css" media="all">
 <link rel="stylesheet" id="fprime_styles-css" href="../wp-content/themes/f-prime-wp-theme/static/build/css/screen_ver%3D1.2.2.css" type="text/css" media="all">
@@ -607,7 +692,7 @@ var svg = d3.select("body").transition();
      
     </script>
 
-<script type="text/javascript"charset="utf-8">
+<!-- <script type="text/javascript"charset="utf-8">
     d3.text("FinTech_key_data_output.csv", function(data) {
         var parsedCSV = d3.csv.parseRows(data);
   
@@ -625,7 +710,7 @@ var svg = d3.select("body").transition();
   
           
     });
-  </script>
+  </script> -->
 
     
 
@@ -714,6 +799,190 @@ var svg = d3.select("body").transition();
 <br />
 <br />
 </div>
+
+
+
+
+<table id="keywords" cellspacing="0" cellpadding="0">
+  <thead>
+    <tr>
+      <th><span>Company</span></th>
+      <th><span>Ticker</span></th>
+      <th><span>Price</span></th>
+      <th><span>Market Cap</span></th>
+      <th><span>Revenue Growth</span></th>
+      <th><span>Growth Margin</span></th>
+      <th><span>EV/Annualized Revenue</span></th>
+
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td class="lalign">Paypal</td>
+      <td>PYPL</td>
+      <td>271.9	</td>
+      <td>323.0B</td>
+      <td>20.72</td>
+      <td>46.62</td>
+      <td>3.8</td>
+    </tr>
+    <tr>
+      <td class="lalign">Square</td>
+      <td>SQ</td>
+      <td>223.05</td>
+      <td>105.2B</td>
+      <td>101.5</td>
+      <td>28.9</td>
+      <td>7.6</td>
+    </tr>
+    <tr>
+      <td class="lalign">Shopify</td>
+      <td>SHOP</td>
+      <td>1247.0	</td>
+      <td>163.5B</td>
+      <td>85.63</td>
+      <td>52.62</td>
+      <td>43.0</td>
+    </tr>
+    <tr>
+      <td class="lalign">Global Payments</td>
+      <td>GPN</td>
+      <td>193.5	</td>
+      <td>56.7B</td>
+      <td>51.13</td>
+      <td>52.28</td>
+      <td>8.7</td>
+    </tr>
+    <tr>
+      <td class="lalign">Cardtronics</td>
+      <td>CATM</td>
+      <td>38.97	</td>
+      <td>1.8B</td>
+      <td>11.72</td>
+      <td>38.5</td>
+      <td>2.3</td>
+    </tr><tr>
+      <td class="lalign">Greendot</td>
+      <td>GDOT</td>
+      <td>45.65	</td>
+      <td>2.6B</td>
+      <td>13.67</td>
+      <td>100.0</td>
+      <td>-0.2</td>
+    </tr><tr>
+      <td class="lalign">Blackline</td>
+      <td>BL</td>
+      <td>106.13</td>
+      <td>6.2B	</td>
+      <td>21.72</td>
+      <td>80.39</td>
+      <td>16.6</td>
+    </tr><tr>
+      <td class="lalign">Adyen</td>
+      <td>ADYEY</td>
+      <td>46.8925					</td>
+      <td>71.3B</td>
+      <td>37.06</td>
+      <td>13.83</td>
+      <td>18.7</td>
+    </tr><tr>
+      <td class="lalign">Stone</td>
+      <td>STNE</td>
+      <td>	63.12					</td>
+      <td>19.8B</td>
+      <td>33.04</td>
+      <td>76.22</td>
+      <td>4.4</td>
+    </tr><tr>
+      <td class="lalign">Lemonade</td>
+      <td>LMND</td>
+      <td>106.5					</td>
+      <td>6.4B</td>
+      <td>40.27</td>
+      <td>42.06</td>
+      <td>58.3</td>
+    </tr><tr>
+      <td class="lalign">Root Insurance</td>
+      <td>ROOT</td>
+      <td>	11.76		</td>
+      <td>3.0B</td>
+      <td>19.5</td>
+      <td>-4.61</td>
+      <td>7.1</td>
+    </tr><tr>
+      <td class="lalign">Affirm</td>
+      <td>AFRM</td>
+      <td>68.26					</td>
+      <td>17.7B</td>
+      <td>92.74</td>
+      <td>31.57</td>
+      <td>24.3</td>
+    </tr><tr>
+      <td class="lalign">Intuit</td>
+      <td>INTU</td>
+      <td>472.33					</td>
+      <td>130.6B</td>
+      <td>13.19</td>
+      <td>82.34</td>
+      <td>14.1</td>
+    </tr><tr>
+      <td class="lalign">OpenDoor</td>
+      <td>OPEN</td>
+      <td>17.51	</td>
+      <td>10.1B</td>
+      <td>83.52</td>
+      <td>8.58</td>
+      <td>4.0</td>
+    </tr>
+  </tr><tr>
+    <td class="lalign">nCino</td>
+    <td>NCNO</td>
+    <td>64.49					</td>
+    <td>6.0B</td>
+    <td>47.85</td>
+    <td>56.86</td>
+    <td>25.6</td>
+  </tr>
+</tr><tr>
+  <td class="lalign">Bill.com</td>
+  <td>BILL</td>
+  <td>	157.72	</td>
+  <td>12.9B</td>
+  <td>45.45</td>
+  <td>75.16</td>
+  <td>61.3</td>
+</tr>
+</tr><tr>
+  <td class="lalign">Upstart</td>
+  <td>UPST</td>
+  <td>	120.26		</td>
+  <td>9.5B	</td>
+  <td>26.63	</td>
+  <td>84.43	</td>
+  <td>32.0</td>
+</tr>
+</tr><tr>
+  <td class="lalign">Guideware</td>
+  <td>GWRE</td>
+  <td>110.92	</td>
+  <td>9.5B</td>
+  <td>3.17</td>
+  <td>54.46.0</td>
+  <td>10.2</td>
+</tr>
+    
+  </tbody>
+</table>
+
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br /> <br /> <br /> <br />
 
 
 
