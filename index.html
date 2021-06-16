@@ -5,8 +5,8 @@
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.17/d3.min.js"></script>
-<link href="css/bootstrap.min.css" rel="stylesheet">
-<link rel="stylesheet" href="main.css">
+<link href="findex-test/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="findex-test/main.css">
 <script type="text/javascript" language="javascript" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-75271964-1"></script>
     <script>
@@ -136,6 +136,7 @@ img.emoji {
   </g>
 </svg>
 
+
 <h3>Fintech Index</h3>
         </a>
         <ul class="nav__list">
@@ -240,6 +241,8 @@ img.emoji {
 </div>    </div>
   </header>
 </div>
+
+
 
      
 
@@ -604,6 +607,28 @@ var svg = d3.select("body").transition();
      
     </script>
 
+<script type="text/javascript"charset="utf-8">
+    d3.text("FinTech_key_data_output.csv", function(data) {
+        var parsedCSV = d3.csv.parseRows(data);
+  
+        var finalTable = d3.select("body")
+            .append("table")
+  
+            .selectAll("tr")
+                .data(parsedCSV).enter()
+                .append("tr")
+  
+            .selectAll("td")
+                .data(function(d) { return d; }).enter()
+                .append("td")
+                .text(function(d) { return d; });
+  
+          
+    });
+  </script>
+
+    
+
 </div>
 
 
@@ -666,6 +691,7 @@ var svg = d3.select("body").transition();
     </div>
     </div>
 
+    <p id="finalTable"></p>
 
 
     <br />
@@ -673,7 +699,7 @@ var svg = d3.select("body").transition();
 <br />
 
 
-<h2 class='market-performance-title'> <span class="badge bg-dark">Future IPO's</h2>
+<h2 class='home__header-title'> Future IPO's</h2>
 
   <img src="companies.png" alt="Girl in a jacket" width="500" height="600">
 
@@ -689,28 +715,9 @@ var svg = d3.select("body").transition();
 <br />
 </div>
 
-<script type="text/javascript"charset="utf-8">
-    d3.text("FinTech_key_data_output.csv", function(data) {
-        var parsedCSV = d3.csv.parseRows(data);
-  
-        var finalTable = d3.select("body")
-            .append("table")
-  
-            .selectAll("tr")
-                .data(parsedCSV).enter()
-                .append("tr")
-  
-            .selectAll("td")
-                .data(function(d) { return d; }).enter()
-                .append("td")
-                .text(function(d) { return d; });
-  
-          
-    });
-  </script>
 
 
-<p id="finalTable"></p>
+
 
     
 
