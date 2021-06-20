@@ -3,6 +3,20 @@
   <head>
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <!-- CSS only -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="jquery-csv.js"></script>
+
+    <script src="sorttable.js"></script>
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.25/css/jquery.dataTables.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.js"></script>
+
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
@@ -125,7 +139,96 @@ path {
 h6{
   color:black
 }
+table {
+      width: 100%;
+      border-collapse: collapse;
+    }
 
+    /* Zebra striping */
+    tr:nth-of-type(odd) {
+      background: #eee;
+    }
+    th {
+      background: #333;
+      color: white;
+      font-weight: bold;
+      cursor: s-resize;
+      background-repeat: no-repeat;
+      background-position: 3% center;
+    }
+    td, th {
+      padding: 6px;
+      border: 1px solid #ccc;
+      text-align: left;
+    }
+    th.des:after {
+      content: "\21E9";
+    }
+    th.aes:after {
+      content: "\21E7";
+    }
+
+    /*
+	  Max width before this PARTICULAR table gets nasty
+	  This query will take effect for any screen smaller than 760px
+	  and also iPads specifically.
+	  */
+    @media only screen and (max-width: 760px),
+    (min-device-width: 768px) and (max-device-width: 1024px) {
+      /* Force table to not be like tables anymore */
+      table, thead, tbody, th, td, tr {
+        display: block;
+      }
+      /* Hide table headers (but not display: none;, for accessibility) */
+      thead tr {
+        position: absolute;
+        top: -9999px;
+        left: -9999px;
+      }
+      tr {
+        border: 1px solid #ccc;
+      }
+      td {
+        /* Behave  like a "row" */
+        border: none;
+        border-bottom: 1px solid #eee;
+        position: relative;
+        padding-left: 50%;
+      }
+      td:before {
+        /* Now like a table header */
+        position: absolute;
+        /* Top/left values mimic padding */
+        top: 6px;
+        left: 6px;
+        width: 45%;
+        padding-right: 10px;
+        white-space: nowrap;
+      }
+      /* Label the data */
+      td:before {
+        content: attr(data-th) ": ";
+        font-weight: bold;
+        width: 6.5em;
+        display: inline-block;
+      }
+    }
+
+    /* Smartphones (portrait and landscape) ----------- */
+    @media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
+      body {
+        padding: 0;
+        margin: 0;
+        width: 320px;
+      }
+    }
+
+    /* iPads (portrait and landscape) ----------- */
+    @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) {
+      body {
+        width: 495px;
+      }
+    }
 </style>
 	<link rel="stylesheet" id="wp-block-library-css" href="../wp-includes/css/dist/block-library/style.min_ver%3D5.6.css" type="text/css" media="all">
 <link rel="stylesheet" id="fprime_styles-css" href="../wp-content/themes/f-prime-wp-theme/static/build/css/screen_ver%3D1.2.2.css" type="text/css" media="all">
@@ -333,390 +436,641 @@ h6{
   </header>
 </div>
 
-
-
-     
-
-    <!-- <main class="main"> -->
-      <div id="center" class="center">
-          <!-- Header -->
-   
-        <ul>
-            <a class='home__header-title'>Index</a>
-            <div class='all_options'>
-            <a class="option">
-              <input name="updateButton" 
-                     type="button" 
-                     value="Yearly"
-                     onclick="updateYear()"
-                     class='base-button'  />
-            </a>
-        
-            <a class="option">
-              <input name="updateButton" 
-                     type="button" 
-                     value="Weekly" 
-                     onclick="updateData()"
-                     class='base-button' />
-            </a>
-          <a class="option">
-            <input name="updateButton" 
-                   type="button" 
-                   value="Monthly" 
-                   onclick="updateDataMonth()"
-                   class='base-button' />
-          </a>
-        </div>
-        </ul>
-        
-
 <script>
-         
-    // Set the dimensions of the canvas / graph
-    var	margin = {top: 30, right: 50, bottom: 30, left: 50},
-      width = 1250 - margin.left - margin.right,
-      height = 600 - margin.top - margin.bottom;
-     
-    // Parse the date / time
-    var	parseDate = d3.time.format("%B %Y").parse;
 
-    var	parseDate2 = d3.time.format("%Y-%m-%d").parse;
+arrayData = Papa.parse('Indexes.csv', config)
 
-     
-    // Set the ranges
-    var	x = d3.time.scale().range([0, width]);
-    var	y = d3.scale.linear().range([height, 0]);
-     
-    // Define the axes
-    var	xAxis = d3.svg.axis().scale(x)
-      .orient("bottom").ticks(5);
-     
-    var	yAxis = d3.svg.axis().scale(y)
-      .orient("left").ticks(5);
-     
-    // Define the line
-    var	valueline = d3.svg.line()
-      .x(function(d) { return x(d.Date); })
-      .y(function(d) { return y(d.NASDAQ); });
-    
-    var	valueline2 = d3.svg.line()
-      .x(function(d) { return x(d.Date); })
-      .y(function(d) { return y(d.EMCLOUD); });
-    
-    var	valueline3 = d3.svg.line()
-      .x(function(d) { return x(d.Date); })
-      .y(function(d) { return y(d.SNP500); });
-    
-    var	valueline4 = d3.svg.line()
-      .x(function(d) { return x(d.Date); })
-      .y(function(d) { return y(d.Fintech); });
-    
-    var	valueline5 = d3.svg.line()
-      .x(function(d) { return x(d.Date); })
-      .y(function(d) { return y(d.FAANG); });
-    
-        
-    // Adds the svg canvas
-    var	svg = d3.select("body")
-      .append("svg")
-        .attr("width", width + margin.left + margin.right)
-        .attr("height", height + margin.top + margin.bottom)
-      .append("g")
-        .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
-    
-     
-    // Get the data
-    d3.csv("FinTech.csv", function(error, data) {
-      data.forEach(function(d) {
-            d.Date = parseDate(d.Date);
-            d.NASDAQ = +d.NASDAQ;
-            // d.EMCLOUD = +d.EMCLOUD;
-            d.SNP500 = +d.SNP500;
-            d.Fintech = +d.Fintech;
-            d.FAANG = +d.FAANG;
-    
-      });
-     
-      // Scale the range of the data
-      x.domain(d3.extent(data, function(d) { return d.Date; }));
-      y.domain([0, d3.max(data, function(d) { return Math.max(d.NASDAQ, d.EMCLOUD, d.FAANG, d.Fintech, d.SNP500); })]);
-     
-      // Add the valueline path.
-      svg.append("path")	
-        .attr("class", "line1")
-        .attr("d", valueline(data));
-        
-        // svg.append("path")	
-        // .attr("class", "line")
-        //     .style("stroke", "gray")
-        // .attr("d", valueline2(data));
-    
-        svg.append("path")	
-        .attr("class", "line2")
-            .style("stroke", "purple")
-        .attr("d", valueline3(data));
-    
-        svg.append("path")	
-        .attr("class", "line3")
-            .style("stroke", "green")
-        .attr("d", valueline4(data));
-    
-        svg.append("path")	
-        .attr("class", "line4")
-            .style("stroke", "red")
-        .attr("d", valueline5(data));
-     
-      // Add the X Axis
-      svg.append("g")		
-        .attr("class", "x axis")
-        .attr("transform", "translate(0," + height + ")")
-        .call(xAxis);
-     
-      // Add the Y Axis
-      svg.append("g")		
-        .attr("class", "y axis")
-        .call(yAxis);
-        
-        svg.append("text")
-        .attr("transform", "translate(" + (height+300) + "," + y(data[0].NASDAQ) + ")")
-        .attr("dy", ".35em")
-        .attr("text-anchor", "NASDAQ")
-        .style("fill", "blue")
-        .text("NASDAQ");
+console.log(arrayData);
 
-        svg.append("text")
-        .attr("transform", "translate(" + (height+500) + "," + y(data[0].Fintech) + ")")
-        .attr("dy", ".35em")
-        .attr("text-anchor", "FinTech")
-        .style("fill", "green")
-        .text("FinTech");
+  var myData = "date	FinTech	FAANG	NASDAQ\n\
+  2015-01-02	1.0	1.0	1.0	1.0\n\
+2015-01-05	0.9792696999361339	0.9727014685267303	0.9842937978351753\n\
+2015-01-06	0.9606340557283989	0.9578068543242759	0.9716362996276952\n\
+2015-01-07	0.9674588800393403	0.963202468062444	0.9838496062241369\n\
+2015-01-08	0.9891394701193349	0.9820368882393243	1.0019844001972211\n\
+";
 
-        svg.append("text")
-        .attr("transform", "translate(" + (height+200) + "," + y(data[0].SNP500) + ")")
-        .attr("dy", ".35em")
-        .attr("text-anchor", "S&P 500")
-        .style("fill", "purple")
-        .text("S&P 500");
-    
-      svg.append("text")
-        .attr("transform", "translate(" + (height+400) + "," + y(data[0].FAANG) + ")")
-        .attr("dy", ".35em")
-        .attr("text-anchor", "FAANG")
-        .style("fill", "red")
-        .text("FAANG");
-     
+  var margin = {
+      top: 20,
+      right: 80,
+      bottom: 30,
+      left: 50
+    },
+    width = 900 - margin.left - margin.right,
+    height = 500 - margin.top - margin.bottom;
+
+  var parseDate = d3.time.format("%Y-%m-%d").parse;
+
+  var x = d3.time.scale()
+    .range([0, width]);
+
+  var y = d3.scale.linear()
+    .range([height, 0]);
+
+  var color = d3.scale.category10();
+
+  var xAxis = d3.svg.axis()
+    .scale(x)
+    .orient("bottom");
+
+  var yAxis = d3.svg.axis()
+    .scale(y)
+    .orient("left");
+
+  var line = d3.svg.line()
+    .interpolate("basis")
+    .x(function(d) {
+      return x(d.date);
+    })
+    .y(function(d) {
+      return y(d.temperature);
     });
 
-function updateYear(){
-  d3.csv("FinTech.csv", function(error, data) {
-      data.forEach(function(d) {
-          d.Date = parseDate(d.Date);
-          d.Fintech = +d.Fintech;
-          d.FAANG = +d.FAANG;
-          d.NASDAQ = +d.NASDAQ;
-          d.SNP500 = +d.SNP500;
-    
+  var svg = d3.select("body").append("svg")
+    .attr("width", width + margin.left + margin.right)
+    .attr("height", height + margin.top + margin.bottom)
+    .append("g")
+    .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+  var data = d3.tsv.parse(myData);
+
+  color.domain(d3.keys(data[0]).filter(function(key) {
+    return key !== "date";
+  }));
+
+  data.forEach(function(d) {
+    d.date = parseDate(d.date);
+  });
+
+  var cities = color.domain().map(function(name) {
+    return {
+      name: name,
+      values: data.map(function(d) {
+        return {
+          date: d.date,
+          temperature: +d[name]
+        };
+      })
+    };
+  });
+
+  x.domain(d3.extent(data, function(d) {
+    return d.date;
+  }));
+
+  y.domain([
+    d3.min(cities, function(c) {
+      return d3.min(c.values, function(v) {
+        return v.temperature;
       });
-
-
- // Scale the range of the data
- x.domain(d3.extent(data, function(d) { return d.Date; }));
- y.domain([0, d3.max(data, function(d) { return Math.max(d.NASDAQ, d.FAANG, d.Fintech, d.SNP500); })]);
-
-     
-
-// Select the section we want to apply our changes to
-var svg = d3.select("body").transition();
-
-// Make the changess
-
-
-
-    svg.select(".line1")   // change the line
-        .duration(750)
-        .attr("class", "line1")
-        .style("stroke", "blue")
-        .attr("d", valueline(data));
-
-
-        svg.select(".line2")   // change the line
-        .duration(750)
-        .attr("class", "line2")
-        .style("stroke", "purple")
-        .attr("d", valueline3(data));
-
-        svg.select(".line3")   // change the line
-        .duration(750)
-        .attr("class", "line3")
-        .style("stroke", "green")
-        .attr("d", valueline4(data));
-
-
-        svg.select(".line4")   // change the line
-        .duration(750)
-        .attr("class", "line4")
-        .style("stroke", "red")
-        .attr("d", valueline5(data));
-
-        svg.select(".x.axis") // change the x axis
-        .duration(750)
-        .call(xAxis);
-    svg.select(".y.axis") // change the y axis
-        .duration(750)
-        .call(yAxis);
-
-
-
-});
-}
-// ** Update data section (Called from the onclick)
-function updateData() {
-  d3.csv("Indexes.csv", function(error, data) {
-      data.forEach(function(d) {
-          d.Date = parseDate2(d.Date);
-          d.Fintech = +d.Fintech;
-          d.FAANG = +d.FAANG;
-          d.NASDAQ = +d.NASDAQ;
-          d.SNP500 = +d.SNP500;
-    
+    }),
+    d3.max(cities, function(c) {
+      return d3.max(c.values, function(v) {
+        return v.temperature;
       });
+    })
+  ]);
 
+  var legend = svg.selectAll('g')
+    .data(cities)
+    .enter()
+    .append('g')
+    .attr('class', 'legend');
 
- // Scale the range of the data
- x.domain(d3.extent(data, function(d) { return d.Date; }));
- y.domain([0, d3.max(data, function(d) { return Math.max(d.NASDAQ, d.FAANG, d.Fintech, d.SNP500); })]);
+  legend.append('rect')
+    .attr('x', width - 20)
+    .attr('y', function(d, i) {
+      return i * 20;
+    })
+    .attr('width', 10)
+    .attr('height', 10)
+    .style('fill', function(d) {
+      return color(d.name);
+    });
 
-     
+  legend.append('text')
+    .attr('x', width - 8)
+    .attr('y', function(d, i) {
+      return (i * 20) + 9;
+    })
+    .text(function(d) {
+      return d.name;
+    });
 
-// Select the section we want to apply our changes to
-var svg = d3.select("body").transition();
+  svg.append("g")
+    .attr("class", "x axis")
+    .attr("transform", "translate(0," + height + ")")
+    .call(xAxis);
 
-// Make the changess
+  svg.append("g")
+    .attr("class", "y axis")
+    .call(yAxis)
+    .append("text")
+    .attr("transform", "rotate(-90)")
+    .attr("y", 6)
+    .attr("dy", ".71em")
+    .style("text-anchor", "end")
+    .text("Temperature (ºF)");
 
+  var city = svg.selectAll(".city")
+    .data(cities)
+    .enter().append("g")
+    .attr("class", "city");
 
+  city.append("path")
+    .attr("class", "line")
+    .attr("d", function(d) {
+      return line(d.values);
+    })
+    .style("stroke", function(d) {
+      return color(d.name);
+    });
 
-    svg.select(".line1")   // change the line
-        .duration(750)
-        .attr("class", "line1")
-        .style("stroke", "blue")
-        .attr("d", valueline(data));
+  city.append("text")
+    .datum(function(d) {
+      return {
+        name: d.name,
+        value: d.values[d.values.length - 1]
+      };
+    })
+    .attr("transform", function(d) {
+      return "translate(" + x(d.value.date) + "," + y(d.value.temperature) + ")";
+    })
+    .attr("x", 3)
+    .attr("dy", ".35em")
+    .text(function(d) {
+      return d.name;
+    });
 
+  var mouseG = svg.append("g")
+    .attr("class", "mouse-over-effects");
 
-        svg.select(".line2")   // change the line
-        .duration(750)
-        .attr("class", "line2")
-        .style("stroke", "purple")
-        .attr("d", valueline3(data));
-
-        svg.select(".line3")   // change the line
-        .duration(750)
-        .attr("class", "line3")
-        .style("stroke", "green")
-        .attr("d", valueline4(data));
-
-
-        svg.select(".line4")   // change the line
-        .duration(750)
-        .attr("class", "line4")
-        .style("stroke", "red")
-        .attr("d", valueline5(data));
-
-        svg.select(".x.axis") // change the x axis
-        .duration(750)
-        .call(xAxis);
-    svg.select(".y.axis") // change the y axis
-        .duration(750)
-        .call(yAxis);
-
-
-
-});
-}
-
-
-function updateDataMonth() {
-  d3.csv("IndexesMonth.csv", function(error, data) {
-      data.forEach(function(d) {
-          d.Date = parseDate2(d.Date);
-          d.Fintech = +d.Fintech;
-          d.FAANG = +d.FAANG;
-          d.NASDAQ = +d.NASDAQ;
-          d.SNP500 = +d.SNP500;
+  mouseG.append("path") // this is the black vertical line to follow mouse
+    .attr("class", "mouse-line")
+    .style("stroke", "black")
+    .style("stroke-width", "1px")
+    .style("opacity", "0");
     
-      });
+  var lines = document.getElementsByClassName('line');
 
+  var mousePerLine = mouseG.selectAll('.mouse-per-line')
+    .data(cities)
+    .enter()
+    .append("g")
+    .attr("class", "mouse-per-line");
 
- // Scale the range of the data
- x.domain(d3.extent(data, function(d) { return d.Date; }));
- y.domain([0, d3.max(data, function(d) { return Math.max(d.NASDAQ,d.FAANG, d.SNP500); })]);
+  mousePerLine.append("circle")
+    .attr("r", 7)
+    .style("stroke", function(d) {
+      return color(d.name);
+    })
+    .style("fill", "none")
+    .style("stroke-width", "1px")
+    .style("opacity", "0");
 
-     
+  mousePerLine.append("text")
+    .attr("transform", "translate(10,3)");
 
-// Select the section we want to apply our changes to
-var svg = d3.select("body").transition();
+  mouseG.append('svg:rect') // append a rect to catch mouse movements on canvas
+    .attr('width', width) // can't catch mouse events on a g element
+    .attr('height', height)
+    .attr('fill', 'none')
+    .attr('pointer-events', 'all')
+    .on('mouseout', function() { // on mouse out hide line, circles and text
+      d3.select(".mouse-line")
+        .style("opacity", "0");
+      d3.selectAll(".mouse-per-line circle")
+        .style("opacity", "0");
+      d3.selectAll(".mouse-per-line text")
+        .style("opacity", "0");
+    })
+    .on('mouseover', function() { // on mouse in show line, circles and text
+      d3.select(".mouse-line")
+        .style("opacity", "1");
+      d3.selectAll(".mouse-per-line circle")
+        .style("opacity", "1");
+      d3.selectAll(".mouse-per-line text")
+        .style("opacity", "1");
+    })
+    .on('mousemove', function() { // mouse moving over canvas
+      var mouse = d3.mouse(this);
+      d3.select(".mouse-line")
+        .attr("d", function() {
+          var d = "M" + mouse[0] + "," + height;
+          d += " " + mouse[0] + "," + 0;
+          return d;
+        });
 
-// Make the changess
-
-    svg.select(".line1")   // change the line
-        .duration(750)
-        .attr("class", "line1")
-        .style("stroke", "blue")
-        .attr("d", valueline(data));
-
-
-        svg.select(".line2")   // change the line
-        .duration(750)
-        .attr("class", "line2")
-        .style("stroke", "purple")
-        .attr("d", valueline3(data));
-
-        svg.select(".line3")   // change the line
-        .duration(750)
-        .attr("class", "line3")
-        .style("stroke", "green")
-        .attr("d", valueline4(data));
-
-
-        svg.select(".line4")   // change the line
-        .duration(750)
-        .attr("class", "line4")
-        .style("stroke", "red")
-        .attr("d", valueline5(data));
-
-        svg.select(".x.axis") // change the x axis
-        .duration(750)
-        .call(xAxis);
-    svg.select(".y.axis") // change the y axis
-        .duration(750)
-        .call(yAxis);
-
-
-
-});
-}
-
-     
-    </script>
-
-<!-- <script type="text/javascript"charset="utf-8">
-    d3.text("FinTech_key_data_output.csv", function(data) {
-        var parsedCSV = d3.csv.parseRows(data);
-  
-        var finalTable = d3.select("body")
-            .append("table")
-  
-            .selectAll("tr")
-                .data(parsedCSV).enter()
-                .append("tr")
-  
-            .selectAll("td")
-                .data(function(d) { return d; }).enter()
-                .append("td")
-                .text(function(d) { return d; });
-  
+      d3.selectAll(".mouse-per-line")
+        .attr("transform", function(d, i) {
+          console.log(width/mouse[0])
+          var xDate = x.invert(mouse[0]),
+              bisect = d3.bisector(function(d) { return d.date; }).right;
+              idx = bisect(d.values, xDate);
           
+          var beginning = 0,
+              end = lines[i].getTotalLength(),
+              target = null;
+
+          while (true){
+            target = Math.floor((beginning + end) / 2);
+            pos = lines[i].getPointAtLength(target);
+            if ((target === end || target === beginning) && pos.x !== mouse[0]) {
+                break;
+            }
+            if (pos.x > mouse[0])      end = target;
+            else if (pos.x < mouse[0]) beginning = target;
+            else break; //position found
+          }
+          
+          d3.select(this).select('text')
+            .text(y.invert(pos.y).toFixed(2));
+            
+          return "translate(" + mouse[0] + "," + pos.y +")";
+        });
     });
-  </script> -->
+    
+</script>  
+
+<script type="text/javascript" src="https://d3js.org/d3.v4.min.js"></script>
+<script type="text/javascript">
+  d3.csv("FinTech_key_data_output.csv", function (error, data) {
+    if (error) throw error;
+
+    var sortAscending = true;
+    var table = d3.select('#page-wrap').append('table');
+    var titles = d3.keys(data[0]);
+    var headers = table.append('thead').append('tr')
+      .selectAll('th')
+      .data(titles).enter()
+      .append('th')
+      .text(function (d) {
+        return d;
+      })
+      .on('click', function (d) {
+        headers.attr('class', 'header');
+
+        if (sortAscending) {
+          rows.sort(function (a, b) { return b[d] < a[d]; });
+          sortAscending = false;
+          this.className = 'aes';
+        } else {
+          rows.sort(function (a, b) { return b[d] > a[d]; });
+          sortAscending = true;
+          this.className = 'des';
+        }
+      });
+
+    var rows = table.append('tbody').selectAll('tr')
+      .data(data).enter()
+      .append('tr');
+    rows.selectAll('td')
+      .data(function (d) {
+        return titles.map(function (k) {
+          return { 'value': d[k], 'name': k };
+        });
+      }).enter()
+      .append('td')
+      .attr('data-th', function (d) {
+        return d.name;
+      })
+      .text(function (d) {
+        return d.value;
+      });
+  });
+</script>
+
+// <!-- <script>
+         
+//     // Set the dimensions of the canvas / graph
+//     var	margin = {top: 30, right: 50, bottom: 30, left: 50},
+//       width = 1250 - margin.left - margin.right,
+//       height = 600 - margin.top - margin.bottom;
+     
+//     // Parse the date / time
+//     var	parseDate = d3.time.format("%B %Y").parse;
+
+//     var	parseDate2 = d3.time.format("%Y-%m-%d").parse;
+
+     
+//     // Set the ranges
+//     var	x = d3.time.scale().range([0, width]);
+//     var	y = d3.scale.linear().range([height, 0]);
+     
+//     // Define the axes
+//     var	xAxis = d3.svg.axis().scale(x)
+//       .orient("bottom").ticks(5);
+     
+//     var	yAxis = d3.svg.axis().scale(y)
+//       .orient("left").ticks(5);
+     
+//     // Define the line
+//     var	valueline = d3.svg.line()
+//       .x(function(d) { return x(d.Date); })
+//       .y(function(d) { return y(d.NASDAQ); });
+    
+//     var	valueline2 = d3.svg.line()
+//       .x(function(d) { return x(d.Date); })
+//       .y(function(d) { return y(d.EMCLOUD); });
+    
+//     var	valueline3 = d3.svg.line()
+//       .x(function(d) { return x(d.Date); })
+//       .y(function(d) { return y(d.SNP500); });
+    
+//     var	valueline4 = d3.svg.line()
+//       .x(function(d) { return x(d.Date); })
+//       .y(function(d) { return y(d.Fintech); });
+    
+//     var	valueline5 = d3.svg.line()
+//       .x(function(d) { return x(d.Date); })
+//       .y(function(d) { return y(d.FAANG); });
+    
+        
+//     // Adds the svg canvas
+//     var	svg = d3.select("body")
+//       .append("svg")
+//         .attr("width", width + margin.left + margin.right)
+//         .attr("height", height + margin.top + margin.bottom)
+//       .append("g")
+//         .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+    
+     
+//     // Get the data
+//     d3.csv("FinTech.csv", function(error, data) {
+//       data.forEach(function(d) {
+//             d.Date = parseDate(d.Date);
+//             d.NASDAQ = +d.NASDAQ;
+//             // d.EMCLOUD = +d.EMCLOUD;
+//             d.SNP500 = +d.SNP500;
+//             d.Fintech = +d.Fintech;
+//             d.FAANG = +d.FAANG;
+    
+//       });
+     
+//       // Scale the range of the data
+//       x.domain(d3.extent(data, function(d) { return d.Date; }));
+//       y.domain([0, d3.max(data, function(d) { return Math.max(d.NASDAQ, d.EMCLOUD, d.FAANG, d.Fintech, d.SNP500); })]);
+     
+//       // Add the valueline path.
+//       svg.append("path")	
+//         .attr("class", "line1")
+//         .attr("d", valueline(data));
+        
+//         // svg.append("path")	
+//         // .attr("class", "line")
+//         //     .style("stroke", "gray")
+//         // .attr("d", valueline2(data));
+    
+//         svg.append("path")	
+//         .attr("class", "line2")
+//             .style("stroke", "purple")
+//         .attr("d", valueline3(data));
+    
+//         svg.append("path")	
+//         .attr("class", "line3")
+//             .style("stroke", "green")
+//         .attr("d", valueline4(data));
+    
+//         svg.append("path")	
+//         .attr("class", "line4")
+//             .style("stroke", "red")
+//         .attr("d", valueline5(data));
+     
+//       // Add the X Axis
+//       svg.append("g")		
+//         .attr("class", "x axis")
+//         .attr("transform", "translate(0," + height + ")")
+//         .call(xAxis);
+     
+//       // Add the Y Axis
+//       svg.append("g")		
+//         .attr("class", "y axis")
+//         .call(yAxis);
+        
+//         svg.append("text")
+//         .attr("transform", "translate(" + (height+300) + "," + y(data[0].NASDAQ) + ")")
+//         .attr("dy", ".35em")
+//         .attr("text-anchor", "NASDAQ")
+//         .style("fill", "blue")
+//         .text("NASDAQ");
+
+//         svg.append("text")
+//         .attr("transform", "translate(" + (height+500) + "," + y(data[0].Fintech) + ")")
+//         .attr("dy", ".35em")
+//         .attr("text-anchor", "FinTech")
+//         .style("fill", "green")
+//         .text("FinTech");
+
+//         svg.append("text")
+//         .attr("transform", "translate(" + (height+200) + "," + y(data[0].SNP500) + ")")
+//         .attr("dy", ".35em")
+//         .attr("text-anchor", "S&P 500")
+//         .style("fill", "purple")
+//         .text("S&P 500");
+    
+//       svg.append("text")
+//         .attr("transform", "translate(" + (height+400) + "," + y(data[0].FAANG) + ")")
+//         .attr("dy", ".35em")
+//         .attr("text-anchor", "FAANG")
+//         .style("fill", "red")
+//         .text("FAANG");
+     
+//     });
+
+// function updateYear(){
+//   d3.csv("FinTech.csv", function(error, data) {
+//       data.forEach(function(d) {
+//           d.Date = parseDate(d.Date);
+//           d.Fintech = +d.Fintech;
+//           d.FAANG = +d.FAANG;
+//           d.NASDAQ = +d.NASDAQ;
+//           d.SNP500 = +d.SNP500;
+    
+//       });
+
+
+//  // Scale the range of the data
+//  x.domain(d3.extent(data, function(d) { return d.Date; }));
+//  y.domain([0, d3.max(data, function(d) { return Math.max(d.NASDAQ, d.FAANG, d.Fintech, d.SNP500); })]);
+
+     
+
+// // Select the section we want to apply our changes to
+// var svg = d3.select("body").transition();
+
+// // Make the changess
+
+
+
+//     svg.select(".line1")   // change the line
+//         .duration(750)
+//         .attr("class", "line1")
+//         .style("stroke", "blue")
+//         .attr("d", valueline(data));
+
+
+//         svg.select(".line2")   // change the line
+//         .duration(750)
+//         .attr("class", "line2")
+//         .style("stroke", "purple")
+//         .attr("d", valueline3(data));
+
+//         svg.select(".line3")   // change the line
+//         .duration(750)
+//         .attr("class", "line3")
+//         .style("stroke", "green")
+//         .attr("d", valueline4(data));
+
+
+//         svg.select(".line4")   // change the line
+//         .duration(750)
+//         .attr("class", "line4")
+//         .style("stroke", "red")
+//         .attr("d", valueline5(data));
+
+//         svg.select(".x.axis") // change the x axis
+//         .duration(750)
+//         .call(xAxis);
+//     svg.select(".y.axis") // change the y axis
+//         .duration(750)
+//         .call(yAxis);
+
+
+
+// });
+// }
+// // ** Update data section (Called from the onclick)
+// function updateData() {
+//   d3.csv("Indexes.csv", function(error, data) {
+//       data.forEach(function(d) {
+//           d.Date = parseDate2(d.Date);
+//           d.Fintech = +d.Fintech;
+//           d.FAANG = +d.FAANG;
+//           d.NASDAQ = +d.NASDAQ;
+//           d.SNP500 = +d.SNP500;
+    
+//       });
+
+
+//  // Scale the range of the data
+//  x.domain(d3.extent(data, function(d) { return d.Date; }));
+//  y.domain([0, d3.max(data, function(d) { return Math.max(d.NASDAQ, d.FAANG, d.Fintech, d.SNP500); })]);
+
+     
+
+// // Select the section we want to apply our changes to
+// var svg = d3.select("body").transition();
+
+// // Make the changess
+
+
+
+//     svg.select(".line1")   // change the line
+//         .duration(750)
+//         .attr("class", "line1")
+//         .style("stroke", "blue")
+//         .attr("d", valueline(data));
+
+
+//         svg.select(".line2")   // change the line
+//         .duration(750)
+//         .attr("class", "line2")
+//         .style("stroke", "purple")
+//         .attr("d", valueline3(data));
+
+//         svg.select(".line3")   // change the line
+//         .duration(750)
+//         .attr("class", "line3")
+//         .style("stroke", "green")
+//         .attr("d", valueline4(data));
+
+
+//         svg.select(".line4")   // change the line
+//         .duration(750)
+//         .attr("class", "line4")
+//         .style("stroke", "red")
+//         .attr("d", valueline5(data));
+
+//         svg.select(".x.axis") // change the x axis
+//         .duration(750)
+//         .call(xAxis);
+//     svg.select(".y.axis") // change the y axis
+//         .duration(750)
+//         .call(yAxis);
+
+
+
+// });
+// }
+
+
+// function updateDataMonth() {
+//   d3.csv("IndexesMonth.csv", function(error, data) {
+//       data.forEach(function(d) {
+//           d.Date = parseDate2(d.Date);
+//           d.Fintech = +d.Fintech;
+//           d.FAANG = +d.FAANG;
+//           d.NASDAQ = +d.NASDAQ;
+//           d.SNP500 = +d.SNP500;
+    
+//       });
+
+
+//  // Scale the range of the data
+//  x.domain(d3.extent(data, function(d) { return d.Date; }));
+//  y.domain([0, d3.max(data, function(d) { return Math.max(d.NASDAQ,d.FAANG, d.SNP500); })]);
+
+     
+
+// // Select the section we want to apply our changes to
+// var svg = d3.select("body").transition();
+
+// // Make the changess
+
+//     svg.select(".line1")   // change the line
+//         .duration(750)
+//         .attr("class", "line1")
+//         .style("stroke", "blue")
+//         .attr("d", valueline(data));
+
+
+//         svg.select(".line2")   // change the line
+//         .duration(750)
+//         .attr("class", "line2")
+//         .style("stroke", "purple")
+//         .attr("d", valueline3(data));
+
+//         svg.select(".line3")   // change the line
+//         .duration(750)
+//         .attr("class", "line3")
+//         .style("stroke", "green")
+//         .attr("d", valueline4(data));
+
+
+//         svg.select(".line4")   // change the line
+//         .duration(750)
+//         .attr("class", "line4")
+//         .style("stroke", "red")
+//         .attr("d", valueline5(data));
+
+//         svg.select(".x.axis") // change the x axis
+//         .duration(750)
+//         .call(xAxis);
+//     svg.select(".y.axis") // change the y axis
+//         .duration(750)
+//         .call(yAxis);
+
+
+
+// });
+// }
+
+     
+//     </script> -->
+
+
+
+  
 
     
 
@@ -809,176 +1163,7 @@ var svg = d3.select("body").transition();
 
 
 
-<table id="keywords" cellspacing="0" cellpadding="0">
-  <thead>
-    <tr>
-      <th><span>Company</span></th>
-      <th><span>Ticker</span></th>
-      <th><span>Price</span></th>
-      <th><span>Market Cap</span></th>
-      <th><span>Revenue Growth</span></th>
-      <th><span>Growth Margin</span></th>
-      <th><span>EV/Annualized Revenue</span></th>
 
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td class="lalign">Paypal</td>
-      <td>PYPL</td>
-      <td>271.9	</td>
-      <td>323.0B</td>
-      <td>20.72</td>
-      <td>46.62</td>
-      <td>3.8</td>
-    </tr>
-    <tr>
-      <td class="lalign">Square</td>
-      <td>SQ</td>
-      <td>223.05</td>
-      <td>105.2B</td>
-      <td>101.5</td>
-      <td>28.9</td>
-      <td>7.6</td>
-    </tr>
-    <tr>
-      <td class="lalign">Shopify</td>
-      <td>SHOP</td>
-      <td>1247.0	</td>
-      <td>163.5B</td>
-      <td>85.63</td>
-      <td>52.62</td>
-      <td>43.0</td>
-    </tr>
-    <tr>
-      <td class="lalign">Global Payments</td>
-      <td>GPN</td>
-      <td>193.5	</td>
-      <td>56.7B</td>
-      <td>51.13</td>
-      <td>52.28</td>
-      <td>8.7</td>
-    </tr>
-    <tr>
-      <td class="lalign">Cardtronics</td>
-      <td>CATM</td>
-      <td>38.97	</td>
-      <td>1.8B</td>
-      <td>11.72</td>
-      <td>38.5</td>
-      <td>2.3</td>
-    </tr><tr>
-      <td class="lalign">Greendot</td>
-      <td>GDOT</td>
-      <td>45.65	</td>
-      <td>2.6B</td>
-      <td>13.67</td>
-      <td>100.0</td>
-      <td>-0.2</td>
-    </tr><tr>
-      <td class="lalign">Blackline</td>
-      <td>BL</td>
-      <td>106.13</td>
-      <td>6.2B	</td>
-      <td>21.72</td>
-      <td>80.39</td>
-      <td>16.6</td>
-    </tr><tr>
-      <td class="lalign">Adyen</td>
-      <td>ADYEY</td>
-      <td>46.8925					</td>
-      <td>71.3B</td>
-      <td>37.06</td>
-      <td>13.83</td>
-      <td>18.7</td>
-    </tr><tr>
-      <td class="lalign">Stone</td>
-      <td>STNE</td>
-      <td>	63.12					</td>
-      <td>19.8B</td>
-      <td>33.04</td>
-      <td>76.22</td>
-      <td>4.4</td>
-    </tr><tr>
-      <td class="lalign">Lemonade</td>
-      <td>LMND</td>
-      <td>106.5					</td>
-      <td>6.4B</td>
-      <td>40.27</td>
-      <td>42.06</td>
-      <td>58.3</td>
-    </tr><tr>
-      <td class="lalign">Root Insurance</td>
-      <td>ROOT</td>
-      <td>	11.76		</td>
-      <td>3.0B</td>
-      <td>19.5</td>
-      <td>-4.61</td>
-      <td>7.1</td>
-    </tr><tr>
-      <td class="lalign">Affirm</td>
-      <td>AFRM</td>
-      <td>68.26					</td>
-      <td>17.7B</td>
-      <td>92.74</td>
-      <td>31.57</td>
-      <td>24.3</td>
-    </tr><tr>
-      <td class="lalign">Intuit</td>
-      <td>INTU</td>
-      <td>472.33					</td>
-      <td>130.6B</td>
-      <td>13.19</td>
-      <td>82.34</td>
-      <td>14.1</td>
-    </tr><tr>
-      <td class="lalign">OpenDoor</td>
-      <td>OPEN</td>
-      <td>17.51	</td>
-      <td>10.1B</td>
-      <td>83.52</td>
-      <td>8.58</td>
-      <td>4.0</td>
-    </tr>
-  </tr><tr>
-    <td class="lalign">nCino</td>
-    <td>NCNO</td>
-    <td>64.49					</td>
-    <td>6.0B</td>
-    <td>47.85</td>
-    <td>56.86</td>
-    <td>25.6</td>
-  </tr>
-</tr><tr>
-  <td class="lalign">Bill.com</td>
-  <td>BILL</td>
-  <td>	157.72	</td>
-  <td>12.9B</td>
-  <td>45.45</td>
-  <td>75.16</td>
-  <td>61.3</td>
-</tr>
-</tr><tr>
-  <td class="lalign">Upstart</td>
-  <td>UPST</td>
-  <td>	120.26		</td>
-  <td>9.5B	</td>
-  <td>26.63	</td>
-  <td>84.43	</td>
-  <td>32.0</td>
-</tr>
-</tr><tr>
-  <td class="lalign">Guideware</td>
-  <td>GWRE</td>
-  <td>110.92	</td>
-  <td>9.5B</td>
-  <td>3.17</td>
-  <td>54.46.0</td>
-  <td>10.2</td>
-</tr>
-    
-  </tbody>
-</table>
 
 <br />
 <br />

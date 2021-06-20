@@ -1,0 +1,211 @@
+[
+    {
+      "Company": "Paypal",
+      "Ticker": "PYPL",
+      "Price": 268.5,
+      "Market Cap": "326.7B",
+      "Revenue Growth Rate": 20.72,
+      "Gross Margin": 46.62,
+      "EV": {
+         "Annualized Revenue": 13.7
+      }
+   },
+    {
+      "Company": "Square",
+      "Ticker": "SQ",
+      "Price": 223.79,
+      "Market Cap": "107.5B",
+      "Revenue Growth Rate": 101.5,
+      "Gross Margin": 28.9,
+      "EV": {
+         "Annualized Revenue": 7.9
+      }
+   },
+    {
+      "Company": "Shopify",
+      "Ticker": "SHOP",
+      "Price": 1352.31,
+      "Market Cap": "180.9B",
+      "Revenue Growth Rate": 85.63,
+      "Gross Margin": 52.62,
+      "EV": {
+         "Annualized Revenue": 47.3
+      }
+   },
+    {
+      "Company": "LendingClub",
+      "Ticker": "LC",
+      "Price": 18.5,
+      "Market Cap": "1.8B",
+      "Revenue Growth Rate": 6.07,
+      "Gross Margin": 100,
+      "EV": {
+         "Annualized Revenue": 5.4
+      }
+   },
+    {
+      "Company": "Global Payments",
+      "Ticker": "GPN",
+      "Price": 191.85,
+      "Market Cap": "57.1B",
+      "Revenue Growth Rate": 51.13,
+      "Gross Margin": 52.28,
+      "EV": {
+         "Annualized Revenue": 8.6
+      }
+   },
+    {
+      "Company": "Cardtronics",
+      "Ticker": "CATM",
+      "Price": 38.98,
+      "Market Cap": "1.8B",
+      "Revenue Growth Rate": 11.72,
+      "Gross Margin": 38.5,
+      "EV": {
+         "Annualized Revenue": 2.3
+      }
+   },
+    {
+      "Company": "Greendot",
+      "Ticker": "GDOT",
+      "Price": 48.7,
+      "Market Cap": "2.7B",
+      "Revenue Growth Rate": 13.67,
+      "Gross Margin": 100,
+      "EV": {
+         "Annualized Revenue": 0
+      }
+   },
+    {
+      "Company": "Blackline",
+      "Ticker": "BL",
+      "Price": 103.03,
+      "Market Cap": "6.2B",
+      "Revenue Growth Rate": 21.72,
+      "Gross Margin": 80.39,
+      "EV": {
+         "Annualized Revenue": 16.2
+      }
+   },
+    {
+      "Company": "Adyen",
+      "Ticker": "ADYEY",
+      "Price": 44.6,
+      "Market Cap": "69.0B",
+      "Revenue Growth Rate": 37.06,
+      "Gross Margin": 13.83,
+      "EV": {
+         "Annualized Revenue": 18.5
+      }
+   },
+    {
+      "Company": "Stone",
+      "Ticker": "STNE",
+      "Price": 62.78,
+      "Market Cap": "20.5B",
+      "Revenue Growth Rate": 33.04,
+      "Gross Margin": 76.22,
+      "EV": {
+         "Annualized Revenue": 4.4
+      }
+   },
+    {
+      "Company": "Lemonade",
+      "Ticker": "LMND",
+      "Price": 94.6,
+      "Market Cap": "6.1B",
+      "Revenue Growth Rate": 40.27,
+      "Gross Margin": 42.06,
+      "EV": {
+         "Annualized Revenue": 51.7
+      }
+   },
+    {
+      "Company": "Root Insurance",
+      "Ticker": "ROOT",
+      "Price": 10.56,
+      "Market Cap": "2.8B",
+      "Revenue Growth Rate": 19.5,
+      "Gross Margin": -4.61,
+      "EV": {
+         "Annualized Revenue": 6.1
+      }
+   },
+    {
+      "Company": "Affirm",
+      "Ticker": "AFRM",
+      "Price": 67.14,
+      "Market Cap": "17.9B",
+      "Revenue Growth Rate": 92.74,
+      "Gross Margin": 31.57,
+      "EV": {
+         "Annualized Revenue": 24.3
+      }
+   },
+    {
+      "Company": "Intuit",
+      "Ticker": "INTU",
+      "Price": 469.2,
+      "Market Cap": "130.0B",
+      "Revenue Growth Rate": 13.19,
+      "Gross Margin": 82.34,
+      "EV": {
+         "Annualized Revenue": 14.1
+      }
+   },
+    {
+      "Company": "OpenDoor",
+      "Ticker": "OPEN",
+      "Price": 16.41,
+      "Market Cap": "9.9B",
+      "Revenue Growth Rate": 83.52,
+      "Gross Margin": 8.58,
+      "EV": {
+         "Annualized Revenue": 4
+      }
+   },
+    {
+      "Company": "nCino",
+      "Ticker": "NCNO",
+      "Price": 61.99,
+      "Market Cap": "6.0B",
+      "Revenue Growth Rate": 47.85,
+      "Gross Margin": 56.86,
+      "EV": {
+         "Annualized Revenue": 25.6
+      }
+   },
+    {
+      "Company": "Bill.com",
+      "Ticker": "BILL",
+      "Price": 159.4,
+      "Market Cap": "14.2B",
+      "Revenue Growth Rate": 45.45,
+      "Gross Margin": 75.16,
+      "EV": {
+         "Annualized Revenue": 61.3
+      }
+   },
+    {
+      "Company": "Upstart",
+      "Ticker": "UPST",
+      "Price": 119.5268,
+      "Market Cap": "9.6B",
+      "Revenue Growth Rate": 26.63,
+      "Gross Margin": 84.43,
+      "EV": {
+         "Annualized Revenue": 32
+      }
+   },
+    {
+      "Company": "Guidewire",
+      "Ticker": "GWRE",
+      "Price": 111,
+      "Market Cap": "9.5B",
+      "Revenue Growth Rate": 3.17,
+      "Gross Margin": 54.46,
+      "EV": {
+         "Annualized Revenue": 10.2
+      }
+   }
+   ]
