@@ -795,7 +795,7 @@ var svg = d3.select("body").transition();
 }
 
 function updateYear(){
-d3.csv("Indexes.csv", function(error, data) {
+d3.csv("FinTech.csv", function(error, data) {
     data.forEach(function(d) {
         d.Date = parseDate(d.Date);
         d.Fintech = +d.Fintech;
