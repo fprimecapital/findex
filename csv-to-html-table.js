@@ -65,7 +65,8 @@ CsvToHtmlTable = {
                         var $tableBodyRowTd = $("<td style = 'text-align:center; color: black;'></td>");
                         var cellTemplateFunc = customTemplates[colIdx];
                         if (cellTemplateFunc) {
-                            $tableBodyRowTd.html(cellTemplateFunc(csvData[rowIdx][colIdx]));
+                            //$tableBodyRowTd.html(cellTemplateFunc(csvData[rowIdx][colIdx]));
+                            $tableBodyRowTd.text(csvData[rowIdx][colIdx]);
                         } else {
                             $tableBodyRowTd.text(csvData[rowIdx][colIdx]);
                         }
