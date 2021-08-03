@@ -820,7 +820,7 @@ d3.csv("Indexes.csv", function(error, data) {
 // ** UpDate data section (Called from the onclick)
 function updateAllTime() {
     // Get the data again
-    d3.csv("Indexes1.csv", function(error, data) {
+    d3.csv("Indexes.csv", function(error, data) {
        	data.forEach(function(d) {
             d.Date = parseDate(d.Date);
             d.Fintech = +d.Fintech;
@@ -848,7 +848,7 @@ function updateAllTime() {
         svg.select(".line2")   // change the line
             .duration(750)
             .attr("class", "line2")
-            .style("stroke", "black")
+            .style("stroke", "#5B56EE")
             .attr("d", valueline2(data));
         svg.select(".line3")   // change the line
             .duration(750)
@@ -903,7 +903,7 @@ var svg = d3.select("body").transition();
     svg.select(".line2")   // change the line
         .duration(750)
         .attr("class", "line2")
-        .style("stroke", "black")
+        .style("stroke", "#5B56EE")
         .attr("d", valueline2(data));
     svg.select(".line3")   // change the line
         .duration(750)
@@ -956,7 +956,7 @@ var svg = d3.select("body").transition();
     svg.select(".line2")   // change the line
         .duration(750)
         .attr("class", "line2")
-        .style("stroke", "black")
+        .style("stroke", "#5B56EE")
         .attr("d", valueline2(data));
     svg.select(".line3")   // change the line
         .duration(750)
@@ -1010,7 +1010,7 @@ var svg = d3.select("body").transition();
     svg.select(".line2")   // change the line
         .duration(750)
         .attr("class", "line2")
-        .style("stroke", "black")
+        .style("stroke", "#5B56EE")
         .attr("d", valueline2(data));
     svg.select(".line3")   // change the line
         .duration(750)
