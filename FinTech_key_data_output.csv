@@ -1,19 +1,19 @@
 Company,Ticker,Price,Market Cap,Revenue Growth Rate,Gross Margin,EV/Annualized Revenue
-Paypal,PYPL,280.0,328.5,20.7,46.6,13.7
-Square,SQ,279.51,126.5,101.5,28.9,7.7
-Shopify,SHOP,1532.91,189.6,85.6,52.6,48.3
-LendingClub,LC,27.54,2.7,6.1,100.0,5.5
-Global Payments,GPN,172.0,51.8,51.1,51.3,7.4
-Greendot,GDOT,47.04,2.6,13.7,100.0,0.5
-Blackline,BL,116.68,6.7,21.7,80.4,18.1
-Adyen,ADYEY,55.61,84.2,37.1,13.8,22.3
-Stone,STNE,57.66,17.6,33.0,76.2,3.9
-Lemonade,LMND,81.01,5.0,40.3,42.1,42.2
-Root Insurance,ROOT,7.23,1.8,19.5,-4.6,3.1
-Affirm,AFRM,67.16,17.8,92.7,31.6,24.0
-Intuit,INTU,534.81,146.0,13.2,82.3,16.4
-OpenDoor,OPEN,14.56,8.7,83.5,8.6,3.4
-nCino,NCNO,63.95,6.1,47.8,56.9,26.1
-Bill.com,BILL,207.35,19.0,45.5,75.2,80.9
-Upstart,UPST,135.29,10.2,26.6,84.4,33.9
-Guidewire,GWRE,116.54,9.6,3.2,54.5,11.9
+Paypal,PYPL,280.22,326.8,20.7,46.6,13.7
+Square,SQ,272.99,128.6,101.5,28.9,8.0
+Shopify,SHOP,1525.8,194.3,85.6,52.6,47.6
+LendingClub,LC,26.75,2.6,6.1,100.0,5.4
+Global Payments,GPN,176.28,51.1,51.1,51.3,7.6
+Greendot,GDOT,47.77,2.5,13.7,100.0,0.6
+Blackline,BL,114.46,6.8,21.7,80.4,17.9
+Adyen,ADYEY,55.78,85.3,37.1,13.8,22.3
+Stone,STNE,57.3,18.0,33.0,76.2,3.8
+Lemonade,LMND,81.01,5.3,40.3,42.1,43.2
+Root Insurance,ROOT,7.24,1.9,19.5,-4.6,3.0
+Affirm,AFRM,68.0,17.5,92.7,31.6,24.0
+Intuit,INTU,534.17,146.3,13.2,82.3,16.2
+OpenDoor,OPEN,14.43,9.1,83.5,8.6,3.4
+nCino,NCNO,63.97,6.1,47.8,56.9,25.9
+Bill.com,BILL,203.82,18.9,45.5,75.2,79.7
+Upstart,UPST,134.9,10.6,26.6,84.4,33.6
+Guidewire,GWRE,115.79,9.5,3.2,54.5,11.9
