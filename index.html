@@ -397,6 +397,7 @@ path {
   margin:auto;
   width:80%;
 }
+
 .overlay {
         fill: none;
         pointer-events: all;
@@ -560,10 +561,10 @@ path {
     <div class="nav__open--container">
       <ul class="nav__open--left">
                   <li class="nav__open--list-item">
-            <a class="nav__link js--nav__link" href="../sector/healthcare/" target="_self">Healthcare</a>
+            <a class="nav__link js--nav__link" href="sector/healthcare/" target="_self">Healthcare</a>
           </li>
                   <li class="nav__open--list-item">
-            <a class="nav__link js--nav__link" href="../sector/technology/" target="_self">Technology</a>
+            <a class="nav__link js--nav__link" href="sector/technology/" target="_self">Technology</a>
           </li>
                   <li class="nav__open--list-item">
             <a class="nav__link js--nav__link" href target="_self">People</a>
@@ -571,22 +572,22 @@ path {
               </ul>
       <ul class="nav__open--right">
                   <li class="nav__open--list-item">
-            <a href="../portfolio/" class="nav__link js--nav__link" target="_self">Portfolio</a>
+            <a href="portfolio/" class="nav__link js--nav__link" target="_self">Portfolio</a>
           </li>
                   <li class="nav__open--list-item">
             <a href class="nav__link js--nav__link" target="_self">People</a>
           </li>
                   <li class="nav__open--list-item">
-            <a href="../news/" class="nav__link js--nav__link" target="_self">News</a>
+            <a href="news/" class="nav__link js--nav__link" target="_self">News</a>
           </li>
                   <li class="nav__open--list-item">
-            <a href="../stories/" class="nav__link js--nav__link" target="_self">Stories</a>
+            <a href="stories/" class="nav__link js--nav__link" target="_self">Stories</a>
           </li>
                   <li class="nav__open--list-item">
-            <a href="../about/" class="nav__link js--nav__link" target="_self">About</a>
+            <a href="about/" class="nav__link js--nav__link" target="_self">About</a>
           </li>
                   <li class="nav__open--list-item">
-            <a href="../fbri/" class="nav__link js--nav__link" target="_self">FBRI</a>
+            <a href="fbri/" class="nav__link js--nav__link" target="_self">FBRI</a>
           </li>
                   <li class="nav__open--list-item">
             <a href="https://jobs.fprimecapital.com" class="nav__link js--nav__link" target="_self">Jobs</a>
@@ -674,7 +675,7 @@ path {
           <a>&nbsp;&nbsp;</a>
     <input 
            type="button" 
-           value="1Y"
+           value="Yearly"
            onclick="updateYearly()" 
            class='buttongraph' />
            <a>&nbsp;&nbsp;</a>
@@ -682,14 +683,14 @@ path {
 
     <input  
            type="button" 
-           value="1M" 
+           value="Monthly" 
            onclick="updateMonthly()" 
            class='buttongraph'/>
            <a>&nbsp;&nbsp;</a>
 
   <input 
          type="button" 
-         value="1W" 
+         value="Weekly" 
          onclick="updateWeekly()"
          class='buttongraph' />
 
@@ -709,7 +710,7 @@ path {
 </div> -->
 
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.17/d3.v3.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.17/d3.min.js"></script>
 
 <script>
   $("a").click(function(){
@@ -744,6 +745,7 @@ console.log('Height: ' + window.innerHeight);
   // Set the dimensions of the canvas / graph
   var	margin = {top: 50, right: 275, bottom: 30, left: 225},
     width = widthBrowser  - margin.left - margin.right,
+    height = 650 - margin.top - margin.bottom,
     tooltip = { width: 100, height: 100, x: 10, y: -30 };
  // Parse the Date / time
 var parseDate = d3.time.format("%m/%d/%Y").parse,
@@ -751,16 +753,23 @@ var parseDate = d3.time.format("%m/%d/%Y").parse,
         formatValue = d3.format(","),
         dateFormatter = d3.time.format("%m/%d/%y");
 
+
+// var parseDate = d3.time.format("%m/%e/%Y").parse,
+//         bisectDate = d3.bisector(function(d) { return d.date; }).left,
+//         formatValue = d3.format(","),
+//         dateFormatter = d3.time.format("%m/%d/%y");
+
 // Set the ranges
 var x = d3.time.scale().range([0, width]);
 var y = d3.scale.linear().range([height, 0]);
 
+
 // Define the axes
 var xAxis = d3.svg.axis().scale(x)
-    .orient("bottom").ticks(5);
+    .orient("bottom").ticks(10);
 
 var yAxis = d3.svg.axis().scale(y)
-    .orient("left").ticks(5);
+    .orient("left").ticks(10);
 
 // Define the line
 var	valueline = d3.svg.line()
@@ -801,7 +810,7 @@ d3.csv("Indexes.csv", function(error, data) {
 
     // Scale the range of the data
     x.domain(d3.extent(data, function(d) { return d.Date; }));
-    y.domain([d3.min(data, function(d) {return Math.min(d.NASDAQ, d.FAANG, d.Fintech, d.SNP500); })-.3, d3.max(data, function(d) { return Math.max(d.NASDAQ, d.FAANG, d.Fintech, d.SNP500); })]);
+    y.domain([d3.min(data, function(d) {return Math.min(d.NASDAQ, d.FAANG, d.Fintech, d.SNP500); })-.3, d3.max(data, function(d) { return Math.max(d.NASDAQ, d.FAANG, d.Fintech, d.SNP500); })*1.2]);
 
     document.getElementById("fintechValueJS").innerHTML = ((data[data.length-1].Fintech*100-100)<0?"":"+") + (data[data.length-1].Fintech*100-100).toFixed(1); 
     document.getElementById("faangValueJS").innerHTML = ((data[data.length-1].FAANG*100-100)<0?"":"+") + (data[data.length-1].FAANG*100-100).toFixed(1);
@@ -937,7 +946,7 @@ function updateAllTime() {
 	    });
     	// Scale the range of the data again 
     	x.domain(d3.extent(data, function(d) { return d.Date; }));
-	    y.domain([d3.min(data, function(d) {return Math.min(d.NASDAQ, d.FAANG, d.Fintech, d.SNP500); })-.3, d3.max(data, function(d) {return Math.max(d.NASDAQ, d.FAANG, d.Fintech, d.SNP500); })]);
+	    y.domain([d3.min(data, function(d) {return Math.min(d.NASDAQ, d.FAANG, d.Fintech, d.SNP500); })-.3, d3.max(data, function(d) {return Math.max(d.NASDAQ, d.FAANG, d.Fintech, d.SNP500); })*1.2]);
 
       document.getElementById("fintechValueJS").innerHTML = ((data[data.length-1].Fintech*100-100)<0?"":"+") + (data[data.length-1].Fintech*100-100).toFixed(1); 
       document.getElementById("faangValueJS").innerHTML = ((data[data.length-1].FAANG*100-100)<0?"":"+") + (data[data.length-1].FAANG*100-100).toFixed(1);
@@ -973,7 +982,6 @@ function updateAllTime() {
         svg.select(".y.axis") // change the y axis
             .duration(750)
             .call(yAxis);
-
     });
 }
 
@@ -992,7 +1000,7 @@ d3.csv("IndexesYearly.csv", function(error, data) {
 
     // Scale the range of the data again 
     x.domain(d3.extent(data, function(d) { return d.Date; }));
-    y.domain([d3.min(data, function(d) {return Math.min(d.NASDAQ, d.FAANG, d.Fintech, d.SNP500); })-.3, d3.max(data, function(d) {return Math.max(d.NASDAQ, d.FAANG, d.Fintech, d.SNP500); })]);
+    y.domain([d3.min(data, function(d) {return Math.min(d.NASDAQ, d.FAANG, d.Fintech, d.SNP500); })-.2, d3.max(data, function(d) {return Math.max(d.NASDAQ, d.FAANG, d.Fintech, d.SNP500); })*1.2]);
     
     document.getElementById("fintechValueJS").innerHTML = ((data[data.length-1].Fintech*100-100)<0?"":"+") + (data[data.length-1].Fintech*100-100).toFixed(1); 
     document.getElementById("faangValueJS").innerHTML = ((data[data.length-1].FAANG*100-100)<0?"":"+") + (data[data.length-1].FAANG*100-100).toFixed(1);
@@ -1028,7 +1036,6 @@ var svg = d3.select("body").transition();
     svg.select(".y.axis") // change the y axis
         .duration(750)
         .call(yAxis);
-
 });
 }
 function updateMonthly() {
@@ -1045,7 +1052,7 @@ d3.csv("IndexesMonthly.csv", function(error, data) {
 
     // Scale the range of the data again 
     x.domain(d3.extent(data, function(d) { return d.Date; }));
-    y.domain([d3.min(data, function(d) {return Math.min(d.NASDAQ, d.FAANG, d.Fintech, d.SNP500); })-.3, d3.max(data, function(d) {return Math.max(d.NASDAQ, d.FAANG, d.Fintech, d.SNP500); })]);
+    y.domain([d3.min(data, function(d) {return Math.min(d.NASDAQ, d.FAANG, d.Fintech, d.SNP500); })-.15, d3.max(data, function(d) {return Math.max(d.NASDAQ, d.FAANG, d.Fintech, d.SNP500); })*1.2]);
     
     document.getElementById("fintechValueJS").innerHTML = ((data[data.length-1].Fintech*100-100)<0?"":"+") + (data[data.length-1].Fintech*100-100).toFixed(1); 
     document.getElementById("faangValueJS").innerHTML = ((data[data.length-1].FAANG*100-100)<0?"":"+") + (data[data.length-1].FAANG*100-100).toFixed(1);
@@ -1099,7 +1106,7 @@ d3.csv("IndexesWeekly.csv", function(error, data) {
     
     // Scale the range of the data again 
     x.domain(d3.extent(data, function(d) { return d.Date; }));
-    y.domain([d3.min(data, function(d) {return Math.min(d.NASDAQ, d.FAANG, d.Fintech, d.SNP500); })-.3, d3.max(data, function(d) {return Math.max(d.NASDAQ, d.FAANG, d.Fintech, d.SNP500); })]);
+    y.domain([d3.min(data, function(d) {return Math.min(d.NASDAQ, d.FAANG, d.Fintech, d.SNP500); })-.1, d3.max(data, function(d) {return Math.max(d.NASDAQ, d.FAANG, d.Fintech, d.SNP500); })*1.2]);
     
     document.getElementById("fintechValueJS").innerHTML = ((data[data.length-1].Fintech*100-100)<0?"":"+") + (data[data.length-1].Fintech*100-100).toFixed(1); 
     document.getElementById("faangValueJS").innerHTML = ((data[data.length-1].FAANG*100-100)<0?"":"+") + (data[data.length-1].FAANG*100-100).toFixed(1);
@@ -1600,10 +1607,10 @@ SOFTWARE. -->
         <ul class="footer__list footer__list--inline">
           <li class="footer__list-item">&copy; 2021</li>
                       <li class="footer__list-item">
-              <a class="footer__legal-link" href="../terms-use/" target="_self">Terms of Use</a>
+              <a class="footer__legal-link" href="terms-use/" target="_self">Terms of Use</a>
             </li>
                       <li class="footer__list-item">
-              <a class="footer__legal-link" href="../privacy-policy/" target="_self">Privacy Policy</a>
+              <a class="footer__legal-link" href="privacy-policy/" target="_self">Privacy Policy</a>
             </li>
                       <li class="footer__list-item">
               <a class="footer__legal-link" href="http://eepurl.com/gbQlsL" target="_blank">Stay in Touch</a>
