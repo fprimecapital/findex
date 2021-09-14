@@ -397,7 +397,27 @@ path {
   margin:auto;
   width:80%;
 }
+.overlay {
+        fill: none;
+        pointer-events: all;
+    }
 
+.focus circle {
+        fill: steelblue;
+    }
+
+.focus text {
+    font-size: 14px;
+}
+
+.tooltip {
+    fill: white;
+    stroke: steelblue;
+}
+
+.tooltip-date, .tooltip-fintech, .tooltip-faang, .tooltip-nasdaq, .tooltip-snp {
+    font-weight: bold;
+}
 
 /* basic positioning */
 .legend { list-style: none; margin: auto;}
@@ -724,9 +744,12 @@ console.log('Height: ' + window.innerHeight);
   // Set the dimensions of the canvas / graph
   var	margin = {top: 50, right: 275, bottom: 30, left: 225},
     width = widthBrowser  - margin.left - margin.right,
-    height = 650 - margin.top - margin.bottom;
+    tooltip = { width: 100, height: 100, x: 10, y: -30 };
  // Parse the Date / time
-var parseDate = d3.time.format("%m/%d/%Y").parse;
+var parseDate = d3.time.format("%m/%d/%Y").parse,
+        bisectDate = d3.bisector(function(d) { return d.Date; }).left,
+        formatValue = d3.format(","),
+        dateFormatter = d3.time.format("%m/%d/%y");
 
 // Set the ranges
 var x = d3.time.scale().range([0, width]);
@@ -814,7 +837,91 @@ d3.csv("Indexes.csv", function(error, data) {
     svg.append("g")
         .attr("class", "y axis")
         .call(yAxis);
+    var focus = svg.append("g")
+        .attr("class", "focus")
+        .style("display", "none");
 
+    focus.append("circle")
+        .attr("r", 5);
+    focus.append("rect")
+        .attr("width", 1)
+        .attr("y", -1000)
+        .attr("height", 1600)
+        .attr("style","border-style: dotted;");
+    focus.append("rect")
+        .attr("width", 120)
+        .attr("height", 120)
+        .attr("x", -60)
+        .attr("y", -140)
+        .attr("rx", 4)
+        .attr("ry", 4)
+        .attr("style","fill:white; stroke:black;");
+    focus.append("text")
+        .attr("class", "tooltip-date")
+        .attr("x", -50)
+        .attr("y", -120);
+
+    focus.append("text")
+        .attr("x", -50)
+        .attr("y", -100)
+        .text("Fintech:");
+
+    focus.append("text")
+        .attr("class", "tooltip-fintech")
+        .attr("x", 15)
+        .attr("y", -100);
+
+    focus.append("text")
+        .attr("x", -50)
+        .attr("y", -80)
+        .text("FAANG:");
+
+    focus.append("text")
+        .attr("class", "tooltip-faang")
+        .attr("x", 15)
+        .attr("y", -80);
+
+    focus.append("text")
+        .attr("x", -50)
+        .attr("y", -60)
+        .text("NASDAQ:");
+
+    focus.append("text")
+        .attr("class", "tooltip-nasdaq")
+        .attr("x", 15)
+        .attr("y", -60);
+
+    focus.append("text")
+        .attr("x", -50)
+        .attr("y", -40)
+        .text("S&P500:");
+
+    focus.append("text")
+        .attr("class", "tooltip-snp")
+        .attr("x", 15)
+        .attr("y", -40);
+
+    svg.append("rect")
+        .attr("class", "overlay")
+        .attr("width", width)
+        .attr("height", height)
+        .on("mouseover", function() { focus.style("display", null); })
+        .on("mouseout", function() { focus.style("display", "none"); })
+        .on("mousemove", mousemove);
+
+    function mousemove() {
+        var x0 = x.invert(d3.mouse(this)[0]),
+            i = bisectDate(data, x0, 1),
+            d0 = data[i - 1],
+            d1 = data[i],
+            d = x0 - d0.Date > d1.Date - x0 ? d1 : d0;
+        focus.attr("transform", "translate(" + x(d.Date) + "," + y(d.Fintech) + ")");
+        focus.select(".tooltip-date").text(dateFormatter(d.Date));
+        focus.select(".tooltip-fintech").text(formatValue(d.Fintech.toFixed(2)));
+        focus.select(".tooltip-faang").text(formatValue(d.FAANG.toFixed(2)));
+        focus.select(".tooltip-nasdaq").text(formatValue(d.NASDAQ.toFixed(2)));
+        focus.select(".tooltip-snp").text(formatValue(d.NASDAQ.toFixed(2)));
+    }
 });
 
 // ** UpDate data section (Called from the onclick)
