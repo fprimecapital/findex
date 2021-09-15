@@ -780,13 +780,14 @@ var parseDate = d3.time.format("%m/%d/%Y").parse,
 var x = d3.time.scale().range([0, width]);
 var y = d3.scale.linear().range([height, 0]);
 
-
+var formatPercent = d3.format(".0%");
 // Define the axes
 var xAxis = d3.svg.axis().scale(x)
     .orient("bottom").ticks(10);
 
 var yAxis = d3.svg.axis().scale(y)
-    .orient("left").ticks(10);
+    .orient("left").ticks(10)
+    .tickFormat(formatPercent);
 
 // Define the line
 var	valueline = d3.svg.line()
@@ -840,10 +841,10 @@ var i = bisectDate(dataValues, x0, 1),
     d = x0 - d0.Date > d1.Date - x0 ? d1 : d0;
   focus.attr("transform", "translate(" + x(d.Date) + "," + y(d.Fintech) + ")");
   focus.select(".tooltip-date").text(dateFormatter(d.Date));
-  focus.select(".tooltip-fintech").text(formatValue(d.Fintech.toFixed(2)));
-  focus.select(".tooltip-faang").text(formatValue(d.FAANG.toFixed(2)));
-  focus.select(".tooltip-nasdaq").text(formatValue(d.NASDAQ.toFixed(2)));
-  focus.select(".tooltip-snp").text(formatValue(d.SNP500.toFixed(2)));
+  focus.select(".tooltip-fintech").text(formatValue((d.Fintech*100).toFixed(1))+"%");
+  focus.select(".tooltip-faang").text(formatValue((d.FAANG*100).toFixed(1))+"%");
+  focus.select(".tooltip-nasdaq").text(formatValue((d.NASDAQ*100).toFixed(1))+"%");
+  focus.select(".tooltip-snp").text(formatValue((d.SNP500*100).toFixed(1))+"%");
 }
 d3.csv("Indexes.csv", function(error, data) {
     data.forEach(function(d) {
@@ -910,63 +911,63 @@ d3.csv("Indexes.csv", function(error, data) {
         .attr("height", 1600)
         .attr("style","border-style: dotted; position: absolute;");
     focus.append("rect")
-        .attr("width", 120)
+        .attr("width", 150)
         .attr("height", 120)
-        .attr("x", -60)
+        .attr("x", -75)
         .attr("y", -140)
         .attr("rx", 4)
         .attr("ry", 4)
         .attr("style","fill:white; stroke:black;");
     focus.append("text")
         .attr("class", "tooltip-date")
-        .attr("x", -50)
+        .attr("x", -55)
         .attr("y", -120);
 
     focus.append("text")
-        .attr("x", -50)
+        .attr("x", -55)
         .attr("y", -100)
         .text("Fintech:")
         .attr("style","fill: #A6D0D8;");
 
     focus.append("text")
         .attr("class", "tooltip-fintech")
-        .attr("x", 15)
+        .attr("x", 10)
         .attr("y", -100)
         .attr("style","fill: #A6D0D8;");
 
     focus.append("text")
-        .attr("x", -50)
+        .attr("x", -55)
         .attr("y", -80)
         .text("FAANG:")
         .attr("style","fill: #5B56EE;");
 
     focus.append("text")
         .attr("class", "tooltip-faang")
-        .attr("x", 15)
+        .attr("x", 10)
         .attr("y", -80)
         .attr("style","fill: #5B56EE;");
 
     focus.append("text")
-        .attr("x", -50)
+        .attr("x", -55)
         .attr("y", -60)
         .text("NASDAQ:")
         .attr("style","fill: black;");
 
     focus.append("text")
         .attr("class", "tooltip-nasdaq")
-        .attr("x", 15)
+        .attr("x", 10)
         .attr("y", -60)
         .attr("style","fill: black;");
 
     focus.append("text")
-        .attr("x", -50)
+        .attr("x", -55)
         .attr("y", -40)
         .text("S&P500:")
         .attr("style","fill: #FC714D;");
 
     focus.append("text")
         .attr("class", "tooltip-snp")
-        .attr("x", 15)
+        .attr("x", 10)
         .attr("y", -40)
         .attr("style","fill: #FC714D;");
     var htmlString = focus[0][0];
