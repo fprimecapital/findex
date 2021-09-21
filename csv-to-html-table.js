@@ -62,10 +62,10 @@ CsvToHtmlTable = {
                 for (var rowIdx = 1; rowIdx < csvData.length; rowIdx++) {
                     var $tableBodyRow = $("<tr></tr>");
                     for (var colIdx = 0; colIdx < csvData[rowIdx].length; colIdx++) {
-                        var $tableBodyRowTd = $("<td style = 'text-align:center; color: black;'></td>");
+                        var $tableBodyRowTd = $("<td style = 'text-align:center;'></td>");
                         var cellTemplateFunc = customTemplates[colIdx];
                         if (cellTemplateFunc) {
-                            //$tableBodyRowTd.html(cellTemplateFunc(csvData[rowIdx][colIdx]));
+                            // $tableBodyRowTd.html(cellTemplateFunc(csvData[rowIdx][colIdx]));
                             $tableBodyRowTd.text(csvData[rowIdx][colIdx]);
                         } else {
                             $tableBodyRowTd.text(csvData[rowIdx][colIdx]);
@@ -79,7 +79,7 @@ CsvToHtmlTable = {
                 $table.DataTable(datatables_options);
 
                 if (allow_download) {
-                    $containerElement.append("<p><a class='btn btn-info' href='" + csv_path + "'><i class='glyphicon glyphicon-download'></i> Download as CSV</a></p>");
+                    $containerElement.append("<p><a href='" + csv_path + "'><i class='glyphicon glyphicon-download'></i> Download as CSV</a></p>");
                 }
             });
     }
