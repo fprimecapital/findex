@@ -458,8 +458,78 @@ path {
 .legend .snp500_legend { background-color: #FC714D; border-radius: 50%;}
 .legend .emcloud_legend { background-color: #A9A9A9; border-radius: 50%;}
 
+.base-img{width:100%;display:block}
+.base-intro{padding-left:20px;padding-right:20px;max-width:1400px;margin:20px auto 0}
+@media (min-width: 768px){.base-intro{padding-left:60px}}
+@media (min-width: 1200px){.base-intro{padding-left:80px}}
+@media (min-width: 768px){.base-intro{padding-right:60px}}
+@media (min-width: 1200px){.base-intro{padding-right:80px}}
+.base-intro:after{content:'';display:table;clear:both}
+@media (min-width: 768px){.base-intro{margin-top:0}}
+.base-intro__content{-webkit-transform:translateZ(0px);transform:translateZ(0px);display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-box-flex:1;-webkit-flex:1 1 auto;-ms-flex:1 1 auto;flex:1 1 auto;-webkit-flex-wrap:wrap;-ms-flex-wrap:wrap;flex-wrap:wrap;position:relative}@media (min-width: 920px){.base-intro__content{margin-left:-15px;-webkit-flex-wrap:nowrap;-ms-flex-wrap:nowrap;flex-wrap:nowrap}}
+@media (min-width: 1200px){.base-intro__content{margin-left:-20px}}
+.base-intro__content--center{-webkit-box-align:center;-webkit-align-items:center;-ms-flex-align:center;align-items:center}
+.page_head{background-color:#1f1f1f;width:100%; color: #eee;}
+.sector__h{color: #eee; position:relative;}
+.sector__description{color: #eee;}
+.filter-nav__main{color:#eee;width:100%;display:block;position:relative;text-align:left;z-index:10}
 
+#navbar {
+  background-color:#1f1f1f;
+  width: 100%;
+  padding-top:20px;
+  padding-left:12.5%;
+}
 
+#navbar a {
+  float:left;
+  display: block;
+  color: #eee;
+  text-align: left;
+}
+
+#navbar2 {
+  background-color:white;
+  width: 100%;
+  padding-top:20px;
+  padding-left:12.5%;
+}
+
+#navbar2 a {
+  float:left;
+  display: block;
+  color: black;
+  text-align: left;
+}
+
+/* #navbar a:hover {
+  background-color: #ddd;
+  color: black;
+} */
+
+/* #navbar a.active {
+  color: black;
+  background-color: white;
+} */
+.new_nav_background{
+  background-color:black;
+}
+.content {
+  padding: 16px;
+}
+
+.sticky {
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+.sticky + .content {
+  padding-top: 60px;
+}
+.sector__intro-figure{width:70%; height: 70%; margin-left:25%;}
+.site_redirect{text-align: right; margin-right: 3%;}
+.fprime-logo-gray-bg{width:10%; height: 10%; flex: 1}
 </style>
 	<link rel="stylesheet" id="wp-block-library-css" href="wp-includes/css/dist/block-library/style.min_ver%3D5.6.css" type="text/css" media="all">
 <link rel="stylesheet" id="fprime_styles-css" href="wp-content/themes/f-prime-wp-theme/static/build/css/screen_ver%3D1.2.2.css" type="text/css" media="all">
@@ -498,11 +568,34 @@ path {
   </head>
 
   <body class="theme--light">
-
-    
-
-    <header class="site-header">
-        <div class="site-header__inner">
+  <div class = 'page_head'>
+    <br/>
+    <br/>
+    <br/>
+    <div>
+    <img class = "fprime-logo-gray-bg" src="../FPrime_logo_gray_bg.png" alt="">
+    <a href = "https://fprimecapital.com/sector/technology"> <h4 class="site_redirect">F-Prime Home -></h4></a>
+  </div>
+    <br/>
+    <br/>
+    <br/>
+  
+    <header class="base-intro">
+      <div class="base-intro__content base-intro__content--center">
+        <div class="sector__intro-main">
+          <h1 class="sector__h">Index</h1>
+          <p class="sector__description">The F-Prime Fintech Index is designed to track the performance of emerging, publicly traded financial technology companies.</p>
+        </div>
+        <div class="sector__intro-image">
+          <figure class="sector__intro-figure">
+            <img src="../header-slash.png" alt="">
+          </figure>
+        </div>
+      </div>
+      <br/>
+      <br/>
+      <br/>
+        <!-- <div class="site-header__inner">
           <div class="site-header__nav-controls">
             <a class="site-header__logo" aria-label="home" href="https://amieramie.github.io/findex/">
               <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="169" height="24" viewBox="0 0 169 24">
@@ -517,22 +610,24 @@ path {
       </svg>
       <h6> Fintech Index</h6>
             </a>
-      <ul class="nav__list">
+      <ul class="nav__list" id = "navbar">
                   <li class="nav__list-item nav__list-item--link">
-            <a class="nav__link" aria-current="page" href="#" data-page="overview" target="_self">Overview</a>
+            <a class="nav__link" aria-current="page" href="javascript:void(0)" data-page="overview" target="_self">Overview</a>
           </li>
                   <li class="nav__list-item nav__list-item--link">
-            <a class="nav__link" href="#index_perf/" data-page="performance" target="_self">Index Info</a>
+            <a class="nav__link" href="javascript:void(0)" data-page="performance" target="_self">Index Info</a>
           </li>
                   <li class="nav__list-item nav__list-item--link nav__list-item--last">
-            <a class="nav__link" href="#comps" data-page="companies" target="_self">Companies</a>
+            <a class="nav__link" href="javascript:void(0)" data-page="companies" target="_self">Companies</a>
           </li>
           <li class="nav__list-item nav__list-item--link nav__list-item--last">
-            <a class="nav__link" href="#future" data-page="future" target="_self">Future Companies</a>
+            <a class="nav__link" href="javascript:void(0)" data-page="future" target="_self">Future Companies</a>
           </li>
                   <li class="nav__list-item nav__list-item--link nav__list-item--last">
-            <a class="nav__link" href="#about" data-page="about" target="_self">About</a>
-          </li>
+            <a class="nav__link" href="javascript:void(0)" data-page="about" target="_self">About</a>
+          </li> -->
+
+
                 <!-- <li id="menuOpenButton" class="nav__list-item site-header__open-list-item--menu">
           <button class="site-header__open-button site-header__open-button--menu" title="Open Menu">
             <svg width="16" height="10" viewBox="0 0 16 10" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -550,11 +645,40 @@ path {
 
           </button>
         </li> -->
-      </ul>
+
+
+      <!-- </ul>
     </div>
+  </div> -->
+    </header>
   </div>
-</header>
-<div class="overlay overlay__menu" id="menuOverlay">
+  <!-- <nav class="filter-nav__navigation "> -->
+<div class="filter-nav__main" id="navbar">
+  <ul class="filter-nav__list">
+                          <li class="filter-nav__list-item filter-nav__list-item--active">
+          <a class="nav__link" aria-current="page" href="javascript:void(0)" data-page="overview" target="_self">Overview</a>
+        </li>
+                                    <li class="filter-nav__list-item ">
+          <a class="nav__link" aria-current="page" href="javascript:void(0)" data-page="performance" target="_self">Index Info</a>
+        </li>
+                                    <li class="filter-nav__list-item ">
+          <a class="nav__link" aria-current="page" href="javascript:void(0)" data-page="companies" target="_self">Companies</a>
+        </li>
+                                    <li class="filter-nav__list-item ">
+          <a class="nav__link" aria-current="page" href="javascript:void(0)" data-page="future" target="_self">Future Companies</a>
+        </li>
+                                    <li class="filter-nav__list-item community-link ">
+          <a class="nav__link" aria-current="page" href="javascript:void(0)" data-page="about" target="_self">About Us</a>
+        </li>
+                    </ul>
+                    <br/>
+<br/>
+</div>
+      <!-- <button class="filter-nav__mobile-button js--mobile-filter">Filter</button> -->
+
+
+
+<!-- <div class="overlay overlay__menu" id="menuOverlay">
   <header class="site-header__menu">
     <div class="site-header__inner">
       <div class="site-header__nav-controls">
@@ -677,7 +801,7 @@ path {
 <div class="stats__text">
   <h2 class="stats__h" id = "overview">  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Index</h2>
 </div>
-<br/>
+<br/> -->
 <!-- <div>
   <div class="index-numbers-fintech"><h2>+2348.5%</h2><a class="filter-news__category">Fintech Index</a>  </div>
   <div class="index-numbers-faang"><h2>+669.4%</h2>                  <a class="filter-news__category">FAANG Index</a>
@@ -687,6 +811,21 @@ path {
   <div class="index-numbers-snp"><h2>+202.4%</h2>                       <a class="filter-news__category">S&P 500</a>
   </div>
 </div> -->
+
+<br/>
+<br/>
+<br/>
+<br/>
+
+<!-- <div id="navbar">
+  <a class="active" href="javascript:void(0)">Home</a>
+  <a href="javascript:void(0)">News</a>
+  <a href="javascript:void(0)">Contact</a>
+</div> -->
+
+<div class="stats__text">
+  <h2 class="stats__h" id = "overview">  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Index</h2>
+</div>
 <div class='statistics'>
 <h3 class="indexflex">
   <!-- <span style="font-size: 150%;">+</span> -->
@@ -1562,7 +1701,7 @@ d3.csv("key_figures.csv", function(error, data2) {
     document.getElementById("keyValRevMult").innerHTML = data2[2][0];
     document.getElementById("keyValRevGrowth").innerHTML = data2[3][0];
       });
-   
+      
   </script>
 
 
@@ -2028,6 +2167,22 @@ SOFTWARE. -->
     </div>
   </div>
 </footer>
+<script>
+  window.onscroll = function() {myFunction()};
+  
+  var navbar = document.getElementById("navbar");
+  var sticky = navbar.offsetTop;
+  
+  function myFunction() {
+    if (window.pageYOffset >= sticky) {
+      navbar.classList.add("sticky")
+      document.getElementById('navbar').id = 'navbar2';
+    } else {
+      navbar.classList.remove("sticky");
+      document.getElementById('navbar2').id = 'navbar';
+    }
+  }
+  </script>
     <script type="text/javascript" src="wp-includes/js/underscore.min_ver%3D1.8.3.js" id="underscore-js"></script>
 <script type="text/javascript" src="wp-includes/js/backbone.min_ver%3D1.4.0.js" id="backbone-js"></script>
 <script type="text/javascript" id="wp-api-request-js-extra">
