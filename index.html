@@ -459,7 +459,7 @@ path {
 .legend .emcloud_legend { background-color: #A9A9A9; border-radius: 50%;}
 
 .base-img{width:100%;display:block}
-.base-intro{padding-left:20px;padding-right:20px;max-width:1400px;margin:20px auto 0}
+.base-intro{padding-left:20px;padding-right:20px;max-width:100%;margin:20px auto 0; min-height: 100%;}
 @media (min-width: 768px){.base-intro{padding-left:60px}}
 @media (min-width: 1200px){.base-intro{padding-left:80px}}
 @media (min-width: 768px){.base-intro{padding-right:60px}}
@@ -469,7 +469,7 @@ path {
 .base-intro__content{-webkit-transform:translateZ(0px);transform:translateZ(0px);display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-box-flex:1;-webkit-flex:1 1 auto;-ms-flex:1 1 auto;flex:1 1 auto;-webkit-flex-wrap:wrap;-ms-flex-wrap:wrap;flex-wrap:wrap;position:relative}@media (min-width: 920px){.base-intro__content{margin-left:-15px;-webkit-flex-wrap:nowrap;-ms-flex-wrap:nowrap;flex-wrap:nowrap}}
 @media (min-width: 1200px){.base-intro__content{margin-left:-20px}}
 .base-intro__content--center{-webkit-box-align:center;-webkit-align-items:center;-ms-flex-align:center;align-items:center}
-.page_head{background-color:#1f1f1f;width:100%; color: #eee;}
+.page_head{background-color:#1f1f1f;width:100%; color: #eee;min-height: 100%;}
 .sector__h{color: #eee; position:relative;font-size: 1.875em;}
 .sector__description{color: #eee;}
 .filter-nav__main{color:#eee;width:100%;display:block;position:relative;text-align:left;z-index:10}
@@ -597,6 +597,9 @@ path {
       <br/>
       <br/>
       <br/>  
+      <br/>
+      <br/>
+      <br/>  
     </div>
 
   
@@ -620,6 +623,9 @@ path {
       <br/>
       <br/>
       <br/>
+      <br/>
+      <br/>
+      <br/>  
         <!-- <div class="site-header__inner">
           <div class="site-header__nav-controls">
             <a class="site-header__logo" aria-label="home" href="https://amieramie.github.io/findex/">
@@ -1947,7 +1953,7 @@ d3.csv("Indexes.csv", function(error, data) {
           </tr>
         </thead>
       </table> -->
-      <h5 class="filter-news__category" id="performance"><span style="font-size: 125%;">The F-Prime Fintech Index is designed to track the performance of emerging, publicly traded financial technology companies. </span></h5>
+      <h5 class="filter-news__category" id="performance"></h5>
       <h5 class="flex">
         <span>TOTAL MARKET CAP <br> <span style="font-size: 250%;" id = "keyValTMarketCap"></span></span>
         <span class="stats_divider"></span>
@@ -1981,6 +1987,8 @@ d3.csv("Indexes.csv", function(error, data) {
 </div>
 <div class="stats__text">
   <h2 class="stats__h" id = "companies">  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;All Companies</h2>
+  <br/>
+  <br/>
 </div>
 
 <!-- <div id="DivContent"></div> -->
@@ -2060,6 +2068,8 @@ SOFTWARE. -->
 <br />
 <div class="stats__text">
   <h2 class="stats__h" id = "future">  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Potential Future Additions</h2>
+  <br/>
+  <br/>
 </div>
 
 
