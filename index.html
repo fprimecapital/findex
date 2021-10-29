@@ -5,6 +5,7 @@
     <!-- CSS only -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="jquery-csv.js"></script>
+    <script src="lodash.js"></script>
 
     <script src="sorttable.js"></script>
     <script src="https://d3js.org/d3.v7.min.js"></script>
@@ -21,7 +22,7 @@
 crossorigin="anonymous">
 <link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap4.min.css">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
-
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pretty-checkbox@3.0/dist/pretty-checkbox.min.css">
 <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.25/css/jquery.dataTables.css"> -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
@@ -360,7 +361,26 @@ table {
   max-width: 50%;
   color: black;
 }
-
+.vertical-type_toggles{
+  margin-left: 14%;
+  margin-bottom: -10%;
+  margin-top: 6%;
+  background-color: white;
+  border: 1px solid #333;
+  border-radius: 10px;
+  padding-top: 1%;
+  padding-right: 1%;
+  padding-bottom: 1%;
+  padding-left: 1%;
+}
+.vertical_toggles{
+  margin-left: 0%;
+  margin-bottom: 2%
+}
+.type_toggles{
+  margin-left: 0%;
+  margin-bottom: 0%
+}
 .flex {
   display: flex;
   justify-content: space-around;
@@ -468,8 +488,8 @@ path {
 @media (min-width: 768px){.base-intro{margin-top:0}}
 .base-intro__content{-webkit-transform:translateZ(0px);transform:translateZ(0px);display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-box-flex:1;-webkit-flex:1 1 auto;-ms-flex:1 1 auto;flex:1 1 auto;-webkit-flex-wrap:wrap;-ms-flex-wrap:wrap;flex-wrap:wrap;position:relative}@media (min-width: 920px){.base-intro__content{margin-left:-15px;-webkit-flex-wrap:nowrap;-ms-flex-wrap:nowrap;flex-wrap:nowrap}}
 @media (min-width: 1200px){.base-intro__content{margin-left:-20px}}
-.base-intro__content--center{-webkit-box-align:center;-webkit-align-items:center;-ms-flex-align:center;align-items:center}
-.page_head{background-color:#1f1f1f;width:100%; color: #eee;min-height: 100%;}
+.base-intro__content--center{-webkit-box-align:center;-webkit-align-items:center;-ms-flex-align:center;align-items:center;}
+.page_head{background-color:#1f1f1f;width:100%; color: #eee;height: 150%;}
 .sector__h{color: #eee; position:relative;font-size: 1.875em;}
 .sector__description{color: #eee;}
 .filter-nav__main{color:#eee;width:100%;display:block;position:relative;text-align:left;z-index:10}
@@ -868,8 +888,73 @@ path {
 </h3>
 </div>
 
-<br /><br /><br /><br /><br />
-<div id='updateData'></div>
+<!-- <input id = "insurance_bool" type="checkbox" checked = ""/>Insurance -->
+<!-- <input id = "payments_bool" type="checkbox" checked = ""/>Payments
+<input id = "banking_bool" type="checkbox" checked = ""/>Banking
+<input id = "saas_bool" type="checkbox" checked = ""/>B2B SaaS
+<input id = "wealth_bool" type="checkbox" checked = ""/>Wealth/Asset Mgmt
+<input id = "re_bool" type="checkbox" checked = ""/>Real Estate -->
+<div class='vertical-type_toggles'>
+  <div class = 'vertical_toggles'>
+    <div class="pretty p-default">
+      <input id = "insurance_bool" type="checkbox" checked = "" />
+      <div class="state">
+          <label>Insurance</label>
+      </div>
+    </div>
+    <div class="pretty p-default">
+      <input id = "payments_bool" type="checkbox" checked = "" />
+      <div class="state">
+          <label>Payments</label>
+      </div>
+    </div>
+    <div class="pretty p-default">
+      <input id = "banking_bool" type="checkbox" checked = "" />
+      <div class="state">
+          <label>Banking/Lending</label>
+      </div>
+    </div>
+    <div class="pretty p-default">
+      <input id = "saas_bool" type="checkbox" checked = "" />
+      <div class="state">
+          <label>B2B SaaS</label>
+      </div>
+    </div>
+    <div class="pretty p-default">
+      <input id = "wealth_bool" type="checkbox" checked = "" />
+      <div class="state">
+          <label>Wealth/Asset Mgmt</label>
+      </div>
+    </div>
+    <div class="pretty p-default">
+      <input id = "re_bool" type="checkbox" checked = "" />
+      <div class="state">
+          <label>Real Estate</label>
+      </div>
+    </div>
+  </div>
+  <div class = "type_toggles">
+    <div class="pretty p-switch">
+      <input id = "spac_bool" type="checkbox" checked = "" />
+      <div class="state">
+          <label>SPAC</label>
+      </div>
+    </div>
+    <div class="pretty p-switch">
+      <input id = "dl_bool" type="checkbox" checked = "" />
+      <div class="state">
+          <label>Direct Listing</label>
+      </div>
+    </div>
+    <div class="pretty p-switch">
+      <input id = "ipo_bool" type="checkbox" checked = "" />
+      <div class="state">
+          <label>Traditional IPO</label>
+      </div>
+    </div>    
+  </div>
+</div>
+<br /><br />
 <ul class="graphButtons">
     <input 
           type="button" 
@@ -915,7 +1000,6 @@ path {
          value="1W" 
          onclick="updateWeekly()"
          class='buttongraph' />
-
 </ul>
 <!-- x
 <div>
@@ -965,9 +1049,9 @@ console.log('Height: ' + window.innerHeight);
   var widthBrowser = window.innerWidth;
   var heightBrowser = window.innerHeight;
   // Set the dimensions of the canvas / graph
-  var	margin = {top: 50, right: 275, bottom: 30, left: 225},
+  var	margin = {top: 30, right: 275, bottom: 30, left: 225},
     width = widthBrowser  - margin.left - margin.right,
-    height = 650 - margin.top - margin.bottom,
+    height = heightBrowser - 350,
     tooltip = { width: 100, height: 100, x: 10, y: -30 };
  // Parse the Date / time
 var parseDate = d3.time.format("%m/%d/%Y").parse,
@@ -997,7 +1081,8 @@ var yAxis = d3.svg.axis().scale(y)
 // Define the line
 var	valueline = d3.svg.line()
     .x(function(d) { return x(d.Date); })
-    .y(function(d) { return y(d.Fintech); });
+    .y(function(d) { return y(d.Fintech); })
+    .defined(function(d) { return d.Fintech; });
 // var	valueline5 = d3.svg.line()
 //     .x(function(d) { return x(d.Date); })
 //     .y(function(d) { return y(d.EMCLOUD); });
@@ -1055,6 +1140,170 @@ var i = bisectDate(dataValues, x0, 1),
   focus.select(".tooltip-snp").text(formatValue((d.SNP500*100).toFixed(1))+"%");
   // focus.select(".tooltip-emcloud").text(formatValue((d.EMCLOUD*100).toFixed(1))+"%");
 }
+var new_ft;
+var proper_tickers;
+var possible_companies;
+    d3.csv("possible_companies.csv", function(possible_comps){
+      possible_companies=possible_comps;
+      });
+
+var ft_companies;
+d3.csv("normalized_ft_comps.csv", function(ft_comps){
+      ft_companies=ft_comps;
+      });
+
+const average = (array) => (array.length>0)?array.reduce((a, b) => a + b) / array.length:undefined;
+
+var time_frame = 'All Time'
+
+var removeVerticals = []
+var removeType = []
+var insurance_bool = true;
+var payments_bool = true;
+var banking_bool = true;
+var saas_bool = true;
+var wealth_bool = true;
+var re_bool = true;
+var spac_bool = true;
+var dl_bool = true;
+var ipo_bool = true;
+$('#insurance_bool').change(function() {
+    insurance_bool = this.checked;
+    insur_check_box_clicked();
+  });
+  $('#payments_bool').change(function() {
+    payments_bool = this.checked;
+    pay_check_box_clicked();
+  });
+  $('#banking_bool').change(function() {
+    banking_bool = this.checked;
+    bank_check_box_clicked();
+  });
+  $('#saas_bool').change(function() {
+    saas_bool = this.checked;
+    saas_check_box_clicked();
+  });
+  $('#wealth_bool').change(function() {
+    wealth_bool = this.checked;
+    wealth_check_box_clicked();
+  });
+  $('#re_bool').change(function() {
+    re_bool = this.checked;
+    re_check_box_clicked();
+  });
+  $('#spac_bool').change(function() {
+    spac_bool = this.checked;
+    spac_check_box_clicked();
+  });
+  $('#dl_bool').change(function() {
+    dl_bool = this.checked;
+    dl_check_box_clicked();
+  });
+  $('#ipo_bool').change(function() {
+    ipo_bool = this.checked;
+    ipo_check_box_clicked();
+  });
+function change_time_scale(){
+    if (time_frame == 'All Time'){updateAllTime()}
+    else if(time_frame == '3Y'){update3Y()}
+    else if(time_frame == '1Y'){updateYearly()}
+    else if(time_frame == 'YTD'){updateYTD()}
+    else if(time_frame == '6M'){update6M()}
+    else if(time_frame == '1M'){updateMonthly()}
+    else if(time_frame == '1W'){updateWeekly()}    
+};
+function insur_check_box_clicked(){
+  if (insurance_bool){    
+    const index = removeVerticals.indexOf('Insurance');
+    if (index > -1) {
+      removeVerticals.splice(index, 1);
+    }
+  }
+  else{removeVerticals.push('Insurance')}
+  change_time_scale();
+};
+function pay_check_box_clicked(){
+  if (payments_bool){    
+    const index = removeVerticals.indexOf('Payments');
+    if (index > -1) {
+      removeVerticals.splice(index, 1);
+    }
+  }
+  else{removeVerticals.push('Payments')}
+  change_time_scale();
+};
+function bank_check_box_clicked(){
+  if (banking_bool){    
+    const index = removeVerticals.indexOf('Banking/Lending');
+    if (index > -1) {
+      removeVerticals.splice(index, 1);
+    }
+  }
+  else{removeVerticals.push('Banking/Lending')}
+  change_time_scale();
+};
+function saas_check_box_clicked(){
+  if (saas_bool){    
+    const index = removeVerticals.indexOf('B2B SaaS');
+    if (index > -1) {
+      removeVerticals.splice(index, 1);
+    }
+  }
+  else{removeVerticals.push('B2B SaaS')}
+  change_time_scale();
+};
+function wealth_check_box_clicked(){
+  if (wealth_bool){    
+    const index = removeVerticals.indexOf('Wealth/Asset Mgmt');
+    if (index > -1) {
+      removeVerticals.splice(index, 1);
+    }
+  }
+  else{removeVerticals.push('Wealth/Asset Mgmt')}
+  change_time_scale();
+};
+function re_check_box_clicked(){
+  if (re_bool){    
+    const index = removeVerticals.indexOf('Real Estate');
+    if (index > -1) {
+      removeVerticals.splice(index, 1);
+    }
+  }
+  else{removeVerticals.push('Real Estate')}
+  change_time_scale();
+};
+function spac_check_box_clicked(){
+  if (spac_bool){    
+    const index = removeType.indexOf('SPAC');
+    if (index > -1) {
+      removeType.splice(index, 1);
+    }
+  }
+  else{removeType.push('SPAC')}
+  change_time_scale();
+};
+function dl_check_box_clicked(){
+  if (dl_bool){    
+    const index = removeType.indexOf('DL');
+    if (index > -1) {
+      removeType.splice(index, 1);
+    }
+  }
+  else{removeType.push('DL')}
+  change_time_scale();
+};
+function ipo_check_box_clicked(){
+  if (ipo_bool){    
+    const index = removeType.indexOf('IPO');
+    if (index > -1) {
+      removeType.splice(index, 1);
+    }
+  }
+  else{removeType.push('IPO')}
+  change_time_scale();
+};
+
+
 d3.csv("Indexes.csv", function(error, data) {
     data.forEach(function(d) {
         d.Date = parseDate(d.Date);
@@ -1223,14 +1472,12 @@ d3.csv("Indexes.csv", function(error, data) {
   //     var htmlString = focus.select(".tooltip-snp")[0][0];
   //     console.log(htmlString);
   // }
-  console.log("Hello world!");
-
 });
 
 // ** UpDate data section (Called from the onclick)
 function updateAllTime() {
     // Get the data again
-    console.log("Hello world!");
+    time_frame = 'All Time'
     d3.csv("Indexes.csv", function(error, data) {
        	data.forEach(function(d) {
             d.Date = parseDate(d.Date);
@@ -1240,6 +1487,20 @@ function updateAllTime() {
             d.SNP500= +d.SNP500;
             // d.EMCLOUD = +d.EMCLOUD;
 	    });
+      console.log(removeVerticals)
+      console.log(removeType)
+      var possible_comps_filtered = possible_companies.filter(function (el) {
+        return (removeType.indexOf(el.type) < 0)&(removeVerticals.indexOf(el.vertical) < 0); 
+      });
+      proper_tickers = possible_comps_filtered.map(a => a.ticker)
+      new_ft = ft_companies.map(function(a) {return _.pick(a,proper_tickers)}).map(function(i){return Object.values(i).filter(function(x) {return x !== ""}).map(i=>Number(i))}).map(function(i){return average(i)}).map(function(x){return x-1})
+      // console.log(new_ft);
+      for(var i = 0; i < new_ft.length; i += 1) {
+        data[i].Fintech = new_ft[i];
+      }
+      // var today = new Date();
+      // today.setFullYear(today.getFullYear()-3);
+      // console.log(today.toLocaleDateString())
     	// Scale the range of the data again 
     	x.domain(d3.extent(data, function(d) { return d.Date; }));
 	    y.domain([d3.min(data, function(d) {return Math.min(d.NASDAQ, d.FAANG, d.Fintech, d.SNP500); })-.3, d3.max(data, function(d) {return Math.max(d.NASDAQ, d.FAANG, d.Fintech, d.SNP500); })*1.2]);
@@ -1255,6 +1516,11 @@ function updateAllTime() {
       FAANGVar = data.FAANG;
       NASDAQVar = data.NASDAQ;
       SNP500VAR = data.SNP500;
+
+      // var today = new Date();
+      // today.setFullYear(today.getFullYear()-1);
+      // console.log(today.toLocaleDateString())
+
       // EMCLOUDVAR = data.EMCLOUD;
     // Select the section we want to apply our changes to
     var svg = d3.select("body").transition();
@@ -1294,8 +1560,11 @@ function updateAllTime() {
     });
 }
 function update3Y() {
+    time_frame = '3Y'
     // Get the data again
-    d3.csv("Indexes3Y.csv", function(error, data) {
+    // setTimeout(function(){
+    // console.log(possible_companies);
+    d3.csv("Indexes.csv", function(error, data) {
        	data.forEach(function(d) {
             d.Date = parseDate(d.Date);
             d.Fintech = +d.Fintech;
@@ -1304,6 +1573,38 @@ function update3Y() {
             d.SNP500= +d.SNP500;
             d.EMCLOUD = +d.EMCLOUD;
 	    });
+      var possible_comps_filtered = possible_companies.filter(function (el) {
+        return (removeType.indexOf(el.type) < 0)&(removeVerticals.indexOf(el.vertical) < 0); 
+      });
+      proper_tickers = possible_comps_filtered.map(a => a.ticker)
+      new_ft = ft_companies.map(function(a) {return _.pick(a,proper_tickers)}).map(function(i){return Object.values(i).filter(function(x) {return x !== ""}).map(i=>Number(i))}).map(function(i){return average(i)}).map(function(x){return x-1})
+      // console.log(new_ft);
+      for(var i = 0; i < new_ft.length; i += 1) {
+        data[i].Fintech = new_ft[i];
+      }
+      // var today = new Date();
+      // today.setFullYear(today.getFullYear()-3);
+      // console.log(today.toLocaleDateString())
+      var dateTresh = new Date();
+      dateTresh.setDate(dateTresh.getDate() - 1);
+      // var nextMonth = today.add('month', 1);
+      dateTresh.setFullYear(dateTresh.getFullYear()-3);
+      var data = data.filter(function (el) {
+        return el.Date > dateTresh;
+      });
+      var first_ft_val = data[0].Fintech
+      var first_faang_val = data[0].FAANG
+      var first_nasdaq_val = data[0].NASDAQ
+      var first_snp_val = data[0].SNP500
+      data.map((d) => {
+        d.Fintech = ((d.Fintech+1)/(first_ft_val+1))-1
+        d.FAANG = ((d.FAANG+1)/(first_faang_val+1))-1
+        d.NASDAQ = ((d.NASDAQ+1)/(first_nasdaq_val+1))-1
+        d.SNP500 = ((d.SNP500+1)/(first_snp_val+1))-1
+        return data;
+      });
+      // var foo = { a: 1, b: 2, c: {x: 999, y:998, z: 997}};
+      // console.log(foo)
     	// Scale the range of the data again 
     	x.domain(d3.extent(data, function(d) { return d.Date; }));
 	    y.domain([d3.min(data, function(d) {return Math.min(d.NASDAQ, d.FAANG, d.Fintech, d.SNP500); })-.3, d3.max(data, function(d) {return Math.max(d.NASDAQ, d.FAANG, d.Fintech, d.SNP500); })*1.5]);
@@ -1321,6 +1622,7 @@ function update3Y() {
       SNP500VAR = data.SNP500;
       // EMCLOUDVAR = data.EMCLOUD;
     // Select the section we want to apply our changes to
+    
     var svg = d3.select("body").transition();
 
     // Make the changes
@@ -1359,8 +1661,9 @@ function update3Y() {
 }
 // ** UpDate data section (Called from the onclick)
 function updateYearly() {
+time_frame = '1Y'
 // Get the data again
-d3.csv("IndexesYearly.csv", function(error, data) {
+d3.csv("Indexes.csv", function(error, data) {
        data.forEach(function(d) {
         d.Date = parseDate(d.Date);
         d.Fintech = +d.Fintech;
@@ -1369,6 +1672,36 @@ d3.csv("IndexesYearly.csv", function(error, data) {
         d.SNP500= +d.SNP500;
         // d.EMCLOUD = +d.EMCLOUD;
     });
+    var possible_comps_filtered = possible_companies.filter(function (el) {
+        return (removeType.indexOf(el.type) < 0)&(removeVerticals.indexOf(el.vertical) < 0); 
+      });
+      proper_tickers = possible_comps_filtered.map(a => a.ticker)
+      new_ft = ft_companies.map(function(a) {return _.pick(a,proper_tickers)}).map(function(i){return Object.values(i).filter(function(x) {return x !== ""}).map(i=>Number(i))}).map(function(i){return average(i)}).map(function(x){return x-1})
+      // console.log(new_ft);
+      for(var i = 0; i < new_ft.length; i += 1) {
+        data[i].Fintech = new_ft[i];
+      }
+      // var today = new Date();
+      // today.setFullYear(today.getFullYear()-3);
+      // console.log(today.toLocaleDateString())
+      var dateTresh = new Date();
+      dateTresh.setDate(dateTresh.getDate() - 1);
+      // var nextMonth = today.add('month', 1);
+      dateTresh.setFullYear(dateTresh.getFullYear()-1);
+      var data = data.filter(function (el) {
+        return el.Date > dateTresh;
+      });
+      var first_ft_val = data[0].Fintech
+      var first_faang_val = data[0].FAANG
+      var first_nasdaq_val = data[0].NASDAQ
+      var first_snp_val = data[0].SNP500
+      data.map((d) => {
+        d.Fintech = ((d.Fintech+1)/(first_ft_val+1))-1
+        d.FAANG = ((d.FAANG+1)/(first_faang_val+1))-1
+        d.NASDAQ = ((d.NASDAQ+1)/(first_nasdaq_val+1))-1
+        d.SNP500 = ((d.SNP500+1)/(first_snp_val+1))-1
+        return data;
+      });
     // Scale the range of the data again 
     x.domain(d3.extent(data, function(d) { return d.Date; }));
     y.domain([d3.min(data, function(d) {return Math.min(d.NASDAQ, d.FAANG, d.Fintech, d.SNP500); })-.2, d3.max(data, function(d) {return Math.max(d.NASDAQ, d.FAANG, d.Fintech, d.SNP500); })*1.5]);
@@ -1441,8 +1774,9 @@ var svg = d3.select("body").transition();
 }
 
 function updateYTD() {
+time_frame = 'YTD'
 // Get the data again
-d3.csv("IndexesYTD.csv", function(error, data) {
+d3.csv("Indexes.csv", function(error, data) {
        data.forEach(function(d) {
         d.Date = parseDate(d.Date);
         d.Fintech = +d.Fintech;
@@ -1451,6 +1785,33 @@ d3.csv("IndexesYTD.csv", function(error, data) {
         d.SNP500= +d.SNP500;
         // d.EMCLOUD = +d.EMCLOUD;
     });
+    var possible_comps_filtered = possible_companies.filter(function (el) {
+        return (removeType.indexOf(el.type) < 0)&(removeVerticals.indexOf(el.vertical) < 0); 
+      });
+      proper_tickers = possible_comps_filtered.map(a => a.ticker)
+      new_ft = ft_companies.map(function(a) {return _.pick(a,proper_tickers)}).map(function(i){return Object.values(i).filter(function(x) {return x !== ""}).map(i=>Number(i))}).map(function(i){return average(i)}).map(function(x){return x-1})
+      // console.log(new_ft);
+      for(var i = 0; i < new_ft.length; i += 1) {
+        data[i].Fintech = new_ft[i];
+      }
+      // var today = new Date();
+      // today.setFullYear(today.getFullYear()-3);
+      // console.log(today.toLocaleDateString())
+      var dateTresh = new Date(new Date().getFullYear(), 0, 1);
+      var data = data.filter(function (el) {
+        return el.Date > dateTresh;
+      });
+      var first_ft_val = data[0].Fintech
+      var first_faang_val = data[0].FAANG
+      var first_nasdaq_val = data[0].NASDAQ
+      var first_snp_val = data[0].SNP500
+      data.map((d) => {
+        d.Fintech = ((d.Fintech+1)/(first_ft_val+1))-1
+        d.FAANG = ((d.FAANG+1)/(first_faang_val+1))-1
+        d.NASDAQ = ((d.NASDAQ+1)/(first_nasdaq_val+1))-1
+        d.SNP500 = ((d.SNP500+1)/(first_snp_val+1))-1
+        return data;
+      });
     // Scale the range of the data again 
     x.domain(d3.extent(data, function(d) { return d.Date; }));
     y.domain([d3.min(data, function(d) {return Math.min(d.NASDAQ, d.FAANG, d.Fintech, d.SNP500); })-.2, d3.max(data, function(d) {return Math.max(d.NASDAQ, d.FAANG, d.Fintech, d.SNP500); })*1.5]);
@@ -1523,8 +1884,9 @@ var svg = d3.select("body").transition();
 }
 
 function update6M() {
+    time_frame = '6M'
     // Get the data again
-    d3.csv("Indexes6M.csv", function(error, data) {
+    d3.csv("Indexes.csv", function(error, data) {
        	data.forEach(function(d) {
             d.Date = parseDate(d.Date);
             d.Fintech = +d.Fintech;
@@ -1533,6 +1895,36 @@ function update6M() {
             d.SNP500= +d.SNP500;
             // d.EMCLOUD = +d.EMCLOUD;
 	    });
+      var possible_comps_filtered = possible_companies.filter(function (el) {
+        return (removeType.indexOf(el.type) < 0)&(removeVerticals.indexOf(el.vertical) < 0); 
+      });
+      proper_tickers = possible_comps_filtered.map(a => a.ticker)
+      new_ft = ft_companies.map(function(a) {return _.pick(a,proper_tickers)}).map(function(i){return Object.values(i).filter(function(x) {return x !== ""}).map(i=>Number(i))}).map(function(i){return average(i)}).map(function(x){return x-1})
+      // console.log(new_ft);
+      for(var i = 0; i < new_ft.length; i += 1) {
+        data[i].Fintech = new_ft[i];
+      }
+      // var today = new Date();
+      // today.setFullYear(today.getFullYear()-3);
+      // console.log(today.toLocaleDateString())
+      var dateTresh = new Date();
+      dateTresh.setDate(dateTresh.getDate() - 1);
+      // var nextMonth = today.add('month', 1);
+      dateTresh.setMonth(dateTresh.getMonth()-6);
+      var data = data.filter(function (el) {
+        return el.Date > dateTresh;
+      });
+      var first_ft_val = data[0].Fintech
+      var first_faang_val = data[0].FAANG
+      var first_nasdaq_val = data[0].NASDAQ
+      var first_snp_val = data[0].SNP500
+      data.map((d) => {
+        d.Fintech = ((d.Fintech+1)/(first_ft_val+1))-1
+        d.FAANG = ((d.FAANG+1)/(first_faang_val+1))-1
+        d.NASDAQ = ((d.NASDAQ+1)/(first_nasdaq_val+1))-1
+        d.SNP500 = ((d.SNP500+1)/(first_snp_val+1))-1
+        return data;
+      });
     	// Scale the range of the data again 
     	x.domain(d3.extent(data, function(d) { return d.Date; }));
 	    y.domain([d3.min(data, function(d) {return Math.min(d.NASDAQ, d.FAANG, d.Fintech, d.SNP500); })-.3, d3.max(data, function(d) {return Math.max(d.NASDAQ, d.FAANG, d.Fintech, d.SNP500); })*2]);
@@ -1587,9 +1979,9 @@ function update6M() {
     });
 }
 function updateMonthly() {
-
+time_frame = '1M'
 // Get the data again
-d3.csv("IndexesMonthly.csv", function(error, data) {
+d3.csv("Indexes.csv", function(error, data) {
        data.forEach(function(d) {
         d.Date = parseDate(d.Date);
         d.Fintech = +d.Fintech;
@@ -1598,7 +1990,36 @@ d3.csv("IndexesMonthly.csv", function(error, data) {
         d.SNP500= +d.SNP500;
         // d.EMCLOUD = +d.EMCLOUD;
     });
-
+    var possible_comps_filtered = possible_companies.filter(function (el) {
+        return (removeType.indexOf(el.type) < 0)&(removeVerticals.indexOf(el.vertical) < 0); 
+      });
+      proper_tickers = possible_comps_filtered.map(a => a.ticker)
+      new_ft = ft_companies.map(function(a) {return _.pick(a,proper_tickers)}).map(function(i){return Object.values(i).filter(function(x) {return x !== ""}).map(i=>Number(i))}).map(function(i){return average(i)}).map(function(x){return x-1})
+      // console.log(new_ft);
+      for(var i = 0; i < new_ft.length; i += 1) {
+        data[i].Fintech = new_ft[i];
+      }
+      // var today = new Date();
+      // today.setFullYear(today.getFullYear()-3);
+      // console.log(today.toLocaleDateString())
+      var dateTresh = new Date();
+      dateTresh.setDate(dateTresh.getDate() - 1);
+      // var nextMonth = today.add('month', 1);
+      dateTresh.setMonth(dateTresh.getMonth()-1);
+      var data = data.filter(function (el) {
+        return el.Date > dateTresh;
+      });
+      var first_ft_val = data[0].Fintech
+      var first_faang_val = data[0].FAANG
+      var first_nasdaq_val = data[0].NASDAQ
+      var first_snp_val = data[0].SNP500
+      data.map((d) => {
+        d.Fintech = ((d.Fintech+1)/(first_ft_val+1))-1
+        d.FAANG = ((d.FAANG+1)/(first_faang_val+1))-1
+        d.NASDAQ = ((d.NASDAQ+1)/(first_nasdaq_val+1))-1
+        d.SNP500 = ((d.SNP500+1)/(first_snp_val+1))-1
+        return data;
+      });
     // Scale the range of the data again 
     x.domain(d3.extent(data, function(d) { return d.Date; }));
     y.domain([d3.min(data, function(d) {return Math.min(d.NASDAQ, d.FAANG, d.Fintech, d.SNP500); })-.15, d3.max(data, function(d) {return Math.max(d.NASDAQ, d.FAANG, d.Fintech, d.SNP500); })*2]);
@@ -1654,9 +2075,9 @@ var svg = d3.select("body").transition();
 }
 
 function updateWeekly() {
-
+time_frame = '1W'
 // Get the data again
-d3.csv("IndexesWeekly.csv", function(error, data) {
+d3.csv("Indexes.csv", function(error, data) {
        data.forEach(function(d) {
         d.Date = parseDate(d.Date);
         d.Fintech = +d.Fintech;
@@ -1665,7 +2086,35 @@ d3.csv("IndexesWeekly.csv", function(error, data) {
         d.SNP500= +d.SNP500;
         // d.EMCLOUD = +d.EMCLOUD;
     });
-    
+    var possible_comps_filtered = possible_companies.filter(function (el) {
+        return (removeType.indexOf(el.type) < 0)&(removeVerticals.indexOf(el.vertical) < 0); 
+      });
+      proper_tickers = possible_comps_filtered.map(a => a.ticker)
+      new_ft = ft_companies.map(function(a) {return _.pick(a,proper_tickers)}).map(function(i){return Object.values(i).filter(function(x) {return x !== ""}).map(i=>Number(i))}).map(function(i){return average(i)}).map(function(x){return x-1})
+      // console.log(new_ft);
+      for(var i = 0; i < new_ft.length; i += 1) {
+        data[i].Fintech = new_ft[i];
+      }
+      // var today = new Date();
+      // today.setFullYear(today.getFullYear()-3);
+      // console.log(today.toLocaleDateString())
+      var dateTresh = new Date();
+      dateTresh.setDate(dateTresh.getDate() - 8);
+      // var nextMonth = today.add('month', 1);
+      var data = data.filter(function (el) {
+        return el.Date > dateTresh;
+      });
+      var first_ft_val = data[0].Fintech
+      var first_faang_val = data[0].FAANG
+      var first_nasdaq_val = data[0].NASDAQ
+      var first_snp_val = data[0].SNP500
+      data.map((d) => {
+        d.Fintech = ((d.Fintech+1)/(first_ft_val+1))-1
+        d.FAANG = ((d.FAANG+1)/(first_faang_val+1))-1
+        d.NASDAQ = ((d.NASDAQ+1)/(first_nasdaq_val+1))-1
+        d.SNP500 = ((d.SNP500+1)/(first_snp_val+1))-1
+        return data;
+      });
     // Scale the range of the data again 
     x.domain(d3.extent(data, function(d) { return d.Date; }));
     y.domain([d3.min(data, function(d) {return Math.min(d.NASDAQ, d.FAANG, d.Fintech, d.SNP500); })-.1, d3.max(data, function(d) {return Math.max(d.NASDAQ, d.FAANG, d.Fintech, d.SNP500); })+.1]);
@@ -1734,7 +2183,13 @@ d3.csv("key_figures.csv", function(error, data2) {
       });
       
   </script>
-
+<ul class="legend">
+  <li><span class="fintech_legend"></span> Fintech</li>
+  <li><span class="faang_legend"></span> FAANG</li>
+  <li><span class="nasdaq_legend"></span> NASDAQ</li>
+  <li><span class="snp500_legend"></span> S&P500</li>
+  <li><span class="emcloud_legend"></span> EMCLOUD</li>
+</ul>
 
 <!-- <script>
          
@@ -1908,13 +2363,6 @@ d3.csv("Indexes.csv", function(error, data) {
     <span class="nasdaq-dot"></span>
   </p>
 </div> -->
-<ul class="legend">
-  <li><span class="fintech_legend"></span> Fintech</li>
-  <li><span class="faang_legend"></span> FAANG</li>
-  <li><span class="nasdaq_legend"></span> NASDAQ</li>
-  <li><span class="snp500_legend"></span> S&P500</li>
-  <li><span class="emcloud_legend"></span> EMCLOUD</li>
-</ul>
 
 
 
@@ -2030,6 +2478,7 @@ SOFTWARE. -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.2.1/js/bootstrap.bundle.min.js"></script>
 <script src="jquery.csv.min.js"></script>
 <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+
 <script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js"></script>
 <script src="csv-to-html-table.js"></script>
 
