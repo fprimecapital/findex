@@ -300,29 +300,8 @@ table {
   text-align: center;
 }
 
-.graphButtons{
-  margin-left: 65%;
-}
 
-.index-numbers-fintech{
-  color: #5B56EE;
-}
 
-.index-numbers-faang{
-  color: #A6D0D8;
-}
-
-.index-numbers-nasdaq{
-  color: #1F1F1F;
-}
-
-.index-numbers-snp500{
-  color: #FC714D;
-}
-
-.index-numbers-emcloud{
-  color: #A9A9A9;
-}
 
 .buttongraph{
   background-color: white;
@@ -335,11 +314,11 @@ table {
 }
 
 
-.overview{
+/* .overview{
   border-right: 5px solid white;
   margin-top: 60%;
 
-}
+} */
 .brxsmall {
     display: block;
     margin-bottom: -.4em;
@@ -354,45 +333,15 @@ table {
   text-align: center;
 }
 
-.legendflex {
+/* .legendflex {
   margin: auto;
   display: flex;
   justify-content: space-between;
   max-width: 50%;
   color: black;
-}
-.vertical-type_toggles{
-  margin-left: 14%;
-  margin-bottom: -10%;
-  margin-top: 6%;
-  background-color: white;
-  border: 1px solid #333;
-  border-radius: 10px;
-  padding-top: 1%;
-  padding-right: 1%;
-  padding-bottom: 1%;
-  padding-left: 1%;
-}
-.vertical_toggles{
-  margin-left: 0%;
-  margin-bottom: 2%
-}
-.type_toggles{
-  margin-left: 0%;
-  margin-bottom: 0%
-}
-.flex {
-  display: flex;
-  justify-content: space-around;
-  background-color: #333;
-  padding-top: 75px;
-  padding-bottom: 75px;
-  color:floralwhite;
-}
-.stats_divider {
-  border-left: 5px solid floralwhite;
-  height: 100px;
-}
+} */
+
+
 
 
 #DivContent{
@@ -461,26 +410,19 @@ path {
     font-weight: bold;
     color: #FC714D;
 }
-
+/* 
 .f-prime-logo-nav-bar{
   margin: auto;
   width: 200px;
-}
+} */
 
 /* basic positioning */
-.legend { list-style: none; margin: auto;}
-.legend li { float: left; margin: 50px; }
-.legend span { border: 0px solid #ccc; float: left; width: 12px; height: 12px; margin: 2px; }
-/* your colors */
-.legend .fintech_legend { background-color: #5B56EE; border-radius: 50%; }
-.legend .faang_legend { background-color: #A6D0D8; border-radius: 50%;}
-.legend .nasdaq_legend { background-color: #1F1F1F; border-radius: 50%;}
-.legend .snp500_legend { background-color: #FC714D; border-radius: 50%;}
-.legend .emcloud_legend { background-color: #A9A9A9; border-radius: 50%;}
 
-.base-img{width:100%;display:block}
-.base-intro{padding-left:20px;padding-right:20px;max-width:100%;margin:20px auto 0; min-height: 100%;}
-@media (min-width: 768px){.base-intro{padding-left:60px}}
+
+/* .base-img{width:50%;display:block} */
+.ft_intro{display: flex;align-items:center;}
+.ft_intro-content{background-color:#1f1f1f}
+/* @media (min-width: 768px){.base-intro{padding-left:60px}}
 @media (min-width: 1200px){.base-intro{padding-left:80px}}
 @media (min-width: 768px){.base-intro{padding-right:60px}}
 @media (min-width: 1200px){.base-intro{padding-right:80px}}
@@ -490,70 +432,260 @@ path {
 .page_head{background-color:#1f1f1f;width:100%; color: #eee;height: 100%;}
 .sector__h{color: #eee; position:relative;font-size: 1.875em;}
 .sector__description{color: #eee;}
-.filter-nav__main{color:#eee;width:100%;display:block;position:relative;text-align:left;z-index:10}
-@media (min-width: 1200px){.base-intro__content{margin-left:-20px}}
-.base-intro__content--center{-webkit-box-align:center;-webkit-align-items:center;-ms-flex-align:center;align-items:center;}
-.page_head{background-color:#1f1f1f;width:100%; color: #eee;height: 100%;}
-.sector__h{color: #eee; position:relative;font-size: 1.875em;}
-.sector__description{color: #eee;}
-.filter-nav__main{color:#eee;width:100%;display:block;position:relative;text-align:left;z-index:10}
-
+.filter-nav__main{color:#eee;width:100%;display:block;position:relative;text-align:left;z-index:10} */
+@media (min-width: 1200px){.base-intro__content{margin-left:0px}}
+/* .base-intro__content--center{-webkit-box-align:left;-webkit-align-items:left;-ms-flex-align:left;align-items:left;} */
+.page_head{background-color:#1f1f1f;width:100%; color: #eee;height: 70%;}
+.top_line{margin-top: 2.5%;display: flex; align-items: center;}
+.site_redirect{margin-left: 40%; color:#eee;display: table-cell; font-size: 1.2vw;}
+.fprime-logo-gray-bg{width:250px; margin-left: 20%;display: table-cell;}
+.ft__h{color: #eee;font-family: "Nantes",serif;font-size: 3.5vw;}
+.ft__description{color: #eee;font-weight: 400;}
+.ft__intro-main{margin-left: 20%;display: table-cell;width: 35%;vertical-align: middle; padding-left:0%;align-items:center;}
+.ft__intro-figure{width:55%; height: 55%; margin-left:20%; display:table-cell; vertical-align: middle;top:50%;object-fit: cover;}
 #navbar {
+  margin: auto;
   background-color:#1f1f1f;
   width: 100%;
-  padding-top:20px;
-  padding-left:12.5%;
+  padding-top:1%;
+  padding-bottom:1%;
+  padding-left:15%;
 }
-
 #navbar a {
-  float:left;
-  display: block;
+  /* float:left;
+  display: block; */
   color: #eee;
   text-align: left;
+  /* font-size: 1.35vw; */
 }
-
 #navbar2 {
   background-color:white;
   width: 100%;
-  padding-top:20px;
-  padding-left:12.5%;
+  padding-top:1%;
+  padding-bottom:1%;
+  padding-left:15%;
 }
 
 #navbar2 a {
-  float:left;
-  display: block;
   color: black;
   text-align: left;
 }
-
-/* #navbar a:hover {
-  background-color: #ddd;
-  color: black;
-} */
-
-/* #navbar a.active {
-  color: black;
-  background-color: white;
-} */
-.new_nav_background{
-  background-color:black;
-}
-.content {
-  padding: 16px;
-}
-
 .sticky {
   position: fixed;
   top: 0;
   width: 100%;
 }
-
-.sticky + .content {
-  padding-top: 60px;
+.stats__text{margin-left:15%;margin-top: 5%;margin-bottom: 3%;}
+.index-numbers-fintech{color: #5B56EE;margin-right: 5%;}
+.index-numbers-faang{color: #A6D0D8;margin-right: 5%;}
+.index-numbers-nasdaq{color: #1F1F1F;margin-right: 5%;}
+.index-numbers-snp500{color: #FC714D;}
+.index-numbers-emcloud{color: #A9A9A9;}
+.graphButtons{margin-left: 55%;}
+.legend { list-style: none;margin:auto;margin-bottom: 15%;}
+.legend li { float: left; margin: 50px; }
+.legend span { border: 0px solid #ccc; float: left; width: 12px; height: 12px; margin: 2px; }
+/* your colors */
+.legend .fintech_legend { background-color: #5B56EE; border-radius: 50%;}
+.legend .faang_legend { background-color: #A6D0D8; border-radius: 50%;}
+.legend .nasdaq_legend { background-color: #1F1F1F; border-radius: 50%;}
+.legend .snp500_legend { background-color: #FC714D; border-radius: 50%;}
+.legend .emcloud_legend { background-color: #A9A9A9; border-radius: 50%;}
+.flex {
+  display: flex;
+  justify-content: space-around;
+  background-color: #333;
+  padding-top: 2%;
+  padding-bottom: 2%;
+  color:floralwhite;
 }
-.sector__intro-figure{width:70%; height: 70%; margin-left:25%;}
-.site_redirect{margin-right: 10%;font-size: 29px; color:#eee;padding-top: 25px;}
-.fprime-logo-gray-bg{width:15%; height: 15%; margin-left: 10%;}
+.stats_divider {
+  width:5%;
+  font-size: 50px;
+}
+@media screen and (max-width: 1050px) {
+.page_head{background-color:#1f1f1f;width:100%; color: #eee;height: 70%;}
+.top_line{margin-top: 2.5%;display: flex;  align-items: center;}
+.site_redirect{margin-left: 20%; color:#eee;display: table-cell; font-size: 2.5vw;}
+.fprime-logo-gray-bg{width:200px; margin-left: 15%;display: table-cell;}
+.ft__h{margin-left: 0%;color: #eee;font-family: "Nantes",serif;font-size: 4.5vw;}
+.ft__description{margin-left: 0%;color: #eee;font-weight: 400;font-size: 2vw;}
+.ft__intro-main{margin-left: 10%;display: table-cell;width: 100%;vertical-align: middle; padding-left:0%;align-items:center;}
+.ft__intro-figure{width:55%; height: 55%; margin-left:20%; display:table-cell; vertical-align: middle;top:50%;object-fit: cover;}
+#navbar {
+  margin: auto;
+  background-color:#1f1f1f;
+  width: 100%;
+  padding-top:1%;
+  padding-bottom:1%;
+  padding-left:5%;
+}
+  #navbar a {
+  /* float:left;
+  display: block; */
+  color: #eee;
+  text-align: left;
+  font-size: 2.25vw;
+}
+  #navbar2 {
+  margin: auto;
+  background-color:white;
+  width: 100%;
+  padding-top:1%;
+  padding-bottom:1%;
+  padding-left:5%;
+}
+  #navbar2 a {
+  /* float:left;
+  display: block; */
+  color: black;
+  text-align: left;
+  font-size: 2.25vw;
+}
+.sticky {
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+.stats__text{margin-left:15%;}
+.index-numbers-fintech{color: #5B56EE;font-size: 2.7vw;}
+.index-numbers-faang{color: #A6D0D8;font-size: 2.7vw;}
+.index-numbers-nasdaq{color: #1F1F1F;font-size: 2.7vw;}
+.index-numbers-snp500{color: #FC714D;font-size: 2.7vw;}
+.index-numbers-emcloud{color: #A9A9A9;font-size: 2.7vw;}
+.graphButtons{margin-left: auto;font-size: 1.5vw;}
+.legend li { float: left; margin: 20px; }
+.flex {
+  display: flex;
+  justify-content: space-around;
+  background-color: #333;
+  padding-top: 2%;
+  padding-bottom: 2%;
+  color:floralwhite;
+  font-size: 1.6vw;
+}
+.stats_divider {
+  width:5%;
+  font-size: 5.5vw;;
+}
+.g-style{
+  font-size:40px;
+}
+
+};
+.modal {
+  display: block; /* Hidden by default */
+  position: absolute;
+  z-index: 1; /* Sit on top */
+  overflow: auto; /* Enable scroll if needed */
+}
+/* .modal-content {
+  position: absolute;
+  background-color: #fefefe;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+} */
+/* The Close Button */
+.close {
+  color: #aaaaaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+.vertical-type_toggles{
+  margin-left:15%;
+  margin-top:10%;
+  width: 20%;
+  background-color: white;
+  border: 1px solid #333;
+  border-radius: 10px;
+  padding-top: 1%;
+  padding-right: 1%;
+  padding-bottom: 1%;
+  padding-left: 1%;
+}
+.vertical_toggles{
+  margin-left: 0%;
+  margin-bottom: 5%
+}
+.type_toggles{
+  margin-left: 0%;
+  margin-bottom: 0%
+}
+
+
+/* CSS */
+.button-4 {
+  appearance: none;
+  background-color: #FAFBFC;
+  border: 1px solid rgba(27, 31, 35, 0.15);
+  border-radius: 6px;
+  box-shadow: rgba(27, 31, 35, 0.04) 0 1px 0, rgba(255, 255, 255, 0.25) 0 1px 0 inset;
+  box-sizing: border-box;
+  color: #24292E;
+  cursor: pointer;
+  display: inline-block;
+  font-family: -apple-system, system-ui, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+  list-style: none;
+  padding: 6px 16px;
+  position: relative;
+  transition: background-color 0.2s cubic-bezier(0.3, 0, 0.5, 1);
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  vertical-align: middle;
+  white-space: nowrap;
+  word-wrap: break-word;
+}
+
+.button-4:hover {
+  background-color: #F3F4F6;
+  text-decoration: none;
+  transition-duration: 0.1s;
+}
+
+.button-4:disabled {
+  background-color: #FAFBFC;
+  border-color: rgba(27, 31, 35, 0.15);
+  color: #959DA5;
+  cursor: default;
+}
+
+.button-4:active {
+  background-color: #EDEFF2;
+  box-shadow: rgba(225, 228, 232, 0.2) 0 1px 0 inset;
+  transition: none 0s;
+}
+
+.button-4:focus {
+  outline: 1px transparent;
+}
+
+
+/* .button-4:before {
+  display: none;
+}
+
+.button-4:-webkit-details-marker {
+  display: none;
+} */
+
+/* .sticky + .content {
+  padding-top: 60px;
+} */
+
+
 #left{  
  float: left;
  }
@@ -599,57 +731,21 @@ path {
 
   <body class="theme--light">
   <div class = 'page_head'>
-    <br/>
-    <br/>
-    <br/>
-    <br/>
-    <br/>
     <div class = "top_line">
-      
-      <img class = "fprime-logo-gray-bg" src="FPrime_logo_gray_bg.PNG" alt="" id = "left">
-      <a href = "https://fprimecapital.com/sector/technology" id = "right" class="site_redirect">F-Prime Home -></a>
-      <br/>
-      <br/>
-      <br/>
-      <br/>
-      <br/>      
-      <br/>
-      <br/>
-      <br/>   
-      <br/>
-      <br/>      
-      <br/>
-      <br/>
-      <br/>  
-      <br/>
-      <br/>
-      <br/>  
+      <div class = "fprime-logo-gray-bg"><img src="FPrime_logo_gray_bg.PNG" alt="" id = "left"></div>
+      <div class="site_redirect"><a href = "https://fprimecapital.com/sector/technology" id = "right">F-Prime Home -></a></div>
     </div>
 
   
-    <header class="base-intro">
-      <div class="base-intro__content base-intro__content--center">
-        <div class="sector__intro-main">
-          <h2 class="sector__h">Fintech Index</h2>
-          <p class="sector__description">The F-Prime Fintech Index is designed to track the performance of emerging, publicly traded financial technology companies.</p>
+      <div class = 'ft_intro'>
+        <div class="ft__intro-main">
+          <h1 class="ft__h">Fintech Index</h1>
+          <h5 class="ft__description">The F-Prime Fintech Index is designed to track the performance of emerging, publicly traded financial technology companies.</h5>
         </div>
-        <div class="sector__intro-image">
-          <figure class="sector__intro-figure">
-            <img src="header-slash.PNG" alt="">
-          </figure>
+        <div class = 'ft_intro_img'>
+          <img class="ft__intro-figure" src="technology-header.PNG" alt="">
         </div>
       </div>
-      <br/>
-      <br/>
-      <br/>
-      <br/>
-      <br/>
-      <br/>
-      <br/>
-      <br/>
-      <br/>
-      <br/>
-      <br/>  
         <!-- <div class="site-header__inner">
           <div class="site-header__nav-controls">
             <a class="site-header__logo" aria-label="home" href="https://amieramie.github.io/findex/">
@@ -705,172 +801,23 @@ path {
       <!-- </ul>
     </div>
   </div> -->
-    </header>
   </div>
   <!-- <nav class="filter-nav__navigation "> -->
 <div class="filter-nav__main" id="navbar">
   <ul class="filter-nav__list">
-                          <li class="filter-nav__list-item filter-nav__list-item--active">
-          <a class="nav__link" aria-current="page" href="javascript:void(0)" data-page="overview" target="_self">Overview</a>
-        </li>
-                                    <li class="filter-nav__list-item ">
-          <a class="nav__link" aria-current="page" href="javascript:void(0)" data-page="performance" target="_self">Index Info</a>
-        </li>
-                                    <li class="filter-nav__list-item ">
-          <a class="nav__link" aria-current="page" href="javascript:void(0)" data-page="companies" target="_self">Companies</a>
-        </li>
-                                    <li class="filter-nav__list-item ">
-          <a class="nav__link" aria-current="page" href="javascript:void(0)" data-page="future" target="_self">Future Companies</a>
-        </li>
-                                    <li class="filter-nav__list-item community-link ">
-          <a class="nav__link" aria-current="page" href="javascript:void(0)" data-page="about" target="_self">About Us</a>
-        </li>
-                    </ul>
-                    <br/>
-<br/>
-</div>
-      <!-- <button class="filter-nav__mobile-button js--mobile-filter">Filter</button> -->
-
-
-
-<!-- <div class="overlay overlay__menu" id="menuOverlay">
-  <header class="site-header__menu">
-    <div class="site-header__inner">
-      <div class="site-header__nav-controls">
-        <a class="site-header__logo" aria-label="home" href="../">
-          <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="169" height="24" viewBox="0 0 169 24"> 
-  <defs>
-    <polygon id="site-logo-a" points="0 0 170 0 170 24 0 24"/>
-  </defs>
-  <g fill="none" fill-rule="evenodd" transform="translate(-1)">
-    <path class="site-logo__path" d="M30.9113873,8.38475952 C30.8146891,8.5222546 30.7421655,8.62728557 30.6677078,8.73136171 C29.6659145,10.120635 28.7666213,11.5777009 27.8199459,13.0032576 C26.8606998,14.4479109 25.9014537,15.8935189 24.9451085,17.3410366 C24.8329386,17.5109958 24.6463111,17.658994 24.7488112,17.9387583 L29.3622822,17.9387583 C31.4586991,14.778281 33.5502811,11.6283068 35.701816,8.38475952 L30.9113873,8.38475952 Z M105.941453,24 C105.946288,22.4197613 105.954023,20.8395227 105.95499,19.2602389 C105.955957,13.1331141 105.956924,7.00598935 105.95209,0.8788646 C105.95209,0.611513044 106.036217,0.322200468 105.841854,0.0844485496 C105.100178,-0.0434982661 102.178926,-0.0119889757 101.70027,0.134099553 C101.60744,0.389993184 101.646119,0.668802663 101.646119,0.942838008 C101.644185,7.66768445 101.644185,14.3925309 101.645152,21.1173773 C101.645152,22.0779333 101.651921,23.0384892 101.655789,24 L105.941453,24 Z M5.43141226,24 C5.4343132,20.7822331 5.43721415,17.5644661 5.44108208,14.2684034 L9.47533088,14.2684034 C10.8175019,14.2684034 12.1587059,14.2779517 13.4999099,14.2655389 C14.8111374,14.254081 16.1242989,14.3190092 17.4171538,14.2283007 C17.5902436,13.4673035 17.5544653,10.8825869 17.3794415,10.4443213 C17.1280262,10.3593417 16.8669411,10.3946703 16.6087569,10.3946703 C13.1469614,10.3927607 9.68516596,10.3946703 6.22337049,10.3898962 C5.97485613,10.3898962 5.70313419,10.4691468 5.48749721,10.2753169 C5.37049239,9.35199925 5.41400658,4.53489712 5.5629218,4.00401332 L7.79568318,4.00401332 L10.0023361,4.00401332 L12.2737767,4.00401332 L14.5452174,4.00401332 C15.2810907,4.00401332 16.0169639,4.01165193 16.7518702,4.00210366 C17.5012813,3.99255539 18.2526263,4.04793536 19.0813298,3.95245266 C19.0552213,2.62906246 19.126778,1.36296188 19.0358817,0.112138532 C18.3551264,-0.0329951693 1.60506458,-0.0167631106 1.09256413,0.116912667 C0.955252693,0.32792943 1.01133765,0.56854583 1.01133765,0.797704306 C1.00650274,2.72072585 1.00746972,4.64374739 1.0084367,6.56581411 C1.01133765,12.377846 1.01423859,18.188923 1.01617256,24 L5.43141226,24 Z M48.0782183,4.14055357 C48.254209,3.95627197 48.4582422,4.0068778 48.6468037,4.0068778 C50.2674655,4.00401332 51.8871603,3.98396195 53.5068551,4.01451641 C54.6788373,4.03647743 55.768626,4.3926279 56.6969286,5.103974 C57.4424718,5.67591536 57.8727787,6.48369899 57.9868826,7.39746841 C58.1386988,8.61105351 58.0129911,9.78262622 57.1340045,10.7613239 C56.6679192,11.2807498 56.1235083,11.6894157 55.4736965,11.9386255 C54.5618324,12.289047 53.6093552,12.4513676 52.6269015,12.4465935 C51.3746599,12.4408645 50.1214512,12.4446838 48.8682426,12.4446838 L48.0782183,12.4446838 L48.0782183,4.14055357 Z M48.0250343,24 C48.0337371,21.4649344 48.04244,18.9298687 48.0511428,16.4081707 C48.3567091,16.2869076 48.5955537,16.3193717 48.8295633,16.3184169 C50.1504607,16.3155524 51.4703911,16.2983656 52.7893545,16.3231911 C53.7689072,16.3422876 54.7329883,16.2525339 55.6825646,16.0462912 C57.7161277,15.6051612 59.4905396,14.7305396 60.8491492,13.0987403 C62.0830183,11.6149392 62.5094573,9.87715409 62.5384668,8.04197663 C62.5520045,7.27525056 62.4437025,6.4770152 62.2067919,5.71028914 C61.6043622,3.76148726 60.4555876,2.26909269 58.6395954,1.2751178 C57.0276365,0.392857665 55.2735312,0.0577133941 53.4701098,0.0290685846 C50.4627959,-0.0196275915 47.4535479,0.0128365259 44.446234,0.0157010068 C44.2354319,0.0157010068 44.0120591,-0.0349048233 43.8118938,0.114048186 C43.6649126,0.368032164 43.7316343,0.651615778 43.7316343,0.922786641 C43.7277664,7.67436824 43.7277664,14.4269047 43.7287334,21.1794411 C43.7287334,22.1189908 43.7364692,23.0594954 43.7403372,24 L48.0250343,24 Z M171,24 L171,20.1530021 C166.441647,20.1444086 161.884261,20.13677 157.344281,20.1291314 C157.189563,19.3757729 157.216639,14.3982599 157.362653,13.9361236 C157.608267,13.8339571 157.871286,13.8797888 158.127536,13.8797888 C161.590298,13.8759695 165.052094,13.878834 168.514856,13.8740598 C168.765305,13.8740598 169.037027,13.950446 169.304881,13.7165134 C169.316484,12.5258441 169.370635,11.3008011 169.267168,10.0089202 L166.813935,10.0089202 L164.412919,10.0089202 L162.075723,10.0089202 C161.274095,10.0089202 160.473434,10.0136943 159.672773,10.0079654 C158.881782,10.0022364 158.089824,10.0327909 157.292064,9.98600437 L157.292064,3.88275029 L160.693906,3.88275029 L164.06964,3.88275029 C165.195207,3.88275029 166.319807,3.88561477 167.445374,3.88179546 C168.563205,3.87797615 169.68007,3.89802752 170.849151,3.86747306 C170.901368,2.55458596 170.894599,1.33049776 170.858821,0.12550611 C170.216745,-0.0282210344 153.447343,-0.0234468995 152.899064,0.115003013 C152.878758,0.165608843 152.834277,0.222898462 152.834277,0.281142908 C152.826541,8.18711033 152.82364,16.0930778 152.819772,24 L171,24 Z M76.1032899,4.1663339 C76.2744457,3.95818162 76.4823468,4.0068778 76.6689744,4.0068778 C78.6580563,4.00401332 80.6471382,3.98969091 82.6352531,4.01356159 C83.4600888,4.02406468 84.2626838,4.20357216 85.0101609,4.56640641 C85.9732749,5.03236198 86.614384,5.76184979 86.9064125,6.79210811 C87.2496911,7.99805459 87.0717665,9.11615698 86.3349262,10.1301832 C85.7112228,10.9895275 84.789689,11.4020128 83.7917636,11.6626805 C83.3111735,11.7877629 82.8170458,11.8192722 82.3161491,11.8154529 C80.5001569,11.8030401 78.6841648,11.8125884 76.8681726,11.8078143 C76.636097,11.8068594 76.3933845,11.8612846 76.1032899,11.6894157 L76.1032899,4.1663339 Z M76.0742804,24 L76.0742804,15.7235597 L81.2292614,15.7235597 C81.6663372,16.3193717 82.1275876,16.9323707 82.5733663,17.5549179 C84.0141694,19.5715125 85.4511047,21.5909715 86.8880399,23.6113854 C86.9741013,23.7326484 87.0379221,23.8701435 87.1114127,24 L92.3060399,24 C91.4879731,22.8475238 90.6737743,21.6921832 89.8489387,20.545436 C88.7978293,19.0845507 87.7264132,17.6389426 86.6917425,16.1685091 C86.4190536,15.7818042 86.0554684,15.4380664 85.9007513,14.9425112 C86.611483,14.7362686 87.2284175,14.4269047 87.8318143,14.0965345 C89.671981,13.0939662 90.851699,11.5948878 91.2984447,9.54869361 C91.5372892,8.45446189 91.6194827,7.35927534 91.4028787,6.25263086 C91.0054491,4.23890075 90.0694106,2.58323076 88.2543854,1.46703802 C86.6018132,0.453011765 84.7684154,0.0701261449 82.8798996,0.0357523735 C79.3755569,-0.0291758614 75.8702473,0.0137913529 72.3649376,0.0157010068 C72.1551025,0.0157010068 71.9307627,-0.0358596503 71.7383333,0.112138532 C71.5981209,0.32792943 71.6542058,0.56854583 71.6542058,0.797704306 C71.6493709,2.84867267 71.6503379,4.89964103 71.6513049,6.95156421 C71.6532389,12.6337396 71.6561398,18.3168698 71.6590407,24 L76.0742804,24 Z M117.238703,24 C117.235802,18.2729478 117.233868,12.5468503 117.230967,6.82170774 C117.230967,4.81275177 117.229033,2.80475063 117.233868,0.795794652 C117.234835,0.566636176 117.177783,0.326019776 117.316062,0.11595784 C117.795685,-0.00816966774 121.012834,-0.0406337852 121.900523,0.0768099338 C124.2822,3.72902314 126.686117,7.41751978 129.157723,11.2091377 C131.621593,7.4394808 134.029378,3.7557583 136.4478,0.0558037401 L140.989714,0.0558037401 C141.214054,0.279233254 141.131861,0.550404117 141.131861,0.795794652 C141.137663,4.19306906 141.136696,7.59034347 141.135729,10.9876179 C141.134762,15.3253969 141.133795,19.662221 141.131861,24 L136.717588,24 C136.71372,23.7211905 136.705984,23.4442907 136.705984,23.166436 C136.705984,18.1020337 136.706951,13.0376314 136.703083,7.97322909 C136.703083,7.75648336 136.748531,7.52637006 136.647965,7.30962433 C136.468107,7.38314601 136.432328,7.51682179 136.362706,7.61898827 C135.307728,9.15530489 134.251784,10.6916215 133.204543,12.2327123 C131.989046,14.0230129 130.782253,15.8190424 129.565789,17.609343 C129.441049,17.7945794 129.357888,18.0380603 129.091001,18.0886661 C128.795105,18.0027317 128.713878,17.7315609 128.5756,17.5281827 C126.37765,14.2808161 124.187436,11.0277206 121.989486,7.78035403 C121.87925,7.61707862 121.812528,7.39842324 121.535971,7.283844 L121.535971,7.97322909 C121.535971,9.66136319 121.536938,11.3494973 121.535971,13.0376314 C121.532103,16.6917543 121.528235,20.3458771 121.524367,24 L117.238703,24 Z" mask="url(#site-logo-b)"/>
-  </g>
-</svg>
-
-
-<h3>Fintech Index</h3>
-        </a>
-        <ul class="nav__list">
-          <li id="menuCloseButton" class="nav__list-item site-header__close-list-item--menu">
-            <button class="site-header__close-button site-header__close-button--menu" title="Close menu">
-              <span>Close</span> <svg width="17" height="18" viewBox="0 0 17 18" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path fill-rule="evenodd" clip-rule="evenodd" d="M6.2215 8.7785L0 15L1.7785 16.7785L8 10.557L14.4495 17.0065L16.228 15.228L9.7785 8.7785L16.0065 2.55048L14.228 0.77198L8 7L2 1L0.221498 2.7785L6.2215 8.7785Z" fill="white"/>
-</svg>
-            </button>
-          </li>
-          <li id="menuSearchOpenButton" class="nav__list-item site-header__open-list-item--search">
-            <button class="site-header__open-button site-header__open-button--search" title="Search">
-              <svg width="17" height="17" viewBox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path fill-rule="evenodd" clip-rule="evenodd" d="M12.25 7C12.25 9.8995 9.8995 12.25 7 12.25C4.1005 12.25 1.75 9.8995 1.75 7C1.75 4.1005 4.1005 1.75 7 1.75C9.8995 1.75 12.25 4.1005 12.25 7ZM10.8482 12.8483C9.744 13.5763 8.42148 14 7 14C3.13401 14 0 10.866 0 7C0 3.13401 3.13401 0 7 0C10.866 0 14 3.13401 14 7C14 8.81222 13.3113 10.4636 12.1815 11.7067L16.2374 15.7627L15 17.0001L10.8482 12.8483Z" fill="#1D1D1D"/>
-</svg>
-            </button>
-          </li>
-        </ul>
-      </div>
-      <nav class="nav">
-  <div class="nav__open">
-    <div class="nav__prime-lines"></div>
-    <div class="nav__open--container">
-      <ul class="nav__open--left">
-                  <li class="nav__open--list-item">
-            <a class="nav__link js--nav__link" href="sector/healthcare/" target="_self">Healthcare</a>
-          </li>
-                  <li class="nav__open--list-item">
-            <a class="nav__link js--nav__link" href="sector/technology/" target="_self">Technology</a>
-          </li>
-                  <li class="nav__open--list-item">
-            <a class="nav__link js--nav__link" href target="_self">People</a>
-          </li>
-              </ul>
-      <ul class="nav__open--right">
-                  <li class="nav__open--list-item">
-            <a href="portfolio/" class="nav__link js--nav__link" target="_self">Portfolio</a>
-          </li>
-                  <li class="nav__open--list-item">
-            <a href class="nav__link js--nav__link" target="_self">People</a>
-          </li>
-                  <li class="nav__open--list-item">
-            <a href="news/" class="nav__link js--nav__link" target="_self">News</a>
-          </li>
-                  <li class="nav__open--list-item">
-            <a href="stories/" class="nav__link js--nav__link" target="_self">Stories</a>
-          </li>
-                  <li class="nav__open--list-item">
-            <a href="about/" class="nav__link js--nav__link" target="_self">About</a>
-          </li>
-                  <li class="nav__open--list-item">
-            <a href="fbri/" class="nav__link js--nav__link" target="_self">FBRI</a>
-          </li>
-                  <li class="nav__open--list-item">
-            <a href="https://jobs.fprimecapital.com" class="nav__link js--nav__link" target="_self">Jobs</a>
-          </li>
-              </ul>
-    </div>
-  </div>
-</nav>
-    </div>
-  </header>
-</div>
-<div class="overlay overlay__menu" id="searchOverlay">
-  <header class="site-header__search">
-    <div class="site-header__inner">
-      <div class="site-header__nav-controls">
-        <a class="site-header__logo" aria-label="home" href="../">
-          <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="169" height="24" viewBox="0 0 169 24">
-  <defs>
-    <polygon id="site-logo-a" points="0 0 170 0 170 24 0 24"/>
-  </defs>
-  <g fill="none" fill-rule="evenodd" transform="translate(-1)">
-    <path class="site-logo__path" d="M30.9113873,8.38475952 C30.8146891,8.5222546 30.7421655,8.62728557 30.6677078,8.73136171 C29.6659145,10.120635 28.7666213,11.5777009 27.8199459,13.0032576 C26.8606998,14.4479109 25.9014537,15.8935189 24.9451085,17.3410366 C24.8329386,17.5109958 24.6463111,17.658994 24.7488112,17.9387583 L29.3622822,17.9387583 C31.4586991,14.778281 33.5502811,11.6283068 35.701816,8.38475952 L30.9113873,8.38475952 Z M105.941453,24 C105.946288,22.4197613 105.954023,20.8395227 105.95499,19.2602389 C105.955957,13.1331141 105.956924,7.00598935 105.95209,0.8788646 C105.95209,0.611513044 106.036217,0.322200468 105.841854,0.0844485496 C105.100178,-0.0434982661 102.178926,-0.0119889757 101.70027,0.134099553 C101.60744,0.389993184 101.646119,0.668802663 101.646119,0.942838008 C101.644185,7.66768445 101.644185,14.3925309 101.645152,21.1173773 C101.645152,22.0779333 101.651921,23.0384892 101.655789,24 L105.941453,24 Z M5.43141226,24 C5.4343132,20.7822331 5.43721415,17.5644661 5.44108208,14.2684034 L9.47533088,14.2684034 C10.8175019,14.2684034 12.1587059,14.2779517 13.4999099,14.2655389 C14.8111374,14.254081 16.1242989,14.3190092 17.4171538,14.2283007 C17.5902436,13.4673035 17.5544653,10.8825869 17.3794415,10.4443213 C17.1280262,10.3593417 16.8669411,10.3946703 16.6087569,10.3946703 C13.1469614,10.3927607 9.68516596,10.3946703 6.22337049,10.3898962 C5.97485613,10.3898962 5.70313419,10.4691468 5.48749721,10.2753169 C5.37049239,9.35199925 5.41400658,4.53489712 5.5629218,4.00401332 L7.79568318,4.00401332 L10.0023361,4.00401332 L12.2737767,4.00401332 L14.5452174,4.00401332 C15.2810907,4.00401332 16.0169639,4.01165193 16.7518702,4.00210366 C17.5012813,3.99255539 18.2526263,4.04793536 19.0813298,3.95245266 C19.0552213,2.62906246 19.126778,1.36296188 19.0358817,0.112138532 C18.3551264,-0.0329951693 1.60506458,-0.0167631106 1.09256413,0.116912667 C0.955252693,0.32792943 1.01133765,0.56854583 1.01133765,0.797704306 C1.00650274,2.72072585 1.00746972,4.64374739 1.0084367,6.56581411 C1.01133765,12.377846 1.01423859,18.188923 1.01617256,24 L5.43141226,24 Z M48.0782183,4.14055357 C48.254209,3.95627197 48.4582422,4.0068778 48.6468037,4.0068778 C50.2674655,4.00401332 51.8871603,3.98396195 53.5068551,4.01451641 C54.6788373,4.03647743 55.768626,4.3926279 56.6969286,5.103974 C57.4424718,5.67591536 57.8727787,6.48369899 57.9868826,7.39746841 C58.1386988,8.61105351 58.0129911,9.78262622 57.1340045,10.7613239 C56.6679192,11.2807498 56.1235083,11.6894157 55.4736965,11.9386255 C54.5618324,12.289047 53.6093552,12.4513676 52.6269015,12.4465935 C51.3746599,12.4408645 50.1214512,12.4446838 48.8682426,12.4446838 L48.0782183,12.4446838 L48.0782183,4.14055357 Z M48.0250343,24 C48.0337371,21.4649344 48.04244,18.9298687 48.0511428,16.4081707 C48.3567091,16.2869076 48.5955537,16.3193717 48.8295633,16.3184169 C50.1504607,16.3155524 51.4703911,16.2983656 52.7893545,16.3231911 C53.7689072,16.3422876 54.7329883,16.2525339 55.6825646,16.0462912 C57.7161277,15.6051612 59.4905396,14.7305396 60.8491492,13.0987403 C62.0830183,11.6149392 62.5094573,9.87715409 62.5384668,8.04197663 C62.5520045,7.27525056 62.4437025,6.4770152 62.2067919,5.71028914 C61.6043622,3.76148726 60.4555876,2.26909269 58.6395954,1.2751178 C57.0276365,0.392857665 55.2735312,0.0577133941 53.4701098,0.0290685846 C50.4627959,-0.0196275915 47.4535479,0.0128365259 44.446234,0.0157010068 C44.2354319,0.0157010068 44.0120591,-0.0349048233 43.8118938,0.114048186 C43.6649126,0.368032164 43.7316343,0.651615778 43.7316343,0.922786641 C43.7277664,7.67436824 43.7277664,14.4269047 43.7287334,21.1794411 C43.7287334,22.1189908 43.7364692,23.0594954 43.7403372,24 L48.0250343,24 Z M171,24 L171,20.1530021 C166.441647,20.1444086 161.884261,20.13677 157.344281,20.1291314 C157.189563,19.3757729 157.216639,14.3982599 157.362653,13.9361236 C157.608267,13.8339571 157.871286,13.8797888 158.127536,13.8797888 C161.590298,13.8759695 165.052094,13.878834 168.514856,13.8740598 C168.765305,13.8740598 169.037027,13.950446 169.304881,13.7165134 C169.316484,12.5258441 169.370635,11.3008011 169.267168,10.0089202 L166.813935,10.0089202 L164.412919,10.0089202 L162.075723,10.0089202 C161.274095,10.0089202 160.473434,10.0136943 159.672773,10.0079654 C158.881782,10.0022364 158.089824,10.0327909 157.292064,9.98600437 L157.292064,3.88275029 L160.693906,3.88275029 L164.06964,3.88275029 C165.195207,3.88275029 166.319807,3.88561477 167.445374,3.88179546 C168.563205,3.87797615 169.68007,3.89802752 170.849151,3.86747306 C170.901368,2.55458596 170.894599,1.33049776 170.858821,0.12550611 C170.216745,-0.0282210344 153.447343,-0.0234468995 152.899064,0.115003013 C152.878758,0.165608843 152.834277,0.222898462 152.834277,0.281142908 C152.826541,8.18711033 152.82364,16.0930778 152.819772,24 L171,24 Z M76.1032899,4.1663339 C76.2744457,3.95818162 76.4823468,4.0068778 76.6689744,4.0068778 C78.6580563,4.00401332 80.6471382,3.98969091 82.6352531,4.01356159 C83.4600888,4.02406468 84.2626838,4.20357216 85.0101609,4.56640641 C85.9732749,5.03236198 86.614384,5.76184979 86.9064125,6.79210811 C87.2496911,7.99805459 87.0717665,9.11615698 86.3349262,10.1301832 C85.7112228,10.9895275 84.789689,11.4020128 83.7917636,11.6626805 C83.3111735,11.7877629 82.8170458,11.8192722 82.3161491,11.8154529 C80.5001569,11.8030401 78.6841648,11.8125884 76.8681726,11.8078143 C76.636097,11.8068594 76.3933845,11.8612846 76.1032899,11.6894157 L76.1032899,4.1663339 Z M76.0742804,24 L76.0742804,15.7235597 L81.2292614,15.7235597 C81.6663372,16.3193717 82.1275876,16.9323707 82.5733663,17.5549179 C84.0141694,19.5715125 85.4511047,21.5909715 86.8880399,23.6113854 C86.9741013,23.7326484 87.0379221,23.8701435 87.1114127,24 L92.3060399,24 C91.4879731,22.8475238 90.6737743,21.6921832 89.8489387,20.545436 C88.7978293,19.0845507 87.7264132,17.6389426 86.6917425,16.1685091 C86.4190536,15.7818042 86.0554684,15.4380664 85.9007513,14.9425112 C86.611483,14.7362686 87.2284175,14.4269047 87.8318143,14.0965345 C89.671981,13.0939662 90.851699,11.5948878 91.2984447,9.54869361 C91.5372892,8.45446189 91.6194827,7.35927534 91.4028787,6.25263086 C91.0054491,4.23890075 90.0694106,2.58323076 88.2543854,1.46703802 C86.6018132,0.453011765 84.7684154,0.0701261449 82.8798996,0.0357523735 C79.3755569,-0.0291758614 75.8702473,0.0137913529 72.3649376,0.0157010068 C72.1551025,0.0157010068 71.9307627,-0.0358596503 71.7383333,0.112138532 C71.5981209,0.32792943 71.6542058,0.56854583 71.6542058,0.797704306 C71.6493709,2.84867267 71.6503379,4.89964103 71.6513049,6.95156421 C71.6532389,12.6337396 71.6561398,18.3168698 71.6590407,24 L76.0742804,24 Z M117.238703,24 C117.235802,18.2729478 117.233868,12.5468503 117.230967,6.82170774 C117.230967,4.81275177 117.229033,2.80475063 117.233868,0.795794652 C117.234835,0.566636176 117.177783,0.326019776 117.316062,0.11595784 C117.795685,-0.00816966774 121.012834,-0.0406337852 121.900523,0.0768099338 C124.2822,3.72902314 126.686117,7.41751978 129.157723,11.2091377 C131.621593,7.4394808 134.029378,3.7557583 136.4478,0.0558037401 L140.989714,0.0558037401 C141.214054,0.279233254 141.131861,0.550404117 141.131861,0.795794652 C141.137663,4.19306906 141.136696,7.59034347 141.135729,10.9876179 C141.134762,15.3253969 141.133795,19.662221 141.131861,24 L136.717588,24 C136.71372,23.7211905 136.705984,23.4442907 136.705984,23.166436 C136.705984,18.1020337 136.706951,13.0376314 136.703083,7.97322909 C136.703083,7.75648336 136.748531,7.52637006 136.647965,7.30962433 C136.468107,7.38314601 136.432328,7.51682179 136.362706,7.61898827 C135.307728,9.15530489 134.251784,10.6916215 133.204543,12.2327123 C131.989046,14.0230129 130.782253,15.8190424 129.565789,17.609343 C129.441049,17.7945794 129.357888,18.0380603 129.091001,18.0886661 C128.795105,18.0027317 128.713878,17.7315609 128.5756,17.5281827 C126.37765,14.2808161 124.187436,11.0277206 121.989486,7.78035403 C121.87925,7.61707862 121.812528,7.39842324 121.535971,7.283844 L121.535971,7.97322909 C121.535971,9.66136319 121.536938,11.3494973 121.535971,13.0376314 C121.532103,16.6917543 121.528235,20.3458771 121.524367,24 L117.238703,24 Z" mask="url(#site-logo-b)"/>
-  </g>
-</svg>
-        </a>
-        <ul class="nav__list">
-          <li id="searchCloseButton" class="nav__list-item site-header__close-list-item--search">
-            <button class="site-header__close-button site-header__close-button--search" title="Cancel search">
-              <span>Close</span> <svg width="17" height="18" viewBox="0 0 17 18" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path fill-rule="evenodd" clip-rule="evenodd" d="M6.2215 8.7785L0 15L1.7785 16.7785L8 10.557L14.4495 17.0065L16.228 15.228L9.7785 8.7785L16.0065 2.55048L14.228 0.77198L8 7L2 1L0.221498 2.7785L6.2215 8.7785Z" fill="white"/>
-</svg>
-            </button>
-          </li>
-        </ul>
-      </div>
-      <div class="site-search">
-  <div class="nav__prime-lines"></div>
-  <form role="search" method="get" id="mainSearchForm" class="site-search__form" action="https://fprimecapital.com">
-    <label class="visually-hidden" for="s">Search for:</label>
-    <div class="search__form--group">
-      <input type="text" class="site-search__form--input" value name="s" placeholder="Search" id="mainSearchInput">
-      <button type="submit" class="search__submit--button" title="Submit search term">
-        <svg width="97" height="55" viewBox="0 0 97 55" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path fill-rule="evenodd" clip-rule="evenodd" d="M93.4094 26.9464L68.579 2.116L69.9932 0.701782L96.7771 27.4857L96.5234 27.7394L96.9412 28.1572L70.1573 54.9411L68.743 53.5269L93.3236 28.9464H0.713989V26.9464H93.4094Z" fill="#fff"/>
-        </svg>
-      </button>
-    </div>
-    <p class="site-search__description">Find a portfolio company, person, community initiative, or story</p>
-  </form>
-</div>    </div>
-  </header>
+    <!-- <li class="filter-nav__list-item "><a class="nav__link" href="javascript:void(0)" data-page="overview">Overview</a></li>
+    <li class="filter-nav__list-item "><a class="nav__link" href="javascript:void(0)" data-page="performance">Index Info</a></li>
+    <li class="filter-nav__list-item "><a class="nav__link" href="javascript:void(0)" data-page="companies">Companies</a></li>
+    <li class="filter-nav__list-item "><a class="nav__link"  href="javascript:void(0)" data-page="future">Future Companies</a></li>
+    <li class="filter-nav__list-item "><a class="nav__link" href="javascript:void(0)" data-page="about">About Us</a></li> -->
+    <li class="filter-nav__list-item"><a class="nav__link" aria-current="page" href="javascript:void(0)" data-page="overview" target="_self">Overview</a></li>
+    <li class="filter-nav__list-item "><a class="nav__link" aria-current="page" href="javascript:void(0)" data-page="performance" target="_self">Index Info</a></li>
+    <li class="filter-nav__list-item "><a class="nav__link" aria-current="page" href="javascript:void(0)" data-page="companies" target="_self">Companies</a></li>
+    <li class="filter-nav__list-item "><a class="nav__link" aria-current="page" href="javascript:void(0)" data-page="future" target="_self">Future Companies</a></li>
+    <li class="filter-nav__list-item community-link"><a class="nav__link" aria-current="page" href="javascript:void(0)" data-page="about" target="_self">About Us</a></li>
+  </ul>
 </div>
 
-<div class="stats__text">
-  <h2 class="stats__h" id = "overview">  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Index</h2>
-</div>
-<br/> -->
-<!-- <div>
-  <div class="index-numbers-fintech"><h2>+2348.5%</h2><a class="filter-news__category">Fintech Index</a>  </div>
-  <div class="index-numbers-faang"><h2>+669.4%</h2>                  <a class="filter-news__category">FAANG Index</a>
-  </div>
-  <div class="index-numbers-nasdaq"><h2>+296.8%</h2>                       <a class="filter-news__category"> NASDAQ</a>
-  </div>
-  <div class="index-numbers-snp"><h2>+202.4%</h2>                       <a class="filter-news__category">S&P 500</a>
-  </div>
-</div> -->
-
-<br/>
-<br/>
-<br/>
-<br/>
 
 <!-- <div id="navbar">
   <a class="active" href="javascript:void(0)">Home</a>
@@ -879,7 +826,7 @@ path {
 </div> -->
 
 <div class="stats__text">
-  <h2 class="stats__h" id = "overview">  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Index</h2>
+  <h2 class="stats__h" id = "overview">Index</h2>
 </div>
 <div class='statistics'>
 <h3 class="indexflex">
@@ -898,7 +845,79 @@ path {
 <input id = "saas_bool" type="checkbox" checked = ""/>B2B SaaS
 <input id = "wealth_bool" type="checkbox" checked = ""/>Wealth/Asset Mgmt
 <input id = "re_bool" type="checkbox" checked = ""/>Real Estate -->
-<div class='vertical-type_toggles'>
+
+
+<!-- The Modal -->
+<div id="myModal" class="modal">
+
+  <!-- Modal content -->
+  <div>
+    <div class='vertical-type_toggles'>
+      <span class="close">&times;</span>
+      <div class = 'vertical_toggles'>
+        <div class="pretty p-default">
+          <input id = "insurance_bool" type="checkbox" checked = "" />
+          <div class="state">
+              <label>Insurance</label>
+          </div>
+        </div>
+        <div class="pretty p-default">
+          <input id = "payments_bool" type="checkbox" checked = "" />
+          <div class="state">
+              <label>Payments</label>
+          </div>
+        </div>
+        <div class="pretty p-default">
+          <input id = "banking_bool" type="checkbox" checked = "" />
+          <div class="state">
+              <label>Banking/Lending</label>
+          </div>
+        </div>
+        <div class="pretty p-default">
+          <input id = "saas_bool" type="checkbox" checked = "" />
+          <div class="state">
+              <label>B2B SaaS</label>
+          </div>
+        </div>
+        <div class="pretty p-default">
+          <input id = "wealth_bool" type="checkbox" checked = "" />
+          <div class="state">
+              <label>Wealth/Asset Mgmt</label>
+          </div>
+        </div>
+        <div class="pretty p-default">
+          <input id = "re_bool" type="checkbox" checked = "" />
+          <div class="state">
+              <label>Real Estate</label>
+          </div>
+        </div>
+      </div>
+      <div class = "type_toggles">
+        <div class="pretty p-switch">
+          <input id = "spac_bool" type="checkbox" checked = "" />
+          <div class="state">
+              <label>SPAC</label>
+          </div>
+        </div>
+        <div class="pretty p-switch">
+          <input id = "dl_bool" type="checkbox" checked = "" />
+          <div class="state">
+              <label>Direct Listing</label>
+          </div>
+        </div>
+        <div class="pretty p-switch">
+          <input id = "ipo_bool" type="checkbox" checked = "" />
+          <div class="state">
+              <label>Traditional IPO</label>
+          </div>
+        </div>    
+      </div>
+    </div>
+  </div>
+
+</div>
+<!-- <button onclick="popupmenu()" class="dropbtn">Dropdown</button>
+<div id="myDropdown" class='vertical-type_toggles'>
   <div class = 'vertical_toggles'>
     <div class="pretty p-default">
       <input id = "insurance_bool" type="checkbox" checked = "" />
@@ -957,7 +976,7 @@ path {
       </div>
     </div>    
   </div>
-</div>
+</div> -->
 <br /><br />
 <ul class="graphButtons">
     <input 
@@ -1004,6 +1023,8 @@ path {
          value="1W" 
          onclick="updateWeekly()"
          class='buttongraph' />
+         <a>&nbsp;&nbsp;</a>
+  <button id="myBtn" class = "button-4">...</button>
 </ul>
 <!-- x
 <div>
@@ -1023,39 +1044,99 @@ path {
 <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.17/d3.min.js"></script>
 
 <script>
+var modal = document.getElementById("myModal");
+
+// Get the button that opens the modal
+var btn = document.getElementById("myBtn");
+
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
+
+// When the user clicks the button, open the modal 
+btn.onclick = function() {
+  modal.style.display = "block";
+}
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() {
+  modal.style.display = "none";
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+}
+// function popupmenu() {
+//   document.getElementById("myDropdown").classList.toggle("show");
+// }
+
+// // Close the dropdown if the user clicks outside of it
+// window.onclick = function(event) {
+//   if (!event.target.matches('.vertical-type_toggle')) {
+//     var dropdowns = document.getElementsByClassName("dropdown-content");
+//     var i;
+//     for (i = 0; i < dropdowns.length; i++) {
+//       var openDropdown = dropdowns[i];
+//       if (openDropdown.classList.contains('show')) {
+//         openDropdown.classList.remove('show');
+//       }
+//     }
+//   }
+// }
+
   $("a").click(function(){
   var pageId = $(this).attr("data-page");
   $("html, body").animate({ scrollTop: $("#"+pageId).offset().top }, 10);
 });
 
   function getWidth() {
-  return Math.max(
-    document.body.scrollWidth,
-    document.documentElement.scrollWidth,
-    document.body.offsetWidth,
-    document.documentElement.offsetWidth,
-    document.documentElement.clientWidth
-  );
+    var windowWidth = document.documentElement.clientWidth;
+  // Math.max(
+  //   document.body.scrollWidth,
+  //   document.documentElement.scrollWidth,
+  //   document.body.offsetWidth,
+  //   document.documentElement.offsetWidth,
+  //   document.documentElement.clientWidth
+  // );
+
+  return windowWidth
 }
 
 function getHeight() {
-  return Math.max(
-    document.body.scrollHeight,
-    document.documentElement.scrollHeight,
-    document.body.offsetHeight,
-    document.documentElement.offsetHeight,
-    document.documentElement.clientHeight
-  );
+  var windowHeight = document.documentElement.clientHeight;
+  // Math.max(
+  //   document.body.scrollHeight,
+  //   document.documentElement.scrollHeight,
+  //   document.body.offsetHeight,
+  //   document.documentElement.offsetHeight,
+  //   document.documentElement.clientHeight
+  // );
+  return windowHeight
 }
 
-console.log('Width:  ' +  getWidth() );
-console.log('Height: ' + window.innerHeight);
+
+// console.log('Width:  ' +  winWidth);
+// console.log('Height: ' + window.innerHeight);
+function changeGraphSize(){
+var widthBrowser = getWidth();
+var heightBrowser = getHeight();
+console.log(widthBrowser)
+var	margin = {top: 30, right: 225, bottom: 30, left: 225},
+    width = widthBrowser  - margin.left - margin.right,
+    height = heightBrowser - 350,
+    tooltip = { width: 100, height: 100, x: 10, y: -30 };
+
+// Set the dimensions of the canvas / graph
+}
+// window.addEventListener("resize", changeGraphSize);
   var widthBrowser = window.innerWidth;
   var heightBrowser = window.innerHeight;
   // Set the dimensions of the canvas / graph
-  var	margin = {top: 30, right: 275, bottom: 30, left: 225},
-    width = widthBrowser  - margin.left - margin.right,
-    height = heightBrowser - 350,
+  var	margin = {top: 30, right: 150, bottom: 40, left: 180},
+    width = 1920  - margin.left - margin.right,
+    height = 960 - 350,
     tooltip = { width: 100, height: 100, x: 10, y: -30 };
  // Parse the Date / time
 var parseDate = d3.time.format("%m/%d/%Y").parse,
@@ -1106,12 +1187,34 @@ var	valueline2 = d3.svg.line()
 
 // Adds the svg canvas
 var svg = d3.select("body")
-    .append("svg")
-        .attr("width", width + margin.left + margin.right)
-        .attr("height", height + margin.top + margin.bottom)
-    .append("g")
-        .attr("transform", 
-              "translate(" + margin.left + "," + margin.top + ")");
+.append("svg")
+  .attr("viewBox", "0 0 " + (width + margin.left + margin.right) + " " + (height + margin.top + margin.bottom))
+  .attr("preserveAspectRatio", "xMinYMin meet")
+  .classed("svg-style", true)
+    // .attr("width", width + margin.left + margin.right)
+    // .attr("height", height + margin.top + margin.bottom)
+.append("g")
+    .attr("transform", 
+          "translate(" + margin.left + "," + margin.top + ")")
+    .classed("g-style", true);
+
+function redraw(){
+
+// Extract the width and height that was computed by CSS.
+var width = chartDiv.clientWidth;
+var height = chartDiv.clientHeight;
+
+// Use the extracted size to set the size of an SVG element.
+svg
+  .attr("width", width + margin.left + margin.right)
+  .attr("height", height + margin.top + margin.bottom);
+}
+
+// // Draw for the first time to initialize.
+// redraw();
+
+// // Redraw based on the new size whenever the browser window is resized.
+// window.addEventListener("resize", redraw);        
 // var csvData = "Indexes.csv";
 // function updateAllTime() {
 //   var csvData = "Indexes.csv";
@@ -1374,7 +1477,7 @@ d3.csv("Indexes.csv", function(error, data) {
     focus.append("circle")
         .attr("r", 5);
     focus.append("rect")
-        .attr("class", "mouse-line")
+        .attr("class", "hover-data-style")
         .attr("width", 1)
         .attr("y", -1000)
         .attr("height", 1600)
@@ -2192,7 +2295,6 @@ d3.csv("key_figures.csv", function(error, data2) {
   <li><span class="faang_legend"></span> FAANG</li>
   <li><span class="nasdaq_legend"></span> NASDAQ</li>
   <li><span class="snp500_legend"></span> S&P500</li>
-  <li><span class="emcloud_legend"></span> EMCLOUD</li>
 </ul>
 
 <!-- <script>
@@ -2374,15 +2476,6 @@ d3.csv("Indexes.csv", function(error, data) {
 </div>
 
 
-    <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-
 
     <div class='statistics'>
       <!-- <table class="table table-dark table-bordered border-white">
@@ -2408,12 +2501,12 @@ d3.csv("Indexes.csv", function(error, data) {
       <h5 class="filter-news__category" id="performance"></h5>
       <h5 class="flex">
         <span>TOTAL MARKET CAP <br> <span style="font-size: 250%;" id = "keyValTMarketCap"></span></span>
-        <span class="stats_divider"></span>
+        <a class = 'stats_divider'>&#9671</a>
         <span>AVERAGE MARKET CAP <br> <span style="font-size: 250%;" id = "keyValAMarketCap" ></span></span>
-        <span class="stats_divider"></span>
+        <a class = 'stats_divider'>&#9671</a>
         <span>AVERAGE REVENUE MULTIPLE <br> <span style="font-size: 250%;" id = "keyValRevMult"></span></span>
-        <span class="stats_divider"></span>
-        <span>AVERAGE REVENUE GROWTH RATE <br> <span style="font-size: 250%;" id = "keyValRevGrowth"></span></span>
+        <a class = 'stats_divider'>&#9671</a>
+        <span>AVERAGE REVENUE GROWTH <br> <span style="font-size: 250%;" id = "keyValRevGrowth"></span></span>
       </h5>
     </div>
 
