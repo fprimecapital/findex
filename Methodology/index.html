@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <!-- CSS only -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="lodash.js"></script>
+
+    <script src="sorttable.js"></script>
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+
+    <script src="jquery.js"></script> 
+    <script> 
+    $(function(){
+      $("#DivContent").load("data.html"); 
+    });
+    </script> 
+
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS"
+crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap4.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pretty-checkbox@3.0/dist/pretty-checkbox.min.css">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<!-- <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.25/css/jquery.dataTables.css"> -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<!-- <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.js"></script> -->
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.17/d3.min.js"></script>
+<link href="scss/bootstrap.min.css" rel="stylesheet">
+<!-- <script type="text/javascript" language="javascript" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script> -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-75271964-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-75271964-1');
+    </script>
+
+
+    <link rel="dns-prefetch" href="//fprimecapital.com">
+<link rel="dns-prefetch" href="//s.w.org">
+		<script type="text/javascript">
+			window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/13.0.1\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/13.0.1\/svg\/","svgExt":".svg","source":{"concatemoji":"https:\/\/fprimecapital.com\/wp-includes\/js\/wp-emoji-release.min.js?ver=5.6"}};
+			!function(e,a,t){var r,n,o,i,p=a.createElement("canvas"),s=p.getContext&&p.getContext("2d");function c(e,t){var a=String.fromCharCode;s.clearRect(0,0,p.width,p.height),s.fillText(a.apply(this,e),0,0);var r=p.toDataURL();return s.clearRect(0,0,p.width,p.height),s.fillText(a.apply(this,t),0,0),r===p.toDataURL()}function l(e){if(!s||!s.fillText)return!1;switch(s.textBaseline="top",s.font="600 32px Arial",e){case"flag":return!c([127987,65039,8205,9895,65039],[127987,65039,8203,9895,65039])&&(!c([55356,56826,55356,56819],[55356,56826,8203,55356,56819])&&!c([55356,57332,56128,56423,56128,56418,56128,56421,56128,56430,56128,56423,56128,56447],[55356,57332,8203,56128,56423,8203,56128,56418,8203,56128,56421,8203,56128,56430,8203,56128,56423,8203,56128,56447]));case"emoji":return!c([55357,56424,8205,55356,57212],[55357,56424,8203,55356,57212])}return!1}function d(e){var t=a.createElement("script");t.src=e,t.defer=t.type="text/javascript",a.getElementsByTagName("head")[0].appendChild(t)}for(i=Array("flag","emoji"),t.supports={everything:!0,everythingExceptFlag:!0},o=0;o<i.length;o++)t.supports[i[o]]=l(i[o]),t.supports.everything=t.supports.everything&&t.supports[i[o]],"flag"!==i[o]&&(t.supports.everythingExceptFlag=t.supports.everythingExceptFlag&&t.supports[i[o]]);t.supports.everythingExceptFlag=t.supports.everythingExceptFlag&&!t.supports.flag,t.DOMReady=!1,t.readyCallback=function(){t.DOMReady=!0},t.supports.everything||(n=function(){t.readyCallback()},a.addEventListener?(a.addEventListener("DOMContentLoaded",n,!1),e.addEventListener("load",n,!1)):(e.attachEvent("onload",n),a.attachEvent("onreadystatechange",function(){"complete"===a.readyState&&t.readyCallback()})),(r=t.source||{}).concatemoji?d(r.concatemoji):r.wpemoji&&r.twemoji&&(d(r.twemoji),d(r.wpemoji)))}(window,document,window._wpemojiSettings);
+		</script>
+		<style type="text/css">
+            .section_headers_div{
+                margin-left:10%;
+                margin-top:3%;
+                margin-bottom: 2%;
+                display: flex;
+                width: 80%;
+                }
+                .section_headers{
+                font-family: "Nantes",serif;
+                font-size:35px;
+                }
+            .slides_frame{
+                margin:auto;
+            }
+            .slides{
+                    max-width: 1200px;
+                    max-height: 580px;
+                    }
+            @media screen and (max-width: 1350px) {
+                .slides{
+                    max-width: 800px;
+                    max-height: 500px;
+                    }
+                    .slides_frame{
+                    margin-top:5% ;
+                    }
+            }
+            @media screen and (max-width: 1050px) {
+                .slides{
+                    max-width: 640px;
+                    max-height: 400px;
+                    }
+            }
+            @media screen and (max-width: 778px) {
+                .slides{
+                    max-width: 480px;
+                    max-height: 300px;
+                    }
+            }
+            @media screen and (max-width: 599px) {
+                .slides{
+                    max-width: 400px;
+                    max-height: 250px;
+                    }
+            }
+            @media screen and (max-width: 450px) {
+                .slides{
+                    max-width: 320px;
+                    max-height: 200px;
+                    }
+            }
+</style>
+	<link rel="stylesheet" id="wp-block-library-css" href="wp-includes/css/dist/block-library/style.min_ver%3D5.6.css" type="text/css" media="all">
+<link rel="stylesheet" id="fprime_styles-css" href="wp-content/themes/f-prime-wp-theme/static/build/css/screen_ver%3D1.2.2.css" type="text/css" media="all">
+<!-- <script type="text/javascript" src="wp-content/themes/f-prime-wp-theme/static/jquery/jquery-3.4.1.min_ver%3D3.4.1.js" id="jquery-core-js"></script> -->
+<script type="text/javascript" src="wp-includes/js/jquery/jquery-migrate.min_ver%3D3.3.2.js" id="jquery-migrate-js"></script>
+<link rel="https://api.w.org/" href="https://fprimecapital.com/wp-json/"><link rel="alternate" type="application/json" href="https://fprimecapital.com/wp-json/wp/v2/pages/5449"><link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://fprimecapital.com/xmlrpc.php?rsd">
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="https://fprimecapital.com/wp-includes/wlwmanifest.xml"> 
+<meta name="generator" content="WordPress 5.6">
+<link rel="canonical" href="https://fprimecapital.com/people">
+<link rel="shortlink" href="https://fprimecapital.com/?p=5449">
+<link rel="alternate" type="application/json+oembed" href="https://fprimecapital.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Ffprimecapital.com%2Fpeople">
+<link rel="alternate" type="text/xml+oembed" href="https://fprimecapital.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Ffprimecapital.com%2Fpeople&#038;format=xml">
+
+    <title>Index | F-Prime Capital</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="We create and invest in healthcare and technology companies that improve lives all over the world.">
+
+    <link rel="shortcut icon" href="wp-content/themes/f-prime-wp-theme/static/img/favicons/favicon.ico">
+    <link rel="icon" type="image/png" href="wp-content/themes/f-prime-wp-theme/static/img/favicons/favicon-16x16.png" sizes="16x16">
+    <link rel="icon" type="image/png" href="wp-content/themes/f-prime-wp-theme/static/img/favicons/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="wp-content/themes/f-prime-wp-theme/static/img/favicons/favicon-96x96.png" sizes="96x96">
+    <link rel="icon" type="image/png" href="wp-content/themes/f-prime-wp-theme/static/img/favicons/favicon-192x192.png" sizes="192x192">
+    <link rel="apple-touch-icon" href="wp-content/themes/f-prime-wp-theme/static/img/favicons/apple-touch-icon-180x180.png" sizes="180x180">
+    <link rel="mask-icon" href="wp-content/themes/f-prime-wp-theme/static/img/favicons/mask-icon-16x16.svg" color="#000000">
+
+    <meta property="og:locale" content="en_US">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="wp-content/themes/f-prime-wp-theme/static/img/f-prime-slash.jpg">
+    <meta property="og:description" content="We create and invest in healthcare and technology companies that improve lives all over the world.">
+    <meta property="og:site_name" content="F-Prime Capital">
+
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:description" content="We create and invest in healthcare and technology companies that improve lives all over the world.">
+    <meta name="twitter:image" content="https://fprimecapital.com/wp-content/themes/f-prime-wp-theme/static/img/f-prime-slash.jpg">
+    <meta name="twitter:title" content="F-Prime Capital">
+  </head>
+  <body class="theme--light">
+    <div class="section_headers_div">
+        <h2 class="section_headers" id = "thesis">Methodology</h2>
+    </div>
+    <div class = "slides_frame"><iframe src="https://docs.google.com/presentation/d/e/2PACX-1vR2f3y4C3W17gAbKOma4iLyprm8KUCjK74ThhWjn7LkpqVBDl3-5M5uMlwDHfG3pyhA3JpH2EHAq0t0/embed?start=false&loop=false&delayms=60000" frameborder="0" width="960" height="670" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true" class = 'slides'></iframe></div>
+
+    <div class="page__prime-container">
+        <div class="prime-bg" style="background-image: url(&#x27;wp-content/themes/f-prime-wp-theme/static/img/prime-line-bg.svg&#x27;);"></div>
+    </div>  
+</body>
